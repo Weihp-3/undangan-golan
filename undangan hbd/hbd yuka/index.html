@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Invitation - Yuka 17th</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="split-container">
+
+    <div class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-subtitle">BIRTHDAY INVITATION</p>
+        <h1 class="hero-title">YUKA 17Th</h1>
+        <p class="hero-date">Sabtu, 14 Maret 2026</p>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="content-inner">
+
+        <div id="cover-page">
+          <div class="cover-card">
+            <img src="yuka.jpg" alt="Profile" class="avatar">
+            <p class="cover-event-title">The Birthday of</p>
+            <h2 class="cover-name">YUKA</h2>
+            
+            <div class="guest-box">
+              <span class="guest-label">Kepada Yth:</span>
+              <p class="guest-name">Nama Tamu</p>
+            </div>
+
+            <button id="btn-open" class="btn-main">
+              ✉️ Buka Undangan
+            </button>
+          </div>
+        </div>
+
+        <div id="main-content" style="display: none;">
+          
+          <div class="ribbon">MEMORIES</div>
+          <div class="card-box">
+            <div class="photo-grid">
+              <div class="photo-card">
+                <img src="yuka.jpg" class="photo-item" alt="Memori 1">
+                <div class="photo-overlay"><span>Moment 01</span></div>
+              </div>
+              <div class="photo-card">
+                <img src="yuka.jpg" class="photo-item" alt="Memori 2">
+                <div class="photo-overlay"><span>Moment 02</span></div>
+              </div>
+              <div class="photo-card">
+                <img src="yuka.jpg" class="photo-item" alt="Memori 3">
+                <div class="photo-overlay"><span>Moment 03</span></div>
+              </div>
+              <div class="photo-card">
+                <img src="yuka.jpg" class="photo-item" alt="Memori 4">
+                <div class="photo-overlay"><span>Moment 04</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ribbon">AGENDA ACARA</div>
+          <div class="card-box card-flex-column">
+            <div class="agenda-item">
+              <div class="agenda-time">15.00 - 16.00 WIB</div>
+              <div class="agenda-detail">
+                <strong>Registrasi & Sambutan</strong>
+                <p>Kedatangan tamu undangan dan penyambutan awal.</p>
+              </div>
+            </div>
+            <div class="agenda-item">
+              <div class="agenda-time">16.00 - 17.30 WIB</div>
+              <div class="agenda-detail">
+                <strong>Acara Inti & Tiup Lilin</strong>
+                <p>Pemotongan kue ulang tahun dan doa bersama.</p>
+              </div>
+            </div>
+            <div class="agenda-item">
+              <div class="agenda-time">17.30 - Selesai</div>
+              <div class="agenda-detail">
+                <strong>Ramah Tamah & Foto Bersama</strong>
+                <p>Makan malam bersama dan sesi foto kenang-kenangan.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-box card-flex-column">
+            <div class="info-card">
+              <strong>Waktu & Tanggal</strong><br>
+              <span class="event-date">Sabtu, 14 Maret 2026</span>
+
+              <div class="countdown-container">
+                <div class="countdown-item">
+                  <span id="cd-days">00</span>
+                  <small>HARI</small>
+                </div>
+                <div class="countdown-item">
+                  <span id="cd-hours">00</span>
+                  <small>JAM</small>
+                </div>
+                <div class="countdown-item">
+                  <span id="cd-minutes">00</span>
+                  <small>MENIT</small>
+                </div>
+                <div class="countdown-item">
+                  <span id="cd-seconds">00</span>
+                  <small>DETIK</small>
+                </div>
+              </div>
+
+              <a href="#" id="btn-remind" class="btn-reminder" target="_blank">
+                🔔 Ingatkan Saya
+              </a>
+            </div>
+
+            <div class="info-card">
+              <strong>Lokasi Acara</strong><br>
+              Gedung Serbaguna Utama<br>
+              <span style="font-size: 11px; color: #666;">Jl. Bunga Melati No. 123, Jakarta</span>
+              <br><br>
+              <a href="https://maps.google.com" target="_blank" class="btn-map">
+                📍 Buka Google Maps
+              </a>
+            </div>
+
+            <div class="map-preview-box">
+              <iframe 
+                class="map-iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6663073384214!2d106.8249641!3d-6.1753924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e2e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1680000000000!5m2!1sid!2sid" 
+                allowfullscreen="" 
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="ribbon">BIRTHDAY GIFT</div>
+          <div class="card-box text-center">
+            <p class="gift-text">
+              Doa dan kehadiran Anda adalah hadiah terbaik bagi kami. Namun jika ingin memberikan kado/hadiah, dapat disalurkan melalui:
+            </p>
+            
+            <div class="gift-card">
+              <div class="bank-title">BCA</div>
+              <div class="bank-number">1234 5678 90</div>
+              <div class="bank-owner">a.n. Yuka</div>
+              <button class="btn-copy" onclick="copyNorek('1234567890')">📋 Salin Rekening</button>
+            </div>
+
+            <div class="gift-card">
+              <div class="bank-title">E-Wallet (Dana / GoPay)</div>
+              <div class="bank-number">0812 3456 7890</div>
+              <div class="bank-owner">a.n. Yuka</div>
+              <button class="btn-copy" onclick="copyNorek('081234567890')">📋 Salin Nomor</button>
+            </div>
+          </div>
+
+          <div class="ribbon">RSVP & UCAPAN</div>
+          <div class="card-box">
+            <form id="rsvp-form">
+              <div class="form-group">
+                <input type="text" id="input-nama" class="form-control" placeholder="Nama Anda" required>
+              </div>
+
+              <div class="form-group">
+                <select id="input-kehadiran" class="form-control" required>
+                  <option value="" disabled selected>Konfirmasi Kehadiran</option>
+                  <option value="Hadir">Hadir</option>
+                  <option value="Tidak Hadir">Tidak Hadir</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <textarea id="input-ucapan" class="form-control" placeholder="Tulis Ucapan & Doa..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-main btn-full">KIRIM UCAPAN</button>
+            </form>
+          </div>
+
+          <div class="card-box text-center">
+            <h2 class="thank-you-title">THANK YOU</h2>
+            <p class="thank-you-text">
+              Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
