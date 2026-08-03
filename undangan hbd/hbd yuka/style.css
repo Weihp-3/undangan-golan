@@ -1,0 +1,565 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Container Split Screen */
+.split-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Sisi Kiri - Hero Banner */
+/* Sisi Kiri - Hero Banner */
+.hero-section {
+  flex: 1.2;
+  position: relative;
+
+  /* GANTIKAN URL DI BAWAH DENGAN GAMBAR ANDA */
+  background: url('yuka.jpg') center/cover no-repeat; 
+
+  display: flex;
+  align-items: flex-end;
+  padding: 50px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #aed0ee;
+  margin-bottom: 5px;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.hero-date {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* Sisi Kanan - Panel Undangan */
+.content-section {
+  flex: 0.8;
+  background: #1e2530;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 20px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.content-inner {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Cover Card */
+#cover-page {
+  background: url('https://via.placeholder.com/600x800') center/cover no-repeat;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.cover-card {
+  background: rgba(30, 37, 48, 0.8);
+  backdrop-filter: blur(5px);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 520px;
+  justify-content: center;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.cover-event-title {
+  font-size: 14px;
+  font-style: italic;
+  color: #ddd;
+}
+
+.cover-name {
+  font-size: 28px;
+  color: #6bb5ff;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.guest-box {
+  margin-bottom: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.guest-label {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.guest-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 3px;
+}
+
+/* Main Content & Cards */
+#main-content {
+  display: none; /* Menyembunyikan seluruh isi di halaman awal */
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.card-box {
+  background: #2a3444;
+  border-radius: 16px;
+  padding: 18px;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.card-flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ribbon {
+  background: #13293d;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 8px;
+  letter-spacing: 1.5px;
+  font-size: 13px;
+}
+
+/* Memories / Photo Grid Styling */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.photo-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.photo-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(19, 41, 61, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-overlay span {
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.photo-card:hover .photo-item {
+  transform: scale(1.1);
+}
+
+.photo-card:hover .photo-overlay {
+  opacity: 1;
+}
+
+/* Info Cards & Countdown Styling */
+.info-card {
+  background: #ffffff;
+  color: #333;
+  text-align: center;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 13px;
+}
+
+.event-date {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.countdown-item {
+  flex: 1;
+  background: #192736;
+  color: #5da9e9;
+  border-radius: 8px;
+  padding: 10px 2px;
+  text-align: center;
+}
+
+.countdown-item span {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.countdown-item small {
+  display: block;
+  font-size: 9px;
+  color: #8a99ad;
+  margin-top: 2px;
+}
+
+/* Map Button & Embed */
+.btn-map {
+  display: inline-block;
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.map-preview-box {
+  width: 100%;
+  height: 160px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Chat & Form */
+.chat-bubble {
+  background: #3b495d;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.chat-bubble:last-child {
+  margin-bottom: 0;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #3d4d63;
+  background: #1e2530;
+  color: white;
+  font-size: 13px;
+}
+
+textarea.form-control {
+  resize: none;
+  height: 70px;
+}
+
+/* Buttons & Utils */
+.btn-main {
+  background: #c5a059;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-main:hover {
+  background: #b08c46;
+}
+
+.btn-full {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.text-center { text-align: center; }
+
+.thank-you-title {
+  color: #6bb5ff;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.thank-you-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+/* Responsive Tablet/Mobile */
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+  .hero-section {
+    min-height: 200px;
+    padding: 20px;
+  }
+  .hero-title {
+    font-size: 28px;
+  }
+  .content-section {
+    max-height: none;
+    padding: 20px 10px;
+  }
+}
+
+/* Styling Agenda / Daftar Acara */
+.agenda-item {
+  background: #ffffff;
+  color: #333;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: transform 0.2s ease;
+}
+
+.agenda-item:hover {
+  transform: translateY(-2px);
+}
+
+.agenda-time {
+  font-size: 11px;
+  font-weight: bold;
+  color: #3b82f6;
+  background: #eff6ff;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.agenda-detail strong {
+  font-size: 13px;
+  color: #1e2530;
+}
+
+.agenda-detail p {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Styling Birthday Gift */
+.gift-text {
+  font-size: 12px;
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.gift-card {
+  background: #ffffff;
+  color: #333;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.gift-card:last-child {
+  margin-bottom: 0;
+}
+
+.bank-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #1e2530;
+}
+
+.bank-number {
+  font-size: 16px;
+  font-weight: bold;
+  color: #3b82f6;
+  margin: 5px 0 2px 0;
+  letter-spacing: 1px;
+}
+
+.bank-owner {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.btn-copy {
+  background: #eff6ff;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-copy:hover {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+/* Styling Option / Dropdown Kehadiran */
+select.form-control {
+  cursor: pointer;
+}
+
+select.form-control option {
+  background: #1e2530;
+  color: white;
+}
+
+/* Pembatas garis halus */
+.comment-divider {
+  border: 0;
+  height: 1px;
+  background: #3d4d63;
+  margin: 20px 0;
+}
+
+/* Daftar Komentar Container */
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Item Komentar */
+.comment-item {
+  background: #1f2a38;
+  border-radius: 10px;
+  padding: 12px;
+  border-left: 3px solid #5da9e9;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.comment-header strong {
+  font-size: 13px;
+  color: #6bb5ff;
+}
+
+.comment-text {
+  font-size: 12px;
+  color: #e0e0e0;
+  line-height: 1.4;
+}
+
+/* Status Kehadiran Tag */
+.badge-status {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.badge-hadir {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
+.badge-absen {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
