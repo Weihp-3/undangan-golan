@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation - Brian & Adiba</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        .font-title { font-family: 'Cinzel', serif; }
+        .font-script { font-family: 'Great Vibes', cursive; }
+        
+        .no-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Animasi memutar halus untuk teks melingkar */
+        .rotating-text {
+            animation: spin 25s linear infinite;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Custom Scrollbar halus untuk box komentar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+
+        /* --- BUKET TULIP UNTUK HALAMAN HITAM (BUNGA WARNA PUTIH) --- */
+        .corner-tulip-light-tl, .corner-tulip-light-br {
+            position: absolute;
+            width: 85px;
+            height: 85px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.65;
+        }
+        .corner-tulip-light-tl {
+            top: 5px;
+            left: 5px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23ffffff' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 15 C20 35 35 45 45 65 M15 15 C5 25 15 45 25 40 C35 35 25 20 15 15 Z'/%3E%3Cpath d='M15 15 C10 25 20 30 15 15 Z'/%3E%3Cpath d='M30 20 C32 40 40 50 45 65 M30 20 C22 28 30 46 38 42 C46 38 38 25 30 20 Z'/%3E%3Cpath d='M30 20 C26 28 34 32 30 20 Z'/%3E%3Cpath d='M20 35 C25 48 35 55 45 65 M20 35 C15 45 25 58 32 52 C39 46 30 38 20 35 Z'/%3E%3Cpath d='M45 65 C48 78 52 90 55 95'/%3E%3Cpath d='M38 55 C45 65 52 72 65 78' fill='none'/%3E%3Cpath d='M22 48 C32 58 40 62 48 72' fill='none'/%3E%3C/svg%3E");
+        }
+        .corner-tulip-light-br {
+            bottom: 5px;
+            right: 5px;
+            transform: rotate(180deg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23ffffff' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 15 C20 35 35 45 45 65 M15 15 C5 25 15 45 25 40 C35 35 25 20 15 15 Z'/%3E%3Cpath d='M15 15 C10 25 20 30 15 15 Z'/%3E%3Cpath d='M30 20 C32 40 40 50 45 65 M30 20 C22 28 30 46 38 42 C46 38 38 25 30 20 Z'/%3E%3Cpath d='M30 20 C26 28 34 32 30 20 Z'/%3E%3Cpath d='M20 35 C25 48 35 55 45 65 M20 35 C15 45 25 58 32 52 C39 46 30 38 20 35 Z'/%3E%3Cpath d='M45 65 C48 78 52 90 55 95'/%3E%3Cpath d='M38 55 C45 65 52 72 65 78' fill='none'/%3E%3Cpath d='M22 48 C32 58 40 62 48 72' fill='none'/%3E%3C/svg%3E");
+        }
+
+        /* --- BUKET TULIP UNTUK HALAMAN PUTIH (BUNGA WARNA HITAM) --- */
+        .corner-tulip-dark-tl, .corner-tulip-dark-br {
+            position: absolute;
+            width: 85px;
+            height: 85px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.35;
+        }
+        .corner-tulip-dark-tl {
+            top: 5px;
+            left: 5px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%231c1917' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 15 C20 35 35 45 45 65 M15 15 C5 25 15 45 25 40 C35 35 25 20 15 15 Z'/%3E%3Cpath d='M15 15 C10 25 20 30 15 15 Z'/%3E%3Cpath d='M30 20 C32 40 40 50 45 65 M30 20 C22 28 30 46 38 42 C46 38 38 25 30 20 Z'/%3E%3Cpath d='M30 20 C26 28 34 32 30 20 Z'/%3E%3Cpath d='M20 35 C25 48 35 55 45 65 M20 35 C15 45 25 58 32 52 C39 46 30 38 20 35 Z'/%3E%3Cpath d='M45 65 C48 78 52 90 55 95'/%3E%3Cpath d='M38 55 C45 65 52 72 65 78' fill='none'/%3E%3Cpath d='M22 48 C32 58 40 62 48 72' fill='none'/%3E%3C/svg%3E");
+        }
+        .corner-tulip-dark-br {
+            bottom: 5px;
+            right: 5px;
+            transform: rotate(180deg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%231c1917' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 15 C20 35 35 45 45 65 M15 15 C5 25 15 45 25 40 C35 35 25 20 15 15 Z'/%3E%3Cpath d='M15 15 C10 25 20 30 15 15 Z'/%3E%3Cpath d='M30 20 C32 40 40 50 45 65 M30 20 C22 28 30 46 38 42 C46 38 38 25 30 20 Z'/%3E%3Cpath d='M30 20 C26 28 34 32 30 20 Z'/%3E%3Cpath d='M20 35 C25 48 35 55 45 65 M20 35 C15 45 25 58 32 52 C39 46 30 38 20 35 Z'/%3E%3Cpath d='M45 65 C48 78 52 90 55 95'/%3E%3Cpath d='M38 55 C45 65 52 72 65 78' fill='none'/%3E%3Cpath d='M22 48 C32 58 40 62 48 72' fill='none'/%3E%3C/svg%3E");
+        }
+
+        /* Hiasan Garis Tulip Horizontal Atas & Bawah (Halaman Hitam / Tulip Putih) */
+        .tulip-line-white-top, .tulip-line-white-bottom {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 35px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.6;
+        }
+        .tulip-line-white-top {
+            top: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' fill='none' stroke='%23ffffff' stroke-width='0.8'%3E%3Cpath d='M10 20 Q 30 15, 40 18 M90 20 Q 70 15, 60 18'/%3E%3Cpath d='M45 15 C43 8 47 3 50 3 C53 3 57 8 55 15 Z'/%3E%3Cpath d='M38 18 C37 12 40 8 43 8 C46 8 49 12 48 18 Z'/%3E%3Cpath d='M62 18 C63 12 60 8 57 8 C54 8 51 12 52 18 Z'/%3E%3C/svg%3E");
+        }
+        .tulip-line-white-bottom {
+            bottom: 25px;
+            transform: translateX(-50%) rotate(180deg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' fill='none' stroke='%23ffffff' stroke-width='0.8'%3E%3Cpath d='M10 20 Q 30 15, 40 18 M90 20 Q 70 15, 60 18'/%3E%3Cpath d='M45 15 C43 8 47 3 50 3 C53 3 57 8 55 15 Z'/%3E%3Cpath d='M38 18 C37 12 40 8 43 8 C46 8 49 12 48 18 Z'/%3E%3Cpath d='M62 18 C63 12 60 8 57 8 C54 8 51 12 52 18 Z'/%3E%3C/svg%3E");
+        }
+
+        /* Hiasan Garis Tulip Horizontal Atas & Bawah (Halaman Putih / Tulip Hitam) */
+        .tulip-line-dark-top, .tulip-line-dark-bottom {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 35px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.35;
+        }
+        .tulip-line-dark-top {
+            top: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' fill='none' stroke='%231c1917' stroke-width='0.8'%3E%3Cpath d='M10 20 Q 30 15, 40 18 M90 20 Q 70 15, 60 18'/%3E%3Cpath d='M45 15 C43 8 47 3 50 3 C53 3 57 8 55 15 Z'/%3E%3Cpath d='M38 18 C37 12 40 8 43 8 C46 8 49 12 48 18 Z'/%3E%3Cpath d='M62 18 C63 12 60 8 57 8 C54 8 51 12 52 18 Z'/%3E%3C/svg%3E");
+        }
+        .tulip-line-dark-bottom {
+            bottom: 25px;
+            transform: translateX(-50%) rotate(180deg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' fill='none' stroke='%231c1917' stroke-width='0.8'%3E%3Cpath d='M10 20 Q 30 15, 40 18 M90 20 Q 70 15, 60 18'/%3E%3Cpath d='M45 15 C43 8 47 3 50 3 C53 3 57 8 55 15 Z'/%3E%3Cpath d='M38 18 C37 12 40 8 43 8 C46 8 49 12 48 18 Z'/%3E%3Cpath d='M62 18 C63 12 60 8 57 8 C54 8 51 12 52 18 Z'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-stone-900 flex justify-center min-h-screen no-scroll" id="body-container">
+
+    <div class="w-full max-w-sm bg-black text-white relative shadow-2xl flex flex-col">
+
+        <section id="cover-section" class="relative h-[100vh] flex flex-col justify-between items-center text-center pb-12 shrink-0 bg-cover bg-center transition-all duration-1000 z-30" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600');">
+            
+            <div class="corner-tulip-light-tl"></div>
+            <div class="corner-tulip-light-br"></div>
+            <div class="tulip-line-white-top"></div>
+            <div class="tulip-line-white-bottom"></div>
+
+            <div class="pt-16">
+                <h1 class="font-title text-xl tracking-widest text-white/90">Wedding Invitation</h1>
+            </div>
+
+            <div class="w-full flex flex-col items-center">
+                <h2 class="font-script text-5xl text-white mb-8 drop-shadow-md">Brian & Adiba</h2>
+                
+                <div class="relative w-64 h-64 flex items-center justify-center cursor-pointer group">
+                    <div class="absolute inset-0 rotating-text pointer-events-none z-10">
+                        <svg class="w-full h-full" viewBox="0 0 220 220">
+                            <defs>
+                                <path id="textCircle" d="M 110,110 m -92,0 a 92,92 0 1,1 184,0 a 92,92 0 1,1 -184,0" />
+                            </defs>
+                            <text class="font-title text-[9.5px] fill-amber-200/80 tracking-[4px] font-medium uppercase">
+                                <textPath href="#textCircle" startOffset="0%">
+                                    • Brian & Adiba Wedding Invitation • The Marriage Ceremony
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+
+                    <div class="relative w-44 h-44 rounded-full border-4 border-amber-100/90 p-1 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.6)] bg-black/40 backdrop-blur-xs transform group-hover:scale-105 group-hover:border-amber-400 transition-all duration-500 z-0">
+                        <img src="NIKAH.jpeg" class="w-full h-full object-cover rounded-full" alt="Pengantin">
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-[85%] bg-white/90 text-black rounded-2xl py-4 px-6 shadow-xl backdrop-blur-xs transform transition-all duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-2xl z-20 mb-4 border border-transparent hover:border-stone-300">
+                <p class="text-[9px] uppercase tracking-wider text-stone-500 font-semibold mb-1">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                <h3 class="font-bold text-base text-stone-800">Nama Tamu Undangan</h3>
+                
+                <button onclick="bukaUndangan()" class="inline-block bg-stone-900 text-white text-[11px] font-medium px-6 py-2 rounded-full mt-2.5 cursor-pointer hover:bg-amber-500 hover:text-black transition-colors duration-300">
+                    Buka Undangan
+                </button>
+            </div>
+        </section>
+
+
+        <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
+            
+            <section class="bg-white text-stone-800 px-6 py-24 text-center relative min-h-[100vh] flex flex-col justify-center items-center gap-8">
+                <div class="corner-tulip-dark-tl"></div>
+                <div class="corner-tulip-dark-br"></div>
+                <div class="tulip-line-dark-top"></div>
+                <div class="tulip-line-dark-bottom"></div>
+                
+                <div class="w-full max-w-[320px] bg-stone-50 border border-stone-100 rounded-2xl p-6 shadow-xs transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:bg-stone-50/50 hover:border-stone-300">
+                    <div class="space-y-6 text-xs leading-relaxed text-stone-600">
+                        <p class="italic font-serif">
+                           Dengan Penuh Rasa Syukur,
+Atas segala berkah, kebahagiaan, dan kasih sayang yang berlimpah dari Tuhan Yang Maha Esa, kami menghaturkan rasa syukur yang mendalam atas terwujudnya lembaran baru dalam hidup kami. Perjalanan cinta ini akhirnya bermuara pada sebuah janji suci yang tulus, dan kami sangat bersyukur atas setiap dukungan serta kebaikan yang telah menemani langkah kami hingga hari ini.
+                        </p>
+                        <p class="text-[10px] font-bold tracking-widest text-stone-400 uppercase">— QS. AR-RUM: 21</p>
+                        <p class="pt-2">
+Kehadiran dan doa restu dari Anda adalah hadiah paling berharga yang dinantikan di awal perjalanan panjang ini. Oleh karena itu, dengan kerendahan hati kami mengundang Bapak/Ibu/Saudara/i untuk ikut serta merayakan dan menjadi saksi di hari bahagia pernikahan kami.                        </p>
+                    </div>
+                </div>
+
+                <div class="w-full max-w-[320px] bg-stone-900 text-white rounded-2xl p-5 shadow-md border border-transparent transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:border-amber-400/40">
+                    
+                    <div class="flex justify-center gap-4 text-white mx-auto mb-5">
+                        <div class="flex-1"><span id="cd-days" class="block text-xl font-bold">00</span><span class="text-[9px] text-stone-400 uppercase">Hari</span></div>
+                        <div class="flex-1"><span id="cd-hours" class="block text-xl font-bold">00</span><span class="text-[9px] text-stone-400 uppercase">Jam</span></div>
+                        <div class="flex-1"><span id="cd-minutes" class="block text-xl font-bold">00</span><span class="text-[9px] text-stone-400 uppercase">Menit</span></div>
+                        <div class="flex-1"><span id="cd-seconds" class="block text-xl font-bold">00</span><span class="text-[9px] text-stone-400 uppercase">Detik</span></div>
+                    </div>
+
+                    <a id="btn-add-calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Brian+%26+Adiba&dates=20260709T020000Z/20260709T080000Z&details=Acara+Pernikahan+Brian+and+Adiba&location=The+Grand+Ballroom+-+Hotel+Mulia+Senayan" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-amber-500/20 hover:bg-amber-400 hover:text-black border border-amber-400/50 text-amber-200 text-[10px] font-semibold px-4 py-2 rounded-full transition-all duration-300 w-full">
+                         Simpan ke Google Calender
+                    </a>
+                </div>
+            </section>
+
+            <section class="bg-black text-white px-6 py-24 text-center relative border-t border-stone-900 min-h-[100vh] flex flex-col justify-center items-center gap-8">
+                <div class="corner-tulip-light-tl"></div>
+                <div class="corner-tulip-light-br"></div>
+                <div class="tulip-line-white-top"></div>
+                <div class="tulip-line-white-bottom"></div>
+
+                <div class="w-full max-w-[320px] bg-stone-950 border border-stone-900 rounded-3xl p-6 shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:border-amber-400/40 group">
+                    <div class="w-28 h-28 mx-auto rounded-full border border-dashed border-amber-200/40 p-1.5 mb-6 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-700">
+                        <div class="w-full h-full rounded-full border-2 border-white/80 p-0.5 overflow-hidden shadow-lg">
+                            <img src="NIKAH.jpeg" class="w-full h-full object-cover rounded-full" alt="Mempelai">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1 mb-4">
+                        <h3 class="font-title text-lg font-bold tracking-wide text-amber-100">Brian Adhiaksa</h3>
+                        <p class="text-[10px] text-stone-400">Putra dari Bpk. Bambang & Ibu Wahyuni</p>
+                        <div class="font-script text-2xl text-stone-600 my-1">&</div>
+                        <h3 class="font-title text-lg font-bold tracking-wide text-amber-100">Adiba Olive</h3>
+                        <p class="text-[10px] text-stone-400">Putri dari Bpk. Mansyur & Ibu Rahmatia</p>
+                    </div>
+                </div>
+
+                <div class="w-full max-w-[320px] bg-stone-950 border border-stone-900 rounded-3xl p-6 shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:border-amber-400/40">
+                    <div class="border-y border-stone-800 py-3 mb-6 flex items-center justify-center gap-4 max-w-[280px] mx-auto">
+                        <span class="text-xs tracking-widest font-light text-stone-400 uppercase">JUM'AT</span>
+                        <span class="text-3xl font-bold tracking-tighter border-x border-stone-800 px-4 text-amber-200">09</span>
+                        <span class="text-xs tracking-widest font-light text-stone-400 uppercase">JULI 2026</span>
+                    </div>
+
+                    <div class="flex justify-center gap-6 text-left max-w-[280px] mx-auto text-[11px] mb-6">
+                        <div>
+                            <h4 class="font-bold text-amber-200 uppercase tracking-wider">AKAD NIKAH:</h4>
+                            <p class="text-stone-400">Pukul 09.00 WIB</p>
+                        </div>
+                        <div class="w-[1px] bg-stone-800"></div>
+                        <div>
+                            <h4 class="font-bold text-amber-200 uppercase tracking-wider">RESEPSI NIKAH:</h4>
+                            <p class="text-stone-400">Pukul 11.00 WIB</p>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] font-semibold text-stone-200">The Grand Ballroom - Hotel Mulia Senayan</p>
+                    <div class="mt-6">
+                        <a href="https://maps.google.com/?q=-6.216390,106.797825" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-stone-800 hover:bg-amber-400 hover:text-black text-stone-300 text-[10px] font-semibold px-5 py-2.5 rounded-full transition-all duration-300 shadow-inner hover:shadow-md">
+                             Lihat Peta Lokasi
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white text-stone-800 px-4 py-24 text-center relative min-h-[100vh] flex flex-col justify-center">
+                <div class="corner-tulip-dark-tl"></div>
+                <div class="corner-tulip-dark-br"></div>
+                <div class="tulip-line-dark-top"></div>
+                <div class="tulip-line-dark-bottom"></div>
+
+                <div class="bg-stone-50 border border-stone-100 rounded-3xl p-6 shadow-xs transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl hover:border-stone-300 max-w-[320px] mx-auto">
+                    <h3 class="font-title text-stone-900 text-sm tracking-widest mb-6 uppercase">Our Gallery</h3>
+                    
+                    <div class="flex flex-col items-center gap-6 w-full">
+                        <div class="flex justify-center gap-6 w-full">
+                            <div class="w-20 h-20 rounded-full border-2 border-stone-800/80 p-0.5 shadow-sm overflow-hidden transform hover:scale-110 hover:border-amber-500 transition-all duration-300 cursor-pointer">
+                                <img src="NIKAH.jpeg" class="w-full h-full object-cover rounded-full" alt="Galeri 1">
+                            </div>
+                            <div class="w-20 h-20 rounded-full border-2 border-stone-800/80 p-0.5 shadow-sm overflow-hidden transform hover:scale-110 hover:border-amber-500 transition-all duration-300 cursor-pointer">
+                                <img src="NIKAH.jpeg" class="w-full h-full object-cover rounded-full" alt="Galeri 2">
+                            </div>
+                        </div>
+
+                        <div class="relative w-56 h-56 rounded-full border border-dashed border-stone-400/60 p-2 flex items-center justify-center bg-white group cursor-pointer">
+                            <div class="w-full h-full rounded-full border-4 border-stone-900 p-1 shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-500">
+                                <img src="NIKAH.jpeg" class="w-full h-full object-cover rounded-full" alt="Galeri Utama">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center gap-6 w-full">
+                            <div class="w-20 h-20 rounded-full border-2 border-stone-800/80 p-0.5 shadow-sm overflow-hidden transform hover:scale-110 hover:border-amber-500 transition-all duration-300 cursor-pointer">
+                                <img src="NIKAH.jpeg" class="w-full h-full object-cover rounded-full" alt="Galeri 3">
+                            </div>
+                            <div class="w-20 h-20 rounded-full border-2 border-stone-800/80 p-0.5 shadow-sm overflow-hidden transform hover:scale-110 hover:border-amber-500 transition-all duration-300 cursor-pointer">
+                                <img src="NIKAH.jpeg" class="w-full h-full object-cover rounded-full" alt="Galeri 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-black text-white px-4 py-24 text-center relative border-t border-stone-900 min-h-[100vh] flex flex-col justify-center items-center">
+                <div class="corner-tulip-light-tl"></div>
+                <div class="corner-tulip-light-br"></div>
+                <div class="tulip-line-white-top"></div>
+                <div class="tulip-line-white-bottom"></div>
+
+                <div class="w-full max-w-[320px] bg-stone-950 border border-stone-900 rounded-3xl p-6 shadow-md transition-all duration-500 transform hover:-translate-y-1 hover:shadow-2xl hover:border-amber-400/40">
+                    <h3 class="font-title text-amber-100 text-sm tracking-widest mb-1 uppercase">Wedding Gift</h3>
+                    <p class="text-[10px] text-stone-400 mb-6">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan hadiah, Anda dapat menggunakan opsi di bawah ini:</p>
+
+                    <div class="space-y-4">
+                        <div class="bg-stone-900 border border-stone-800 rounded-2xl p-4 text-left relative overflow-hidden group hover:border-amber-400/50 transition-all">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-xs text-amber-200 tracking-wider">BANK BCA</span>
+                                <span class="text-[9px] bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/20 font-semibold">Cashless</span>
+                            </div>
+                            <p class="text-[12px] font-mono tracking-wider text-stone-200 font-semibold" id="rek-bca">1234 5678 90</p>
+                            <p class="text-[9px] text-stone-400 uppercase mt-0.5">a.n Brian Adhiaksa</p>
+                            
+                            <button onclick="copyToClipboard('rek-bca', this)" class="mt-3 w-full bg-stone-800 hover:bg-amber-400 hover:text-black text-stone-300 text-[10px] font-medium py-1.5 rounded-lg transition-colors duration-300 flex items-center justify-center gap-1 cursor-pointer">
+                                 Salin Nomor Rekening
+                            </button>
+                        </div>
+
+                        <div class="bg-stone-900 border border-stone-800 rounded-2xl p-4 text-left relative overflow-hidden group hover:border-amber-400/50 transition-all">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-xs text-amber-200 tracking-wider">BANK MANDIRI</span>
+                                <span class="text-[9px] bg-amber-500/10 text-amber-300 px-2 py-0.5 rounded-full border border-amber-500/20 font-semibold">Cashless</span>
+                            </div>
+                            <p class="text-[12px] font-mono tracking-wider text-stone-200 font-semibold" id="rek-mandiri">0987 6543 2100</p>
+                            <p class="text-[9px] text-stone-400 uppercase mt-0.5">a.n Adiba Olive</p>
+                            
+                            <button onclick="copyToClipboard('rek-mandiri', this)" class="mt-3 w-full bg-stone-800 hover:bg-amber-400 hover:text-black text-stone-300 text-[10px] font-medium py-1.5 rounded-lg transition-colors duration-300 flex items-center justify-center gap-1 cursor-pointer">
+                                 Salin Nomor Rekening
+                            </button>
+                        </div>
+
+                        <div class="bg-stone-900 border border-stone-800 rounded-2xl p-4 text-left group hover:border-amber-400/50 transition-all">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold text-xs text-amber-200 tracking-wider">KIRIM KADO</span>
+                                <span class="text-[9px] bg-stone-800 text-stone-400 px-2 py-0.5 rounded-full font-semibold">Alamat</span>
+                            </div>
+                            <p class="text-[10px] text-stone-300 leading-relaxed" id="alamat-kado">
+                                Jl. Senopati No. 45, Kebayoran Baru, Jakarta Selatan (UP: Brian & Adiba)
+                            </p>
+                            
+                            <button onclick="copyToClipboard('alamat-kado', this)" class="mt-3 w-full bg-stone-800 hover:bg-amber-400 hover:text-black text-stone-300 text-[10px] font-medium py-1.5 rounded-lg transition-colors duration-300 flex items-center justify-center gap-1 cursor-pointer">
+                                Salin Alamat Pengiriman
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white text-stone-800 px-4 py-20 text-center relative min-h-[100vh] flex flex-col justify-center items-center border-t border-stone-200">
+                <div class="corner-tulip-dark-tl"></div>
+                <div class="corner-tulip-dark-br"></div>
+                <div class="tulip-line-dark-top"></div>
+                <div class="tulip-line-dark-bottom"></div>
+
+                <div class="w-full max-w-[320px] bg-stone-50 border border-stone-200 rounded-3xl p-5 shadow-sm transition-all duration-500 transform hover:-translate-y-1 hover:shadow-lg">
+                    <h3 class="font-title text-stone-900 text-sm tracking-widest mb-1 uppercase">Wishes & RSVP</h3>
+                    <p class="text-[10px] text-stone-500 mb-4">Berikan ucapan manis & konfirmasi kehadiran Anda</p>
+
+                    <form id="form-komentar" onsubmit="tambahKomentar(event)" class="text-left space-y-2.5 mb-5">
+                        <div>
+                            <input type="text" id="input-nama" placeholder="Nama Anda" required class="w-full bg-white border border-stone-300 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+                        <div>
+                            <select id="input-kehadiran" required class="w-full bg-white border border-stone-300 rounded-lg px-3 py-1.5 text-xs text-stone-600 focus:outline-none focus:border-amber-500 transition-colors">
+                                <option value="" disabled selected>Konfirmasi Kehadiran</option>
+                                <option value="Hadir">Hadir</option>
+                                <option value="Tidak Hadir">Tidak Hadir</option>
+                                <option value="Ragu-ragu">Ragu-ragu</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea id="input-ucapan" rows="2" placeholder="Tuliskan ucapan & doa..." required class="w-full bg-white border border-stone-300 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-amber-500 transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-stone-900 hover:bg-amber-500 hover:text-black text-white text-[11px] font-semibold py-2 rounded-lg transition-colors duration-300 cursor-pointer shadow-xs">
+                            Kirim Ucapan
+                        </button>
+                    </form>
+
+                    <div id="daftar-ucapan" class="text-left space-y-3 max-h-48 overflow-y-auto pr-1 custom-scrollbar border-t border-stone-200 pt-3">
+                        <div class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-2xs">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-[11px] text-stone-800">Budi Santoso</span>
+                                <span class="text-[8px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-semibold">Hadir</span>
+                            </div>
+                            <p class="text-[10px] text-stone-600 leading-relaxed">Selamat untuk Brian & Adiba! Semoga menjadi keluarga yang sakinah, mawaddah, wa rahmah. Aamiin.</p>
+                        </div>
+
+                        <div class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-2xs">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-[11px] text-stone-800">Siti Rahma</span>
+                                <span class="text-[8px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-semibold">Ragu-ragu</span>
+                            </div>
+                            <p class="text-[10px] text-stone-600 leading-relaxed">Happy wedding! Semoga lancar sampai hari H yaa buat kalian berdua.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-black text-stone-400 px-6 py-24 text-center text-[11px] leading-relaxed border-t border-stone-900 pb-24 relative min-h-[100vh] flex flex-col justify-center items-center">
+                <div class="corner-tulip-light-tl"></div>
+                <div class="corner-tulip-light-br"></div>
+                <div class="tulip-line-white-top"></div>
+                <div class="tulip-line-white-bottom"></div>
+
+                <div class="w-full max-w-[320px] bg-stone-950 border border-stone-900 rounded-3xl p-8 shadow-md transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:border-amber-400/40">
+                    <div class="space-y-4 max-w-[240px] mx-auto">
+                        <p>Ungkapan terima kasih yang tulus atas kehadiran serta doa restu Bapak/Ibu/Saudara/i sekalian.</p>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-title text-sm font-bold text-white tracking-widest">Brian & Adiba</h4>
+                        <p class="text-[9px] text-stone-600 tracking-wider mt-1 uppercase">Kami yang Berbahagia</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <script>
+        function bukaUndangan() {
+            document.getElementById('body-container').classList.remove('no-scroll');
+            const mainContent = document.getElementById('main-content');
+            mainContent.classList.remove('hidden');
+            
+            setTimeout(() => {
+                mainContent.classList.add('opacity-100');
+            }, 50);
+
+            setTimeout(() => {
+                mainContent.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        /* --- SCRIPT KOLEKSI & INPUT UCAPAN/KOMENTAR --- */
+        function tambahKomentar(e) {
+            e.preventDefault();
+            const nama = document.getElementById('input-nama').value;
+            const kehadiran = document.getElementById('input-kehadiran').value;
+            const ucapan = document.getElementById('input-ucapan').value;
+
+            let badgeColor = 'bg-emerald-100 text-emerald-800';
+            if (kehadiran === 'Tidak Hadir') badgeColor = 'bg-rose-100 text-rose-800';
+            if (kehadiran === 'Ragu-ragu') badgeColor = 'bg-amber-100 text-amber-800';
+
+            const container = document.getElementById('daftar-ucapan');
+            const card = document.createElement('div');
+            card.className = 'bg-white p-2.5 rounded-xl border border-stone-200 shadow-2xs transform transition-all duration-300';
+            card.innerHTML = `
+                <div class="flex justify-between items-center mb-1">
+                    <span class="font-bold text-[11px] text-stone-800">${nama}</span>
+                    <span class="text-[8px] ${badgeColor} px-2 py-0.5 rounded-full font-semibold">${kehadiran}</span>
+                </div>
+                <p class="text-[10px] text-stone-600 leading-relaxed">${ucapan}</p>
+            `;
+
+            container.insertBefore(card, container.firstChild);
+            document.getElementById('form-komentar').reset();
+        }
+
+        /* --- SCRIPT COUNTDOWN DUMMY --- */
+        let secondsVal = 0;
+
+        setInterval(function() {
+            const randomDays = Math.floor(Math.random() * 99) + 1;
+            const randomHours = Math.floor(Math.random() * 24);
+            const randomMinutes = Math.floor(Math.random() * 60);
+            
+            secondsVal = (secondsVal + 1) % 60;
+
+            document.getElementById("cd-days").innerText = randomDays < 10 ? "0" + randomDays : randomDays;
+            document.getElementById("cd-hours").innerText = randomHours < 10 ? "0" + randomHours : randomHours;
+            document.getElementById("cd-minutes").innerText = randomMinutes < 10 ? "0" + randomMinutes : randomMinutes;
+            document.getElementById("cd-seconds").innerText = secondsVal < 10 ? "0" + secondsVal : secondsVal;
+        }, 1000);
+
+        /* --- SCRIPT SALIN / COPY REKENING --- */
+        function copyToClipboard(elementId, btnElement) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btnElement.innerText;
+                btnElement.innerText = "✓ Berhasil Disalin!";
+                btnElement.classList.remove('bg-stone-800', 'text-stone-300');
+                btnElement.classList.add('bg-amber-500', 'text-black');
+
+                setTimeout(() => {
+                    btnElement.innerText = originalText;
+                    btnElement.classList.remove('bg-amber-500', 'text-black');
+                    btnElement.classList.add('bg-stone-800', 'text-stone-300');
+                }, 2000);
+            }).catch(err => {
+                console.error('Gagal menyalin: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

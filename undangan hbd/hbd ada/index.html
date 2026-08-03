@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ada - 20th Birthday</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="welcomeOverlay" class="welcome-overlay">
+    <div class="welcome-card">
+        <div class="welcome-badge">Special Invitation</div>
+        <div class="welcome-profile">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa6JUu_hPvZTzQ-PjGVHQEQM8Y5c8OIqa9unVfej8VjQ&s" alt="Ada Wong">
+        </div>
+        <h1 class="welcome-title">Happy Birthday</h1>
+        <h2 class="welcome-name">Ada Wong</h2>
+        <p class="welcome-sub">You are cordially invited to celebrate the 20th Birthday Party!</p>
+        
+        <button id="btnOpenInvitation" class="btn-open">
+            <i class="fa-solid fa-envelope-open"></i> Buka Undangan
+        </button>
+    </div>
+</div>
+    <div class="mobile-container">
+
+        <section class="hero-section">
+            <div class="wavy-top"></div>
+            <h1 class="title-birthday">Happy Birthday</h1>
+            <div class="age-pill">20th Ada</div>
+            
+            <div class="profile-wrapper">
+                <div class="profile-frame">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa6JUu_hPvZTzQ-PjGVHQEQM8Y5c8OIqa9unVfej8VjQ&s" alt="Ada Wong Photo">
+                </div>
+            </div>
+
+            <div class="time-badge">
+                <span>3AM</span>
+                <i class="fa-solid fa-heart"></i>
+                <span>4AM</span>
+            </div>
+
+            <a href="#save-date" class="btn-pill">Save The Date</a>
+        </section>
+
+        <section class="gallery-section">
+            <h2 class="section-title">Foto-Foto<br><span>Random</span></h2>
+            <div class="section-badge">Random Memories</div>
+
+            <div class="photo-grid">
+                <div class="photo-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa6JUu_hPvZTzQ-PjGVHQEQM8Y5c8OIqa9unVfej8VjQ&s" alt="Foto 1"></div>
+                <div class="photo-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa6JUu_hPvZTzQ-PjGVHQEQM8Y5c8OIqa9unVfej8VjQ&s" alt="Foto 2"></div>
+                <div class="photo-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa6JUu_hPvZTzQ-PjGVHQEQM8Y5c8OIqa9unVfej8VjQ&s" alt="Foto 3"></div>
+                <div class="photo-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa6JUu_hPvZTzQ-PjGVHQEQM8Y5c8OIqa9unVfej8VjQ&s" alt="Foto 4"></div>
+            </div>
+        </section>
+
+        <section class="agenda-section">
+            <h2 class="section-title">Daftar Acara</h2>
+
+            <div class="agenda-grid">
+                <div class="agenda-card">
+                    <i class="fa-solid fa-hat-wizard agenda-icon"></i>
+                    <div class="agenda-info">
+                        <span class="agenda-time">19.00 - 19.30 WIB</span>
+                        <span class="agenda-btn">Pembukaan & Sambutan</span>
+                    </div>
+                </div>
+
+                <div class="agenda-card">
+                    <i class="fa-solid fa-cake-candles agenda-icon"></i>
+                    <div class="agenda-info">
+                        <span class="agenda-time">19.30 - 20.15 WIB</span>
+                        <span class="agenda-btn">Tiup Lilin & Potong Kue</span>
+                    </div>
+                </div>
+
+                <div class="agenda-card">
+                    <i class="fa-solid fa-gift agenda-icon"></i>
+                    <div class="agenda-info">
+                        <span class="agenda-time">20.15 - 21.00 WIB</span>
+                        <span class="agenda-btn">Makan Bersama & Buka Kado</span>
+                    </div>
+                </div>
+
+                <div class="agenda-card">
+                    <i class="fa-solid fa-champagne-glasses agenda-icon"></i>
+                    <div class="agenda-info">
+                        <span class="agenda-time">21.00 WIB - Selesai</span>
+                        <span class="agenda-btn">Foto Bersama & Penutupan</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="save-date" class="countdown-section">
+            <div class="title-badge">Save The Date</div>
+
+            <div class="timer-grid">
+                <div class="time-box"><span id="days">00</span><p>Hari</p></div>
+                <div class="time-box"><span id="hours">00</span><p>Jam</p></div>
+                <div class="time-box"><span id="minutes">00</span><p>Menit</p></div>
+                <div class="time-box"><span id="seconds">00</span><p>Detik</p></div>
+            </div>
+
+            <button class="btn-action" id="btnCalendar">
+                <i class="fa-regular fa-calendar-check"></i> Simpan di Calendar
+            </button>
+
+            <p class="wish-text">
+                "Semoga menambah usiamu ini membawa banyak berkah, kesehatan, kebahagiaan, dan kemudahan dalam setiap langkahmu."
+            </p>
+        </section>
+
+        <section class="location-section">
+            <h3 class="event-date">Minggu, 17 Mei 2030</h3>
+            <p class="event-time">Pukul: 19.00 WIB – Selesai</p>
+
+            <p class="event-address">
+                Jl. Kemasan, Purbayan, Kotagede, Kota Yogyakarta, Daerah Istimewa Yogyakarta
+            </p>
+
+            <div class="map-box">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15811.23340578602!2d110.3905!3d-7.8225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57116c4fa1d5%3A0xc3911b6be9c2536b!2sKotagede%2C%20Yogyakarta!5e0!3m2!1sid!2sid!4v1700000000000" 
+                    width="100%" height="120" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+            <a href="https://maps.google.com" target="_blank" class="btn-action">
+                <i class="fa-solid fa-map-location-dot"></i> Simpan Lokasi
+            </a>
+        </section>
+
+        <section class="comments-section">
+            <h2 class="section-title text-light">Komentar</h2>
+
+            <div class="comments-list" id="commentsContainer">
+                <div class="comment-card">
+                    <h4>Happy Birthday Ada</h4>
+                    <p>WAFU wish you all the best and may all your dreams come true! Tetap jadi pribadi yang ceria yaa!</p>
+                </div>
+                <div class="comment-card">
+                    <h4>Happy Birthday Ada!</h4>
+                    <p>Selamat ulang tahun yang ke-20! Semoga panjang umur, sehat selalu, dan makin sukses kedepannya!</p>
+                </div>
+                <div class="comment-card">
+                    <h4>Happy Birthday Ada Sweet 20</h4>
+                    <p>Semoga di umur baru ini makin bahagia, sukses kuliahnya dan makin banyak kenangan manis bersama!</p>
+                </div>
+            </div>
+
+            <p class="form-title">Tulis Ucapan Kamu</p>
+
+            <form id="commentForm" class="comment-form">
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" id="nameInput" required>
+                </div>
+                <div class="form-group">
+                    <label>Ucapan</label>
+                    <textarea id="messageInput" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn-send">SEND</button>
+            </form>
+        </section>
+
+        <section class="thankyou-section">
+            <h2 class="title-script-large">Thank you</h2>
+
+            <div class="thankyou-card">
+                <p>
+                    Thank you so much for all the wishes, ucapan dan doanya! Ini benar-benar membuatku terharu. Gua bersyukur banget punya teman-teman yang paling selalu support dan peduli.
+                </p>
+                <p>
+                    Seriously, I can't thank you enough for all the ways you show love. Semoga semua hal-hal baik selalu menyertai kalian juga. Cheers to more amazing memories together! ❤️
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

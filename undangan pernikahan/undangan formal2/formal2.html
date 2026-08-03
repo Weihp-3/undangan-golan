@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaldi & Kiali Wedding Invitation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & VARIABEL UTAMA --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-cream: #FFFDF9;
+            --maroon-light: #9B2226;
+            --maroon-dark: #5F0F11;
+            --gold: #D4AF37;
+            --text-dark: #333333;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        body {
+            background-color: #e0e0e0;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* --- SCREEN HALAMAN AWAL (AMPLOP REALISTIS) --- */
+        .envelope-overlay {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            background-color: var(--maroon-dark);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            overflow: hidden;
+            transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.7s ease;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .envelope-overlay.opened {
+            transform: translate(-50%, -100vh);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 210px solid transparent;
+            border-right: 210px solid transparent;
+            border-top: 180px solid var(--maroon-light);
+            z-index: 3;
+            transform-origin: top;
+            transition: transform 0.6s ease-in-out;
+            filter: drop-shadow(0 4px 5px rgba(0,0,0,0.3));
+        }
+
+        .envelope-overlay.opened .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope-pocket {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 65%;
+            background: linear-gradient(135deg, #721215, var(--maroon-dark));
+            clip-path: polygon(0% 40%, 50% 0%, 100% 40%, 100% 100%, 0% 100%);
+            z-index: 2;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .envelope-content {
+            position: relative;
+            z-index: 4;
+            width: 100%;
+            padding: 40px 20px 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .wax-seal-large {
+            width: 85px;
+            height: 85px;
+            background: radial-gradient(circle, #f9d976 0%, var(--gold) 100%);
+            border-radius: 50%;
+            border: 3px double #fff;
+            color: var(--maroon-dark);
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 79px;
+            margin: 0 auto 25px auto;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            animation: pulse 2s infinite alternate;
+        }
+
+        .wax-seal-large:hover {
+            transform: scale(1.08);
+        }
+
+        .open-btn {
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 10px 24px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 30px;
+            margin-top: 20px;
+            transition: var(--transition-smooth);
+            font-weight: bold;
+            background: rgba(95, 15, 17, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .open-btn:hover {
+            background-color: var(--gold);
+            color: var(--maroon-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* --- WRAPPER UTAMA KONTEN --- */
+        .main-container {
+            width: 100%;
+            max-width: 420px;
+            background-color: var(--bg-cream);
+            box-shadow: 0 0 25px rgba(0,0,0,0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .floral-corner {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 5;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23D4AF37' d='M0,0 C30,5 60,30 65,65 C55,50 35,40 0,40 C15,35 25,20 0,0 Z M30,10 C45,25 50,45 45,60 C40,45 25,35 10,30 C20,25 25,15 30,10 Z M65,65 C70,75 80,85 95,90 C80,85 75,70 65,65 Z'/%3E%3Ccircle fill='%23D4AF37' cx='15' cy='15' r='3'/%3E%3Ccircle fill='%23D4AF37' cx='45' cy='25' r='2'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .floral-top-left { top: 15px; left: 15px; }
+        .floral-top-right { top: 15px; right: 15px; transform: scaleX(-1); }
+        .floral-bottom-left { bottom: 15px; left: 15px; transform: scaleY(-1); }
+        .floral-bottom-right { bottom: 15px; right: 15px; transform: scale(-1); }
+
+        .section {
+            padding: 60px 25px;
+            text-align: center;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .gold-divider {
+            width: 80%;
+            height: 4px;
+            margin: 10px auto;
+            border-top: 2px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            position: relative;
+        }
+        .gold-divider::before {
+            content: "";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-cream);
+            padding: 0 15px;
+            width: 40px;
+            height: 24px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23D4AF37' d='M12,2C11.5,4 9,7 6,7C8.5,8.5 10,11 12,13C14,11 15.5,8.5 18,7C15,7 12.5,4 12,2Z M12,13C10,15 9,18 9,21C11,21 11.5,19 12,17C12.5,19 13,21 15,21C15,18 14,15 12,13Z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .cover-section { padding-top: 80px; }
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            color: var(--maroon-light);
+            font-size: 3.5rem;
+            font-weight: normal;
+        }
+        .sub-title {
+            font-family: 'Cinzel', serif;
+            color: var(--maroon-dark);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-top: -10px;
+            margin-bottom: 30px;
+        }
+        
+        .envelope-container {
+            width: 100%;
+            height: 190px;
+            background: linear-gradient(135deg, var(--maroon-light), var(--maroon-dark));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .wax-seal {
+            width: 65px;
+            height: 65px;
+            background: #fff;
+            border-radius: 50%;
+            border: 3px double var(--gold);
+            color: var(--maroon-dark);
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            line-height: 59px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .dear-tamu {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        .quote-text {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .countdown-card {
+            background: linear-gradient(to right, var(--maroon-light), var(--maroon-dark));
+            padding: 25px 15px;
+            border-radius: 35px 5px 35px 5px;
+            color: #fff;
+            border: 2px solid var(--gold);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .timer-grid {
+            display: flex;
+            justify-content: space-around;
+        }
+        .time-item h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+        }
+        .time-item p {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        /* --- FITUR TOMBOL PENGATUR WAKTU / KALENDER --- */
+        .add-time-container {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .add-btn-group {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            width: 100%;
+        }
+        .add-time-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid var(--gold);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .add-time-btn:hover {
+            background: var(--gold);
+            color: var(--maroon-dark);
+            font-weight: bold;
+        }
+        .cal-btn {
+            background-color: var(--gold);
+            color: var(--maroon-dark);
+            border: none;
+            padding: 8px 18px;
+            font-size: 0.75rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: var(--transition-smooth);
+        }
+        .cal-btn:hover {
+            background-color: #fff;
+            color: var(--maroon-dark);
+            transform: translateY(-2px);
+        }
+
+        .house-card {
+            background: linear-gradient(to bottom, var(--maroon-light), var(--maroon-dark));
+            color: white;
+            clip-path: polygon(50% 0%, 100% 12%, 100% 100%, 0% 100%, 0% 12%);
+            padding: 60px 20px 40px 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .couple-photos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .photo-wrapper {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+        }
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ampersand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        .couple-info h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-top: 15px;
+        }
+        .couple-info p {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .gallery-title {
+            font-family: 'Cinzel', serif;
+            color: var(--maroon-dark);
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            align-items: flex-end;
+            height: 220px;
+        }
+        .gal-img {
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: var(--transition-smooth);
+        }
+        .gal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-container .gal-img:nth-child(1),
+        .gallery-container .gal-img:nth-child(5) { height: 135px; border-radius: 12px; }
+        .gallery-container .gal-img:nth-child(2),
+        .gallery-container .gal-img:nth-child(4) { height: 175px; border-radius: 8px; }
+        .gallery-container .gal-img:nth-child(3) { height: 215px; border-radius: 4px; }
+
+        /* --- STYLE DAFTAR ACARA (RUNDOWN TIMELINE) --- */
+        .rundown-title {
+            font-family: 'Cinzel', serif;
+            color: var(--maroon-dark);
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--gold);
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            margin-left: -1px;
+        }
+        .timeline-item {
+            padding: 10px 10px 20px 45px;
+            position: relative;
+            background-color: inherit;
+            text-align: left;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            right: auto;
+            left: 14px;
+            background-color: var(--gold);
+            border: 2px solid var(--maroon-dark);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-content {
+            padding: 15px;
+            background: #fff;
+            position: relative;
+            border-radius: 8px;
+            border-left: 3px solid var(--maroon-light);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .timeline-time {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--maroon-light);
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        .timeline-event-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--maroon-dark);
+            margin-bottom: 4px;
+        }
+        .timeline-desc {
+            font-size: 0.75rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .gift-title {
+            font-family: 'Cinzel', serif;
+            color: var(--maroon-dark);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        .gift-desc {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .gift-card {
+            background: linear-gradient(135deg, var(--maroon-light), var(--maroon-dark));
+            color: white;
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .bank-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: bold;
+        }
+        .account-number {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+        .account-name {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        .copy-btn {
+            background-color: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-weight: 600;
+        }
+        .copy-btn:hover {
+            background-color: var(--gold);
+            color: var(--maroon-dark);
+        }
+
+        /* --- STYLE SEKSI KOMENTAR & UCAPAN --- */
+        .comment-title {
+            font-family: 'Cinzel', serif;
+            color: var(--maroon-dark);
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        .comment-desc {
+            font-size: 0.8rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .comment-form input,
+        .comment-form select,
+        .comment-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            background-color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+        .comment-form input:focus,
+        .comment-form select:focus,
+        .comment-form textarea:focus {
+            border-color: var(--maroon-light);
+            box-shadow: 0 0 5px rgba(155, 34, 38, 0.3);
+        }
+        .submit-comment-btn {
+            background: linear-gradient(135deg, var(--maroon-light), var(--maroon-dark));
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .submit-comment-btn:hover {
+            background: var(--gold);
+            color: var(--maroon-dark);
+        }
+        .comments-list {
+            max-height: 320px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 5px;
+        }
+        .comments-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .comments-list::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
+        }
+        .comment-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 12px 15px;
+            text-align: left;
+            border-left: 3px solid var(--gold);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .comment-author {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--maroon-dark);
+        }
+        .status-badge {
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        .badge-hadir {
+            background-color: #e6f4ea;
+            color: #137333;
+        }
+        .badge-ragu {
+            background-color: #fef7e0;
+            color: #b06000;
+        }
+        .badge-tidak {
+            background-color: #fce8e6;
+            color: #c5221f;
+        }
+        .comment-text {
+            font-size: 0.78rem;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .arch-card {
+            background: linear-gradient(to bottom, var(--maroon-light), var(--maroon-dark));
+            color: white;
+            border: 3px solid #000; 
+            outline: 2px solid var(--gold);
+            border-radius: 150px 150px 0 0;
+            padding: 60px 20px 40px 20px;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+        }
+        .arch-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #000; 
+        }
+        .arch-subtitle {
+            font-size: 0.8rem;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+        .date-circle-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            font-family: 'Cinzel', serif;
+        }
+        .side-date {
+            font-size: 0.75rem;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 5px;
+        }
+        .center-time {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #fff;
+            background: rgba(0,0,0,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        .event-details h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+        .event-details p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        .location-text {
+            margin-top: 20px;
+            font-size: 0.75rem !important;
+            border-top: 1px dashed rgba(255,255,255,0.3);
+            padding-top: 10px;
+        }
+
+        .thank-you-section {
+            background: linear-gradient(to bottom, var(--maroon-light), #3a0709);
+            color: white;
+            padding: 60px 25px;
+        }
+        .thank-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+        .closing-paragraph {
+            font-size: 0.8rem;
+            line-height: 1.7;
+            opacity: 0.85;
+            margin-bottom: 35px;
+        }
+        .signature strong {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--gold);
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+            100% { transform: scale(1.04); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="envelope-overlay" id="envelopeScreen">
+        <div class="envelope-flap"></div>
+        <div class="envelope-pocket"></div>
+        <div class="envelope-content">
+            <h1 class="main-title" style="color: white; font-size: 3.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">zaldi & kiali</h1>
+            <p class="sub-title" style="color: var(--gold); margin-bottom: 30px; text-shadow: 0 1px 3px rgba(0,0,0,0.4);">wedding invitation</p>
+            
+            <div class="wax-seal-large" onclick="openInvitation()">K&Z</div>
+            
+            <p class="dear-tamu" style="color: #eee; font-size: 0.85rem; letter-spacing: 1px;">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <h2 style="font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.2rem; margin: 5px 0 15px 0;"></h2>
+            
+            <button class="open-btn" onclick="openInvitation()">Buka Undangan</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="floral-corner floral-top-left"></div>
+        <div class="floral-corner floral-top-right"></div>
+        <div class="floral-corner floral-bottom-left"></div>
+        <div class="floral-corner floral-bottom-right"></div>
+
+        <section class="section cover-section">
+            <h1 class="main-title">zaldi & kiali</h1>
+            <p class="sub-title">wedding invitation</p>
+            
+            <div class="envelope-container">
+                <div class="wax-seal">K&Z</div>
+            </div>
+        </section>
+
+        <div class="gold-divider"></div>
+
+        <section class="section invitation-text">
+            <p class="dear-tamu">The Wedding of The Day<br><strong></strong></p>
+            <p class="quote-text">
+                Assalamu’alaikum Warahmatullahi Wabarakatuh<br>
+                "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang..." (QS. Ar-Rum: 21).<br><br>
+                Atas izin dan kuasa Allah SWT, kami bermaksud mengikat janji suci dalam ikatan pernikahan. Menjadi suatu kehormatan bagi kami jika Bapak/Ibu/Saudara/i berkenan hadir di hari bahagia kami.
+            </p>
+            
+            <div class="countdown-card">
+                <div class="timer-grid">
+                    <div class="time-item"><h3 id="cd-days">0</h3><p>Hari</p></div>
+                    <div class="time-item"><h3 id="cd-hours">0</h3><p>Jam</p></div>
+                    <div class="time-item"><h3 id="cd-minutes">0</h3><p>Menit</p></div>
+                    <div class="time-item"><h3 id="cd-seconds">0</h3><p>Detik</p></div>
+                </div>
+
+                <div class="add-time-container">
+                    <div class="add-btn-group">
+                        <button class="add-time-btn" onclick="addTime('day')">+1 Hari</button>
+                        <button class="add-time-btn" onclick="addTime('hour')">+1 Jam</button>
+                        <button class="add-time-btn" onclick="addTime('minute')">+1 Menit</button>
+                    </div>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Zaldi+%26+Kiali&dates=20300127T130000Z/20300127T160000Z&details=Acara+Pernikahan+Zaldi+dan+Kiali&location=The+Grand+Ballroom+-+Hotel+Mulia+Senayan" target="_blank" class="cal-btn">📅 Simpan ke Google Calendar</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="gold-divider"></div>
+
+        <section class="section couple-section">
+            <div class="house-card">
+                <div class="couple-photos">
+                    <div class="photo-wrapper">
+                        <img src="bride.jpg" alt="Kiali">
+                    </div>
+                    <span class="ampersand">&amp;</span>
+                    <div class="photo-wrapper">
+                        <img src="groom.jpg" alt="Zaldi">
+                    </div>
+                </div>
+                
+                <div class="couple-info">
+                    <div class="bride">
+                        <h3>Kiali</h3>
+                        <p>Anak ke-1 dari<br>Bapak Bata </p>
+                    </div>
+                    <br>
+                    <div class="groom">
+                        <h3>Zaldi</h3>
+                        <p>Anak ke-2 dari<br>Bapak Aki</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gold-divider"></div>
+
+        <section class="section gallery-section">
+            <h2 class="gallery-title">memories</h2>
+            <div class="gallery-container">
+                <div class="gal-img"><img src="pengantin.jpg" alt="Memory 1"></div>
+                <div class="gal-img"><img src="pengantin.jpg" alt="Memory 2"></div>
+                <div class="gal-img"><img src="pengantin.jpg" alt="Memory 3"></div>
+                <div class="gal-img"><img src="pengantin.jpg" alt="Memory 4"></div>
+                <div class="gal-img"><img src="pengantin.jpg" alt="Memory 5"></div>
+            </div>
+        </section>
+
+        <div class="gold-divider"></div>
+
+        <section class="section rundown-section">
+            <h2 class="rundown-title">rundown acara</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">08.00 - 09.00 WIB</span>
+                        <div class="timeline-event-title">Akad Nikah</div>
+                        <div class="timeline-desc">Prosesi ijab kabul dan penyerahan mas kawin secara khidmat.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">09.00 - 10.00 WIB</span>
+                        <div class="timeline-event-title">Sungkeman & Foto Keluarga</div>
+                        <div class="timeline-desc">Prosesi adat permohonan doa restu kepada kedua orang tua dan foto bersama.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">11.00 - 13.00 WIB</span>
+                        <div class="timeline-event-title">Resepsi Sesi 1</div>
+                        <div class="timeline-desc">Pembukaan resepsi pernikahan, ramah tamah, dan hiburan musik.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">13.00 WIB - Selesai</span>
+                        <div class="timeline-event-title">Resepsi Sesi 2 & Ramah Tamah</div>
+                        <div class="timeline-desc">Pemberian ucapan selamat dari para tamu undangan dan santap siang bersama.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gold-divider"></div>
+
+        <section class="section gift-section">
+            <h2 class="gift-title">wedding gift</h2>
+            <p class="gift-desc">Bagi Anda yang ingin memberikan tanda kasih atau kado untuk kedua mempelai, dapat mengirimkannya melalui tautan digital di bawah ini:</p>
+            
+            <div class="gift-card">
+                <div class="bank-name">BANK BCA</div>
+                <div class="account-number" id="rek1">177013</div>
+                <div class="account-name"> Kiali</div>
+                <button class="copy-btn" onclick="copyText('rek1', this)">SALIN NO. REK</button>
+            </div>
+
+            <div class="gift-card">
+                <div class="bank-name">BANK MANDIRI</div>
+                <div class="account-number" id="rek2">194508</div>
+                <div class="account-name"> Zaldi</div>
+                <button class="copy-btn" onclick="copyText('rek2', this)">SALIN NO. REK</button>
+            </div>
+        </section>
+
+        <div class="gold-divider"></div>
+
+        <section class="section comment-section">
+            <h2 class="comment-title">ucapan & doa</h2>
+            <p class="comment-desc">Berikan ucapan manis serta konfirmasi kehadiran Anda untuk kedua mempelai.</p>
+
+            <form class="comment-form" onsubmit="addComment(event)">
+                <input type="text" id="guestName" placeholder="Nama Anda" required>
+                <select id="guestStatus" required>
+                    <option value="" disabled selected>Konfirmasi Kehadiran</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Ragu-ragu">Ragu-ragu</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                </select>
+                <textarea id="guestMessage" rows="3" placeholder="Tuliskan ucapan & doa restu..." required></textarea>
+                <button type="submit" class="submit-comment-btn">KIRIM UCAPAN</button>
+            </form>
+
+            <div class="comments-list" id="commentsList">
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <span class="comment-author">Budi &amp; Keluarga</span>
+                        <span class="status-badge badge-hadir">Hadir</span>
+                    </div>
+                    <p class="comment-text">Selamat untuk Zaldi &amp; Kiali! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Aamiin.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="gold-divider"></div>
+
+        <section class="section event-section">
+            <div class="arch-card">
+                <h2 class="arch-title">zaldi &amp; kiali</h2>
+                <p class="arch-subtitle">wedding invitation</p>
+                
+                <div class="date-circle-row">
+                    <span class="side-date">27<br>January</span>
+                    <span class="center-time">8pm</span>
+                    <span class="side-date"><br>2030</span>
+                </div>
+
+                <div class="event-details">
+                    <div class="event-item">
+                        <h4>Akad Nikah</h4>
+                        <p>08.00 - 10.00 WIB</p>
+                    </div>
+                    <div class="event-item">
+                        <h4>Resepsi Pernikahan</h4>
+                        <p>11.00 WIB - Selesai</p>
+                    </div>
+                    <p class="location-text">The Grand Ballroom - Hotel Mulia Senayan<br>
+                    Jl. Asia Afrika, Gelora, Kecamatan Tanah Abang, Kota Jakarta Pusat, DKI Jakarta 177013</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section thank-you-section">
+            <h1 class="thank-title">THANK YOU</h1>
+            <p class="closing-paragraph">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.<br>
+                Atas kehadiran dan doa restunya, kami ucapkan terima kasih.<br><br>
+                Wassalamu’alaikum Warahmatullahi Wabarakatuh<br>
+                Kami yang berbahagia, Keluarga Besar Ridwan &amp; Vlania 
+            </p>
+            <p class="signature">Kami yang berbahagia,<br><strong>Kiali &amp; Zaldi</strong></p>
+        </section>
+
+    </div>
+
+    <script>
+        function openInvitation() {
+            const envelope = document.getElementById('envelopeScreen');
+            envelope.classList.add('opened');
+            document.body.style.overflowY = "auto";
+        }
+
+        function copyText(elementId, btn) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "TERSALIN!";
+                btn.style.backgroundColor = "var(--gold)";
+                btn.style.color = "var(--maroon-dark)";
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = "transparent";
+                    btn.style.color = "var(--gold)";
+                }, 2000);
+            }).catch(err => {
+                console.error('Gagal menyalin text: ', err);
+            });
+        }
+
+        // --- FITUR HITUNG MUNDUR ---
+        let targetDate = new Date('January 27, 2030 20:00:00').getTime();
+
+        function addTime(type) {
+            if (type === 'day') {
+                targetDate += 24 * 60 * 60 * 1000;
+            } else if (type === 'hour') {
+                targetDate += 60 * 60 * 1000;
+            } else if (type === 'minute') {
+                targetDate += 60 * 1000;
+            }
+            updateCountdown();
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeDiff = targetDate - now;
+
+            if (timeDiff > 0) {
+                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                document.getElementById('cd-days').innerText = days;
+                document.getElementById('cd-hours').innerText = hours;
+                document.getElementById('cd-minutes').innerText = minutes;
+                document.getElementById('cd-seconds').innerText = seconds;
+            } else {
+                document.getElementById('cd-days').innerText = "0";
+                document.getElementById('cd-hours').innerText = "0";
+                document.getElementById('cd-minutes').innerText = "0";
+                document.getElementById('cd-seconds').innerText = "0";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- FITUR KOMENTAR & RSVP ---
+        function addComment(e) {
+            e.preventDefault();
+            const name = document.getElementById('guestName').value.trim();
+            const status = document.getElementById('guestStatus').value;
+            const message = document.getElementById('guestMessage').value.trim();
+
+            if (!name || !status || !message) return;
+
+            let badgeClass = 'badge-hadir';
+            if (status === 'Ragu-ragu') badgeClass = 'badge-ragu';
+            if (status === 'Tidak Hadir') badgeClass = 'badge-tidak';
+
+            const newCard = document.createElement('div');
+            newCard.className = 'comment-card';
+            newCard.innerHTML = `
+                <div class="comment-header">
+                    <span class="comment-author">${escapeHtml(name)}</span>
+                    <span class="status-badge ${badgeClass}">${status}</span>
+                </div>
+                <p class="comment-text">${escapeHtml(message)}</p>
+            `;
+
+            const list = document.getElementById('commentsList');
+            list.insertBefore(newCard, list.firstChild);
+
+            document.getElementById('guestName').value = '';
+            document.getElementById('guestStatus').value = '';
+            document.getElementById('guestMessage').value = '';
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>

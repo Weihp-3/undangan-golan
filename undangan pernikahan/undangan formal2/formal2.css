@@ -1,0 +1,310 @@
+/* --- RESET & VARIABEL UTAMA --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-cream: #FFFDF9;
+    --maroon-light: #9B2226;
+    --maroon-dark: #5F0F11;
+    --gold: #D4AF37;
+    --text-dark: #333333;
+}
+
+body {
+    background-color: #e0e0e0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- WRAPPER UTAMA (Simulasi Layar HP Lengkung Kebawah) --- */
+.main-container {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--bg-cream);
+    /* Ganti gambar di bawah dengan aset floral background kamu */
+    background-image: url('floral-background-soft.png'); 
+    background-size: contain;
+    background-repeat: repeat-y;
+    box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+/* --- SETTING SECTION --- */
+.section {
+    padding: 50px 25px;
+    text-align: center;
+    position: relative;
+}
+
+/* --- PEMBATAS EMAS (DIVIDER) --- */
+.gold-divider {
+    width: 80%;
+    height: 4px;
+    margin: 10px auto;
+    border-top: 2px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    position: relative;
+}
+.gold-divider::before {
+    content: "❖";
+    color: var(--gold);
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-cream);
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+/* --- SECTION 1: HERO / COVER --- */
+.cover-section {
+    padding-top: 60px;
+}
+.main-title {
+    font-family: 'Great Vibes', cursive;
+    color: var(--maroon-light);
+    font-size: 3.5rem;
+    font-weight: normal;
+}
+.sub-title {
+    font-family: 'Cinzel', serif;
+    color: var(--maroon-dark);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+.envelope-container {
+    width: 100%;
+    height: 190px;
+    background: linear-gradient(135deg, var(--maroon-light), var(--maroon-dark));
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wax-seal {
+    width: 65px;
+    height: 65px;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px double var(--gold);
+    color: var(--maroon-dark);
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    line-height: 59px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* --- SECTION 2: TEXT & COUNTDOWN --- */
+.dear-tamu {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+.quote-text {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+/* Card dengan potongan melengkung asimetris sesuai gambar */
+.countdown-card {
+    background: linear-gradient(to right, var(--maroon-light), var(--maroon-dark));
+    padding: 25px 15px;
+    border-radius: 35px 5px 35px 5px;
+    color: #fff;
+    border: 2px solid var(--gold);
+}
+.timer-grid {
+    display: flex;
+    justify-content: space-around;
+}
+.time-item h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+}
+.time-item p {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* --- SECTION 3: BRIDE & GROOM CARD (BENTUK RUMAH/PENTAGON) --- */
+.house-card {
+    background: linear-gradient(to bottom, var(--maroon-light), var(--maroon-dark));
+    color: white;
+    /* Membuat efek potongan atap rumah bagian atas */
+    clip-path: polygon(50% 0%, 100% 12%, 100% 100%, 0% 100%, 0% 12%);
+    padding: 60px 20px 40px 20px;
+}
+.couple-photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.photo-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    overflow: hidden;
+}
+.photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ampersand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+}
+.couple-info h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-top: 15px;
+}
+.couple-info p {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* --- SECTION 4: MEMORIES (GALLERY) --- */
+.gallery-title {
+    font-family: 'Cinzel', serif;
+    color: var(--maroon-dark);
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+    height: 220px;
+}
+.gal-img {
+    width: 30%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.gal-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.left-img, .right-img {
+    height: 160px;
+    border-radius: 15px;
+}
+.center-img {
+    height: 200px; /* Foto tengah dibuat lebih menonjol tinggi */
+    border-radius: 5px;
+}
+
+/* --- SECTION 5: EVENT DETAIL (BENTUK ARCH/KUBAH) --- */
+.arch-card {
+    background: linear-gradient(to bottom, var(--maroon-light), var(--maroon-dark));
+    color: white;
+    border: 3px solid #000; /* Border hitam sesuai mockup luar */
+    outline: 2px solid var(--gold);
+    /* Membuat kubah lengkung di atas */
+    border-radius: 150px 150px 0 0;
+    padding: 60px 20px 40px 20px;
+}
+.arch-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: #000; /* Warna hitam sesuai text di gambar */
+}
+.arch-subtitle {
+    font-size: 0.8rem;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+.date-circle-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    font-family: 'Cinzel', serif;
+}
+.side-date {
+    font-size: 0.75rem;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+}
+.center-time {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0,0,0,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+.event-details h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    margin-top: 15px;
+    font-size: 0.95rem;
+}
+.event-details p {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+.location-text {
+    margin-top: 20px;
+    font-size: 0.75rem !important;
+    border-top: 1px dashed rgba(255,255,255,0.3);
+    padding-top: 10px;
+}
+
+/* --- SECTION 6: THANK YOU / CLOSING --- */
+.thank-you-section {
+    background: linear-gradient(to bottom, var(--maroon-light), #3a0709);
+    color: white;
+    padding: 60px 25px;
+}
+.thank-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+.closing-paragraph {
+    font-size: 0.8rem;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin-bottom: 35px;
+}
+.signature {
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.signature strong {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+    display: inline-block;
+    margin-top: 10px;
+}

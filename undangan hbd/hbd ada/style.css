@@ -1,0 +1,752 @@
+/* =========================================================
+   1. PENGATURAN TEMA MERAH & HITAM (CRIMSON & OBSIDIAN)
+   ========================================================= */
+/* =========================================================
+   1. PENGATURAN TEMA SIMPEL (MERAH & HITAM)
+   ========================================================= */
+:root {
+    /* Background Luar */
+    --body-bg: #0d0d0d;
+    
+    /* Warna Utama & Aksen */
+    --accent-red: #D90429;
+    --bright-red: #EF233C;
+    
+    /* Background Kartu Simpel */
+    --card-bg: #141414;
+    --card-border: rgba(217, 4, 41, 0.2);
+}
+
+/* =========================================================
+   2. RESET DASAR & TAMPILAN BODY
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--body-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 10px;
+}
+
+/* =========================================================
+   3. MOBILE CONTAINER (VERSI SIMPEL & CLEAN)
+   ========================================================= */
+.mobile-container {
+    width: 100%;
+    max-width: 420px;
+    background-color: #121212; /* Warna solid gelap tanpa gambar latar yang ramai */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--card-border);
+    overflow: hidden;
+    position: relative;
+    padding: 20px 15px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* =========================================================
+   4. CARD HALAMAN SIMPEL
+   ========================================================= */
+.hero-section, 
+.gallery-section, 
+.agenda-section, 
+.countdown-section, 
+.location-section, 
+.comments-section, 
+.thankyou-section {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px 16px;
+    transition: border-color 0.3s ease;
+}
+
+.hero-section:hover, 
+.gallery-section:hover, 
+.agenda-section:hover, 
+.countdown-section:hover, 
+.location-section:hover, 
+.comments-section:hover, 
+.thankyou-section:hover {
+    border-color: var(--bright-red);
+}
+/* =========================================================
+   3. MOBILE CONTAINER
+   ========================================================= */
+.mobile-container {
+    width: 100%;
+    max-width: 420px;
+    background: 
+        linear-gradient(rgba(5, 5, 5, 0.85), rgba(15, 2, 2, 0.95)),
+        var(--bg-image-overlay);
+    background-size: cover;
+    background-position: center;
+    border-radius: 28px;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.95),
+        0 0 35px var(--accent-glow);
+    border: 1px solid var(--card-border);
+    overflow: hidden;
+    position: relative;
+    padding: 20px 15px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* =========================================================
+   4. EFEK CARD HALAMAN (GLASSMORPHISM MERAH-HITAM)
+   ========================================================= */
+.hero-section, 
+.gallery-section, 
+.agenda-section, 
+.countdown-section, 
+.location-section, 
+.comments-section, 
+.thankyou-section {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 24px 18px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* EFEK HOVER CARD */
+.hero-section:hover, 
+.gallery-section:hover, 
+.agenda-section:hover, 
+.countdown-section:hover, 
+.location-section:hover, 
+.comments-section:hover, 
+.thankyou-section:hover {
+    transform: translateY(-4px);
+    border-color: var(--bright-red);
+    box-shadow: 0 10px 25px rgba(239, 35, 60, 0.25);
+}
+
+/* =========================================================
+   5. TYPOGRAPHY CUSTOM
+   ========================================================= */
+.title-birthday {
+    font-family: 'Caveat', cursive;
+    color: #FFFFFF;
+    font-size: 44px;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 0 0 12px var(--accent-red);
+}
+
+.title-script-large {
+    font-family: 'Caveat', cursive;
+    color: #FFFFFF;
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 0 0 12px var(--accent-red);
+}
+
+.section-title {
+    font-family: 'Caveat', cursive;
+    color: #FFFFFF;
+    font-size: 38px;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px rgba(239, 35, 60, 0.5);
+}
+
+.section-title span {
+    font-size: 28px;
+    color: var(--bright-red);
+}
+
+/* =========================================================
+   6. HERO SECTION
+   ========================================================= */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.age-pill {
+    background: linear-gradient(135deg, var(--bright-red), #5c000b);
+    color: #FFF;
+    padding: 4px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(217, 4, 41, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.age-pill:hover {
+    transform: scale(1.08);
+}
+
+.profile-frame {
+    width: 170px;
+    height: 220px;
+    border-radius: 85px 85px 20px 20px;
+    overflow: hidden;
+    border: 3px solid var(--bright-red);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px var(--accent-glow);
+    margin-bottom: 20px;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.profile-frame:hover {
+    transform: scale(1.03) rotate(1deg);
+    border-color: #FFFFFF;
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.profile-frame:hover img {
+    transform: scale(1.1);
+}
+
+.time-badge {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    color: #FFF;
+    padding: 8px 24px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border: 1px solid var(--card-border);
+}
+
+.time-badge i {
+    color: var(--bright-red);
+    transition: transform 0.3s ease;
+}
+
+.time-badge:hover i {
+    transform: scale(1.3);
+}
+
+.btn-pill, .btn-action {
+    background: linear-gradient(135deg, var(--bright-red), #800000);
+    color: #FFF;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(217, 4, 41, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-pill:hover, .btn-action:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: #FFF;
+    color: #000;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================
+   7. GALLERY SECTION
+   ========================================================= */
+.gallery-section {
+    text-align: center;
+}
+
+.section-badge {
+    background-color: rgba(217, 4, 41, 0.2);
+    backdrop-filter: blur(5px);
+    color: #FFF;
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--card-border);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.photo-item {
+    height: 130px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid var(--card-border);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px) scale(1.03);
+    border-color: var(--bright-red);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.1);
+}
+
+/* =========================================================
+   8. AGENDA SECTION
+   ========================================================= */
+.agenda-section {
+    text-align: center;
+}
+
+.agenda-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+}
+
+.agenda-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.agenda-icon {
+    font-size: 24px;
+    color: var(--bright-red);
+    width: 35px;
+    text-align: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.agenda-card:hover .agenda-icon {
+    transform: scale(1.2) rotate(-10deg);
+    color: #FFF;
+}
+
+.agenda-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.agenda-time {
+    font-size: 11px;
+    color: var(--bright-red);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-left: 4px;
+}
+
+.agenda-btn {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    color: #FFF;
+    padding: 10px 15px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.agenda-card:hover .agenda-btn {
+    background: rgba(217, 4, 41, 0.25);
+    border-color: var(--bright-red);
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   9. COUNTDOWN SECTION
+   ========================================================= */
+.countdown-section {
+    text-align: center;
+}
+
+.title-badge {
+    background: linear-gradient(135deg, var(--bright-red), #5c000b);
+    color: #FFF;
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.timer-grid {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time-box {
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid var(--card-border);
+    color: #FFF;
+    width: 62px;
+    height: 62px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.time-box:hover {
+    transform: translateY(-4px);
+    border-color: var(--bright-red);
+}
+
+.time-box span {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--bright-red);
+}
+
+.time-box p {
+    font-size: 9px;
+    color: #aaa;
+}
+
+.wish-text {
+    color: #FFF;
+    font-size: 12px;
+    margin-top: 20px;
+    padding: 0 10px;
+    line-height: 1.6;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* =========================================================
+   10. LOCATION SECTION
+   ========================================================= */
+.location-section {
+    text-align: center;
+    color: #FFF;
+}
+
+.event-date {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.event-time {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: var(--bright-red);
+}
+
+.event-address {
+    font-size: 12px;
+    margin-bottom: 15px;
+    opacity: 0.85;
+}
+
+.map-box {
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    transition: transform 0.3s ease;
+}
+
+.map-box:hover {
+    transform: scale(1.02);
+}
+
+/* =========================================================
+   11. COMMENTS SECTION
+   ========================================================= */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.comment-card {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    color: #FFF;
+    padding: 14px 16px;
+    border-radius: 16px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.comment-card:hover {
+    transform: translateX(5px);
+    border-color: var(--bright-red);
+    background: rgba(20, 2, 2, 0.85);
+}
+
+.comment-card h4 {
+    font-size: 13px;
+    color: var(--bright-red);
+    margin-bottom: 4px;
+}
+
+.comment-card p {
+    font-size: 11px;
+    color: #DDD;
+    line-height: 1.4;
+}
+
+.form-title {
+    color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.comment-form {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    padding: 16px;
+    border-radius: 18px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.form-group label {
+    color: #FFF;
+    font-size: 11px;
+    display: block;
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #FFF;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--bright-red);
+}
+
+.btn-send {
+    background: linear-gradient(135deg, var(--bright-red), #800000);
+    color: #FFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 24px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: block;
+    margin: 12px auto 0;
+    box-shadow: 0 4px 12px rgba(217, 4, 41, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-send:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: #FFF;
+    color: #000;
+    box-shadow: 0 6px 18px rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================
+   12. THANK YOU SECTION
+   ========================================================= */
+.thankyou-card {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    color: #FFF;
+    padding: 20px;
+    border-radius: 18px;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+.thankyou-card:hover {
+    transform: scale(1.02);
+}
+
+.thankyou-card p {
+    margin-bottom: 10px;
+}
+
+/* =========================================================
+   13. MEDIA QUERIES
+   ========================================================= */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+
+    .mobile-container {
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        padding: 15px 10px 30px;
+    }
+}
+/* =========================================================
+   14. HALAMAN COVER PEMBUKA (WELCOME OVERLAY)
+   ========================================================= */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #050505;
+    background-image: radial-gradient(circle at center, rgba(161, 0, 0, 0.5) 0%, transparent 75%);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Saat tombol diklik, cover menghilang */
+.welcome-overlay.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.welcome-card {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(217, 4, 41, 0.4);
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(217, 4, 41, 0.3), 0 20px 50px rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-badge {
+    background: rgba(217, 4, 41, 0.2);
+    border: 1px solid #EF233C;
+    color: #FFF;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 16px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.welcome-profile {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #EF233C;
+    box-shadow: 0 0 20px rgba(239, 35, 60, 0.4);
+    margin-bottom: 15px;
+}
+
+.welcome-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.welcome-title {
+    font-family: 'Caveat', cursive;
+    color: #FFF;
+    font-size: 40px;
+    line-height: 1;
+    text-shadow: 0 0 10px #D90429;
+}
+
+.welcome-name {
+    color: #EF233C;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.welcome-sub {
+    color: #CCC;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.btn-open {
+    background: linear-gradient(135deg, #EF233C, #800000);
+    color: #FFF;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(217, 4, 41, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-open:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: #FFF;
+    color: #000;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5);
+}
