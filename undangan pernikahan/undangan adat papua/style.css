@@ -1,0 +1,666 @@
+:root {
+    --bg-dark-body: #140a04;
+    --tribal-primary: #d35400; /* Merah Bata Papua / Terakota */
+    --tribal-dark: #6e1c00; /* Cokelat Kayu Ukir Papua */
+    --tribal-light: #fff5e6;
+    --tribal-yellow: #f1c40f; /* Kuning Emas */
+    --gold-bright: #ffe066;
+    --gold-gradient: linear-gradient(135deg, #ffe066 0%, #f1c40f 40%, #d35400 80%, #6e1c00 100%);
+    --tribal-gradient: linear-gradient(135deg, #f1c40f 0%, #d35400 50%, #8e2800 100%);
+    --text-dark: #2a1f18;
+    --text-muted: #6e5645;
+}
+
+/* RESET */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark-body);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* CONTAINER UTAMA UNDANGAN - BACKGROUND RAMAI DENGAN MOTIF BATIK & UKIRAN PAPUA */
+.app-container {
+    width: 100%;
+    max-width: 430px;
+    height: 100vh;
+    background-color: #f7e6d2;
+    /* Layered Background: Motif Ukiran Papua SVG Pattern & Radial Glows */
+    background-image: 
+        radial-gradient(circle at 20% 10%, rgba(241, 196, 15, 0.25), transparent 45%),
+        radial-gradient(circle at 80% 90%, rgba(211, 84, 0, 0.25), transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(255, 224, 102, 0.15), transparent 70%),
+        /* SVG Pattern Ukiran Papua / Batik Geometris */
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d35400' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M30 30L0 0h60L30 30zM0 60l30-30 30 30H0zM30 0l15 15-15 15-15-15L30 0zm0 60l15-15-15-15-15 15 15 15z'/%3E%3Ccircle cx='30' cy='30' r='4' fill='%23f1c40f' fill-opacity='0.12'/%3E%3C/g%3E%3C/svg%3E");
+    position: relative;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.95);
+    overflow: hidden;
+    margin: 0 auto;
+    border-left: 4px solid var(--tribal-primary);
+    border-right: 4px solid var(--tribal-primary);
+}
+
+/* LAYER OVERLAY EXTRA UNTUK BACKGROUND MEMUKAU */
+.papua-bg-pattern-layer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%238e2800' stroke-opacity='0.06' stroke-width='1.5'%3E%3Cpath d='M60 0 L120 60 L60 120 L0 60 Z'/%3E%3Ccircle cx='60' cy='60' r='25' stroke='%23f1c40f' stroke-opacity='0.08'/%3E%3Cpath d='M60 20 L100 60 L60 100 L20 60 Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ================= COVER PAGE ================= */
+#cover-page {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #140a04;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 22px;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.2s;
+    background-image: 
+        radial-gradient(circle at 50% 30%, rgba(211, 84, 0, 0.45) 0%, rgba(10, 5, 2, 0.96) 85%),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f1c40f' fill-opacity='0.05'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3C/g%3E%3C/svg%3E"),
+        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border: 10px solid transparent;
+    border-image: linear-gradient(to bottom, #ffe066, #f1c40f, #d35400, #8e2800) 1;
+}
+
+.tribal-border-inner {
+    position: absolute;
+    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    border: 1.5px dashed rgba(241, 196, 15, 0.5);
+    border-radius: 4px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.cover-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(14, 7, 3, 0.65) 0%, rgba(8, 4, 1, 0.88) 100%);
+}
+
+.corner-svg {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px rgba(241, 196, 15, 0.8));
+}
+.corner-svg.top-left { top: 12px; left: 12px; }
+.corner-svg.top-right { top: 12px; right: 12px; }
+.corner-svg.bottom-left { bottom: 12px; left: 12px; }
+.corner-svg.bottom-right { bottom: 12px; right: 12px; }
+
+/* TIFA & MAHKOTA CENDRAWASIH */
+.tifa-wrapper { margin-bottom: 6px; }
+.tifa-main {
+    width: 90px;
+    height: 80px;
+    filter: drop-shadow(0 0 12px rgba(241, 196, 15, 0.9));
+    animation: pulseTifa 3s infinite ease-in-out;
+}
+
+@keyframes pulseTifa {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(211, 84, 0, 0.8)); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 0 22px rgba(255, 224, 102, 1)); }
+}
+
+.subtitle-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 10.5px;
+    letter-spacing: 2.5px;
+    color: var(--gold-bright);
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(211, 84, 0, 0.9);
+}
+
+.papua-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--tribal-yellow);
+    margin: 8px 0;
+    font-size: 13px;
+}
+.papua-divider .line {
+    width: 45px;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, var(--tribal-yellow), transparent);
+}
+
+.cover-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ayat-top {
+    font-size: 11px;
+    color: #fff8e7;
+    font-style: italic;
+    line-height: 1.5;
+    margin-top: 6px;
+    max-width: 330px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.95);
+}
+
+.cover-couple { margin: 8px 0; }
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 62px;
+    color: var(--gold-bright);
+    text-shadow: 0 0 18px rgba(211, 84, 0, 0.85), 2px 3px 5px rgba(0,0,0,0.95);
+    line-height: 1.05;
+}
+
+.ampersand-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 4px 0;
+}
+.ampersand {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.date-badge-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(20, 10, 4, 0.85);
+    border: 1.5px solid var(--tribal-yellow);
+    padding: 7px 18px;
+    border-radius: 20px;
+    margin-top: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.wedding-date-tag {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #fff8e7;
+    letter-spacing: 1px;
+}
+
+.glow-spin {
+    color: var(--tribal-yellow);
+    font-size: 12px;
+    animation: spinSlow 12s linear infinite;
+}
+
+@keyframes spinSlow { 100% { transform: rotate(360deg); } }
+
+/* BUTTON BUKA UNDANGAN */
+.btn-open-luxury {
+    position: relative;
+    background: var(--gold-gradient);
+    color: #2a1f18;
+    border: 2px solid #ffffff;
+    padding: 14px 38px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(241, 196, 15, 0.7);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    letter-spacing: 0.5px;
+}
+
+.btn-glow {
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(60deg, transparent, rgba(255,255,255,0.6), transparent);
+    transform: rotate(30deg);
+    animation: shimmerBtn 2.8s infinite;
+}
+
+@keyframes shimmerBtn {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+.slide-up { transform: translateY(-100%); opacity: 0; }
+
+/* PETALS ANIMATION */
+.petals-container {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 60;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    top: -10%;
+    color: var(--tribal-yellow);
+    font-size: 17px;
+    filter: drop-shadow(0 0 5px rgba(211, 84, 0, 0.7));
+    animation: floatPetals 8s infinite linear;
+    opacity: 0.8;
+}
+
+.petal:nth-child(1) { left: 8%; animation-duration: 7s; color: var(--gold-bright); }
+.petal:nth-child(2) { left: 25%; animation-duration: 9s; color: #fff; font-size: 14px; }
+.petal:nth-child(3) { left: 48%; animation-duration: 6s; font-size: 19px; color: var(--tribal-primary); }
+.petal:nth-child(4) { left: 68%; animation-duration: 10s; color: var(--tribal-yellow); }
+.petal:nth-child(5) { left: 82%; animation-duration: 7.5s; color: #fff; font-size: 15px; }
+.petal:nth-child(6) { left: 91%; animation-duration: 8.5s; color: var(--gold-bright); }
+.petal:nth-child(7) { left: 38%; animation-duration: 11s; color: #e67e22; font-size: 13px; }
+
+@keyframes floatPetals {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ORNATE CARD SYSTEM - LUXURY PAPUAN WEDDING STYLE */
+.s-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.94);
+    border: 2px solid transparent;
+    border-image: linear-gradient(to bottom right, #ffe066, #f1c40f, #d35400, #8e2800) 1;
+    box-shadow: 0 12px 30px rgba(110, 28, 0, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+.corner-ornament {
+    position: absolute;
+    width: 16px; height: 16px;
+    border: 2px solid var(--tribal-primary);
+    pointer-events: none;
+    z-index: 3;
+}
+.corner-ornament.tl { top: 3px; left: 3px; border-right: none; border-bottom: none; }
+.corner-ornament.tr { top: 3px; right: 3px; border-left: none; border-bottom: none; }
+.corner-ornament.bl { bottom: 3px; left: 3px; border-right: none; border-top: none; }
+.corner-ornament.br { bottom: 3px; right: 3px; border-left: none; border-top: none; }
+
+#main-content {
+    position: relative;
+    z-index: 5;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 60px;
+}
+
+.section { padding: 35px 20px; text-align: center; }
+
+.section-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: var(--tribal-dark);
+    text-shadow: 1px 1px 0px #fff;
+    line-height: 1.1;
+}
+
+.papua-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.gold-icon { color: var(--tribal-primary); font-size: 15px; }
+
+/* ================= 1. KALIMAT PEMBUKA & KATA SAMBUTAN (EXTENDED) ================= */
+.opening-section { padding-top: 30px; }
+
+.opening-text-box {
+    border-radius: 20px;
+    padding: 26px 20px;
+    text-align: center;
+}
+
+.papua-greeting-header {
+    background: var(--tribal-gradient);
+    color: #ffffff;
+    padding: 10px 14px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 14px rgba(211, 84, 0, 0.35);
+}
+
+.salam-papua {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.opening-content-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.opening-paragraph {
+    font-size: 11.5px;
+    color: var(--text-dark);
+    line-height: 1.75;
+    font-weight: 500;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.opening-paragraph.highlight-p {
+    font-size: 12px;
+    color: var(--tribal-dark);
+    font-weight: 600;
+    text-align: center;
+    background: var(--tribal-light);
+    padding: 12px;
+    border-radius: 10px;
+    border-left: 3px solid var(--tribal-primary);
+}
+
+.ornament-divider-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 4px 0;
+}
+.ornament-divider-line span {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(to right, transparent, var(--tribal-primary), transparent);
+}
+
+.verse-quote-box {
+    background: #fff8ef;
+    border: 1px solid rgba(211, 84, 0, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 6px;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 20px;
+    color: var(--tribal-primary);
+    opacity: 0.4;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.verse-text {
+    font-size: 11px;
+    font-style: italic;
+    color: var(--tribal-dark);
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.verse-source {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--tribal-primary);
+    margin-top: 8px;
+}
+
+/* ================= 2. MEMPELAI ================= */
+.tifa-icon { width: 50px; height: 30px; margin-bottom: 12px; }
+
+.mempelai-card { border-radius: 20px; padding: 25px 20px; margin-bottom: 22px; }
+
+.photo-frame {
+    width: 145px; height: 195px;
+    border-radius: 12px;
+    margin: 0 auto 15px auto;
+    overflow: hidden;
+    border: 4px solid var(--tribal-primary);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+}
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+.badge-tag {
+    font-size: 10px;
+    background: var(--tribal-light);
+    color: var(--tribal-dark);
+    padding: 5px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    border: 1px solid var(--tribal-primary);
+}
+
+.mempelai-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text-dark); }
+.mempelai-parents { font-size: 11px; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
+.mempelai-origin { font-size: 10.5px; color: var(--tribal-primary); font-weight: 600; margin-top: 6px; }
+
+/* ================= 3. COUNTDOWN TIMER ================= */
+.countdown-section {
+    background-color: rgba(255, 245, 230, 0.96);
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 10px 20px;
+}
+
+.section-subtitle {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--tribal-dark);
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.countdown-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100%;
+}
+
+.time-box {
+    background: #ffffff;
+    border: 2px solid var(--tribal-primary);
+    border-radius: 8px;
+    padding: 10px 2px;
+    width: 72px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.time-box span {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--tribal-dark);
+    display: block;
+    line-height: 1.1;
+}
+
+.time-box small {
+    font-size: 9px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.btn-calendar {
+    margin-top: 20px;
+    background: var(--tribal-gradient);
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(211, 84, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ================= 4. ACARA & MAPS ================= */
+.event-grid { display: flex; gap: 10px; margin-bottom: 15px; }
+.event-card { flex: 1; border-radius: 15px; padding: 16px 10px; }
+.event-heading { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--tribal-dark); margin-bottom: 6px; }
+.event-date { font-size: 11px; font-weight: 700; color: var(--text-dark); }
+.event-time { font-size: 10px; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+
+.location-box { border-radius: 20px; padding: 22px 18px; }
+.location-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--tribal-dark); margin-bottom: 6px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.location-detail { font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px; }
+.map-wrapper { border-radius: 10px; overflow: hidden; border: 2px solid var(--tribal-primary); margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+.event-actions { display: flex; width: 100%; }
+
+.btn-action {
+    padding: 11px 0; border-radius: 8px; font-size: 10.5px; font-weight: 700;
+    cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.btn-solid { background: var(--tribal-gradient); color: #fff; border: none; }
+
+.btn-action.btn-block {
+    width: 100%;
+    padding: 13px 0;
+    font-size: 11.5px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 14px rgba(211, 84, 0, 0.35);
+}
+
+/* ================= 5. GALERI FOTO (DENGAN FOTO LANDSCAPE) ================= */
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.gallery-item { border-radius: 10px; overflow: hidden; height: 130px; padding: 3px; position: relative; }
+.gallery-item.large { grid-column: span 2; height: 200px; }
+.gallery-item.landscape { grid-column: span 2; height: 190px; }
+
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 7px; transition: transform 0.4s ease; }
+.gallery-item:hover img { transform: scale(1.04); }
+
+.photo-caption {
+    position: absolute;
+    bottom: 8px; left: 8px; right: 8px;
+    background: rgba(20, 10, 4, 0.75);
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    backdrop-filter: blur(2px);
+}
+
+/* ================= 6. RSVP FORM (JUMLAH TAMU DIHAPUS) ================= */
+.rsvp-form { border-radius: 20px; padding: 24px 20px; text-align: left; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+.form-group label i { color: var(--tribal-primary); }
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 11px 13px; border: 1.5px solid rgba(211, 84, 0, 0.4); border-radius: 8px;
+    font-family: 'Montserrat', sans-serif; font-size: 11.5px; outline: none; background: #faf8f5;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--tribal-primary);
+    box-shadow: 0 0 8px rgba(211, 84, 0, 0.25);
+    background: #ffffff;
+}
+
+/* ================= 7. WEDDING GIFT ================= */
+.section-desc { font-size: 11.5px; color: var(--text-dark); line-height: 1.65; margin-bottom: 20px; font-weight: 500; }
+.bank-card { border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+.bank-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f2ece4; padding-bottom: 10px; }
+.bank-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; color: var(--text-dark); }
+.bank-badge { font-size: 9.5px; background: var(--tribal-light); color: var(--tribal-dark); padding: 4px 10px; border-radius: 4px; border: 1px solid var(--tribal-primary); font-weight: 700; }
+.bank-body { padding: 15px 0 10px 0; }
+.bank-number { font-size: 19px; font-weight: 700; color: var(--tribal-dark); letter-spacing: 1.5px; }
+.bank-holder { font-size: 11px; color: var(--text-muted); margin: 3px 0 12px 0; }
+.btn-copy-full {
+    width: 100%; background: var(--text-dark); color: #fff; border: none; padding: 11px 0; border-radius: 8px;
+    font-size: 11px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.qris-inside { background: #faf8f5; border-radius: 12px; padding: 12px; margin-top: 10px; text-align: center; border: 1px dashed var(--tribal-primary); }
+.qris-inside img { width: 140px; height: 140px; border-radius: 8px; }
+.qris-note { font-size: 9.5px; color: var(--text-muted); margin-top: 6px; }
+
+/* ================= 8. PENUTUP ================= */
+.closing-avatar { width: 115px; height: 115px; border-radius: 12px; overflow: hidden; border: 4px solid var(--tribal-primary); margin: 0 auto 16px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.18); }
+.closing-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.closing-quote { font-size: 11.5px; font-style: italic; color: var(--text-dark); line-height: 1.75; margin-bottom: 14px; font-weight: 500; }
+.wa-wa-wa-tag { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; color: var(--tribal-primary); margin-bottom: 8px; }
+.final-names { font-family: 'Great Vibes', cursive; font-size: 40px; color: var(--tribal-dark); text-shadow: 1px 1px 0 #fff; }
+
+/* TOAST */
+.toast {
+    visibility: hidden; min-width: 240px; background-color: var(--text-dark); color: #fff;
+    text-align: center; border-radius: 8px; padding: 11px 18px; position: fixed; z-index: 999;
+    top: 20px; left: 50%; transform: translateX(-50%); font-size: 11.5px; border: 1px solid var(--tribal-yellow);
+    opacity: 0; transition: opacity 0.4s, top 0.4s;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+.toast.show { visibility: visible; opacity: 1; top: 30px; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f7e6d2; }
+::-webkit-scrollbar-thumb { background: var(--tribal-primary); border-radius: 10px; }
+
+/* HOVER & ACTIVE STATES */
+button:active, 
+.btn-action:active, 
+.btn-calendar:active, 
+.btn-copy-full:active, 
+.btn-open-luxury:active {
+    transform: translateY(1px) scale(0.97) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+    filter: brightness(0.95);
+}

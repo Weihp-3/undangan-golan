@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="su">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uleman Panganten - Sunda Heritage Luxury</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6.5.1 CDN (Vector Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- Toast Notifikasi -->
+        <div id="toast" class="toast">Berhasil disalin!</div>
+
+        <!-- Efek Melati & Sparkle Emas Melayang -->
+        <div class="petals-container">
+            <div class="petal"><i class="fa-solid fa-spa"></i></div>
+            <div class="petal"><i class="fa-solid fa-star-of-life"></i></div>
+            <div class="petal"><i class="fa-solid fa-fan"></i></div>
+            <div class="petal"><i class="fa-solid fa-sparkles"></i></div>
+            <div class="petal"><i class="fa-solid fa-spa"></i></div>
+        </div>
+
+        <!-- ================= 1. COVER PAGE ================= -->
+        <div id="cover-page">
+            <div class="cover-overlay"></div>
+            
+            <div class="gold-border-inner"></div>
+
+            <!-- SVG Ukiran Sudut (Filigree Sunda Gold) -->
+            <div class="corner-svg top-left">
+                <svg width="70" height="70" viewBox="0 0 100 100" fill="none">
+                    <path d="M0 0V30C0 30 15 30 25 20C35 10 30 0 30 0H0Z" fill="url(#goldGrad)"/>
+                    <path d="M0 0H100V12H12V100H0V0Z" fill="url(#goldGrad)"/>
+                    <circle cx="25" cy="25" r="8" fill="url(#goldGrad)"/>
+                    <path d="M12 40C20 40 40 20 40 12" stroke="url(#goldGrad)" stroke-width="3"/>
+                    <defs><linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ffe066"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#8c6a21"/></linearGradient></defs>
+                </svg>
+            </div>
+            <div class="corner-svg top-right">
+                <svg width="70" height="70" viewBox="0 0 100 100" fill="none" style="transform: scaleX(-1);">
+                    <use href="#goldGrad"/>
+                    <path d="M0 0H100V12H12V100H0V0Z" fill="url(#goldGrad)"/>
+                    <circle cx="25" cy="25" r="8" fill="url(#goldGrad)"/>
+                    <path d="M12 40C20 40 40 20 40 12" stroke="url(#goldGrad)" stroke-width="3"/>
+                </svg>
+            </div>
+            <div class="corner-svg bottom-left">
+                <svg width="70" height="70" viewBox="0 0 100 100" fill="none" style="transform: scaleY(-1);">
+                    <path d="M0 0H100V12H12V100H0V0Z" fill="url(#goldGrad)"/>
+                    <circle cx="25" cy="25" r="8" fill="url(#goldGrad)"/>
+                    <path d="M12 40C20 40 40 20 40 12" stroke="url(#goldGrad)" stroke-width="3"/>
+                </svg>
+            </div>
+            <div class="corner-svg bottom-right">
+                <svg width="70" height="70" viewBox="0 0 100 100" fill="none" style="transform: scale(-1);">
+                    <path d="M0 0H100V12H12V100H0V0Z" fill="url(#goldGrad)"/>
+                    <circle cx="25" cy="25" r="8" fill="url(#goldGrad)"/>
+                    <path d="M12 40C20 40 40 20 40 12" stroke="url(#goldGrad)" stroke-width="3"/>
+                </svg>
+            </div>
+
+            <!-- Content Center -->
+            <div class="cover-content">
+                <div class="cover-header">
+                    <div class="siger-wrapper">
+                        <svg class="siger-main" viewBox="0 0 120 60">
+                            <path d="M60 2 L72 22 L98 12 L85 38 L115 42 L100 58 L20 58 L5 42 L35 38 L22 12 L48 22 Z" fill="url(#goldGrad)" stroke="#fff" stroke-width="0.5"/>
+                            <circle cx="60" cy="18" r="3.5" fill="#ffffff"/>
+                            <circle cx="35" cy="26" r="2.5" fill="#ffffff"/>
+                            <circle cx="85" cy="26" r="2.5" fill="#ffffff"/>
+                            <circle cx="20" cy="38" r="2" fill="#ffffff"/>
+                            <circle cx="100" cy="38" r="2" fill="#ffffff"/>
+                        </svg>
+                    </div>
+
+                    <div class="subtitle-badge">
+                        <i class="fa-solid fa-crown gold-icon"></i>
+                        <span>THE WEDDING OF</span>
+                        <i class="fa-solid fa-crown gold-icon"></i>
+                    </div>
+
+                    <div class="sunda-divider">
+                        <span class="line"></span>
+                        <i class="fa-solid fa-bahai"></i>
+                        <span class="line"></span>
+                    </div>
+
+                    <div class="ayat-top">
+                        "Maha Suci Allah anu parantos nyiptakeun mahluk-Na papasangan. Ya Allah mugia ridho-Mu kucurah ngajajap pernikahan ieu."
+                    </div>
+                </div>
+
+                <div class="cover-couple">
+                    <div class="couple-names">Tika</div>
+                    <div class="ampersand-wrapper">
+                        <i class="fa-solid fa-leaf gold-icon"></i>
+                        <span class="ampersand">&</span>
+                        <i class="fa-solid fa-leaf gold-icon"></i>
+                    </div>
+                    <div class="couple-names">Tiko</div>
+
+                    <div class="date-badge-wrapper">
+                        <i class="fa-solid fa-dharmachakra glow-spin"></i>
+                        <span class="wedding-date-tag">Selasa, 30 Desember 2026</span>
+                        <i class="fa-solid fa-dharmachakra glow-spin"></i>
+                    </div>
+                </div>
+
+                <div class="bottom-cover">
+                    <button class="btn-open-luxury" onclick="bukaUndangan()">
+                        <div class="btn-glow"></div>
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <span>Buka Undangan</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= 2. ISI UNDANGAN ================= -->
+        <div id="main-content">
+            
+            <!-- MEMPELAI SECTION -->
+            <div class="section">
+                <div class="sunda-header-wrapper">
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                    <h2 class="section-title">Mempelai Ksatria & Putri</h2>
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                </div>
+
+                <svg class="siger-icon" viewBox="0 0 120 60">
+                    <path d="M60 2 L72 22 L98 12 L85 38 L115 42 L100 58 L20 58 L5 42 L35 38 L22 12 L48 22 Z" fill="url(#goldGrad)"/>
+                </svg>
+
+                <div class="mempelai-card s-card">
+                    <div class="corner-ornament tl"></div>
+                    <div class="corner-ornament tr"></div>
+                    <div class="corner-ornament bl"></div>
+                    <div class="corner-ornament br"></div>
+
+                    <div class="photo-frame">
+                        <img src="https://elizabeth.co.id/wp-content/uploads/2025/05/0595-1925-02-01_1.png" alt="Mempelai Wanita">
+                    </div>
+                    <div class="badge-tag">
+                        <i class="fa-solid fa-spa"></i> Mempelai Wanita <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <div class="mempelai-name">Tika Azkiya, S.Pd.</div>
+                    <div class="mempelai-parents">Putri ti Bapa H. Suryana & Ibu Hj. Tini</div>
+                </div>
+
+                <div class="mempelai-card s-card">
+                    <div class="corner-ornament tl"></div>
+                    <div class="corner-ornament tr"></div>
+                    <div class="corner-ornament bl"></div>
+                    <div class="corner-ornament br"></div>
+
+                    <div class="photo-frame">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Mempelai Pria">
+                    </div>
+                    <div class="badge-tag">
+                        <i class="fa-solid fa-spa"></i> Mempelai Pria <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <div class="mempelai-name">Tiko Permana, S.T.</div>
+                    <div class="mempelai-parents">Putra ti Bapa Maman & Ibu Yayah</div>
+                </div>
+            </div>
+
+            <!-- COUNTDOWN TIMER -->
+            <div class="countdown-section s-card">
+                <div class="corner-ornament tl"></div>
+                <div class="corner-ornament tr"></div>
+                <div class="corner-ornament bl"></div>
+                <div class="corner-ornament br"></div>
+
+                <div class="section-subtitle">
+                    <i class="fa-solid fa-gem"></i> MENUNGGU HARI BAHAGIA <i class="fa-solid fa-gem"></i>
+                </div>
+                
+                <div class="countdown-grid">
+                    <div class="time-box">
+                        <span id="days">00</span>
+                        <small>Hari</small>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours">00</span>
+                        <small>Jam</small>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutes">00</span>
+                        <small>Menit</small>
+                    </div>
+                    <div class="time-box">
+                        <span id="seconds">00</span>
+                        <small>Detik</small>
+                    </div>
+                </div>
+
+                <button class="btn-calendar" onclick="tambahKeKalender()">
+                    <i class="fa-solid fa-calendar-plus"></i>
+                    Tambah ke Kalender
+                </button>
+            </div>
+
+            <!-- ACARA & MAPS -->
+            <div class="section">
+                <div class="sunda-header-wrapper">
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                    <h2 class="section-title">Save The Date</h2>
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                </div>
+
+                <div class="event-grid">
+                    <div class="event-card s-card">
+                        <div class="corner-ornament tl"></div>
+                        <div class="corner-ornament tr"></div>
+                        <div class="corner-ornament bl"></div>
+                        <div class="corner-ornament br"></div>
+
+                        <div class="event-heading">Akad Nikah</div>
+                        <div class="event-date">Selasa, 30 Des 2026</div>
+                        <div class="event-time">08.00 WIB - Selesai</div>
+                    </div>
+                    <div class="event-card s-card">
+                        <div class="corner-ornament tl"></div>
+                        <div class="corner-ornament tr"></div>
+                        <div class="corner-ornament bl"></div>
+                        <div class="corner-ornament br"></div>
+
+                        <div class="event-heading">Resepsi</div>
+                        <div class="event-date">Selasa, 30 Des 2026</div>
+                        <div class="event-time">11.00 WIB - Selesai</div>
+                    </div>
+                </div>
+
+                <div class="location-box s-card">
+                    <div class="corner-ornament tl"></div>
+                    <div class="corner-ornament tr"></div>
+                    <div class="corner-ornament bl"></div>
+                    <div class="corner-ornament br"></div>
+
+                    <div class="location-title">
+                        <i class="fa-solid fa-map-pin"></i> Lokasi Acara <i class="fa-solid fa-map-pin"></i>
+                    </div>
+                    <div class="location-detail">
+                        <strong>Gedong Budaya Sabilulungan</strong><br>
+                        Jl. Raya Soreang No. 104, Kab. Bandung
+                    </div>
+
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.0384812852237!2d107.52554767587635!3d-7.028286968853766!2m3!1f0!2f50!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68ee5efb1c1d6d%3A0x868d4001d2d312eb!2sGedung%20Budaya%20Sabilulungan!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                            width="100%" 
+                            height="170" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+
+                    <!-- Cuma Tombol Salin Alamat -->
+                    <div class="event-actions">
+                        <button class="btn-action btn-solid btn-block" onclick="copyText('Gedong Budaya Sabilulungan, Jl. Raya Soreang No. 104, Kab. Bandung', 'Alamat lokasi berhasil disalin!')">
+                            <i class="fa-regular fa-copy"></i>
+                            Salin Alamat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GALERI FOTO -->
+            <div class="section">
+                <div class="sunda-header-wrapper">
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                    <h2 class="section-title">Galeri Foto</h2>
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item large s-card">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop" alt="Galeri 1">
+                    </div>
+                    <div class="gallery-item s-card">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=400&auto=format&fit=crop" alt="Galeri 2">
+                    </div>
+                    <div class="gallery-item s-card">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=400&auto=format&fit=crop" alt="Galeri 3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- RSVP & UCAPAN -->
+            <div class="section">
+                <div class="sunda-header-wrapper">
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                    <h2 class="section-title">RSVP & Ucapan</h2>
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                </div>
+                
+                <form class="rsvp-form s-card" onsubmit="kirimRSVP(event)">
+                    <div class="corner-ornament tl"></div>
+                    <div class="corner-ornament tr"></div>
+                    <div class="corner-ornament bl"></div>
+                    <div class="corner-ornament br"></div>
+
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" id="rsvp-nama" placeholder="Tuliskan nama Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Konfirmasi Kehadiran</label>
+                        <select id="rsvp-status" required>
+                            <option value="">-- Pilih Kehadiran --</option>
+                            <option value="Hadir">Sumping / Hadir</option>
+                            <option value="Tidak Hadir">Hapunten Teu Tiasa Sumping / Tidak Hadir</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Jumlah Tamu</label>
+                        <input type="number" id="rsvp-jumlah" min="1" max="5" value="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pidu'a & Ucapan</label>
+                        <textarea id="rsvp-ucapan" rows="3" placeholder="Tuliskan do'a & ucapan selamat..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-action btn-solid btn-block">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Ucapan
+                    </button>
+                </form>
+            </div>
+
+            <!-- WEDDING GIFT -->
+            <div class="section gift-section">
+                <div class="sunda-header-wrapper">
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                    <h2 class="section-title">Wedding Gift</h2>
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                </div>
+
+                <div class="section-desc">
+                    Do'a restu Bapa/Ibu/Sadérék nyaéta kado anu pang berhargana. Nanging upami hoyong ngintunkeun kado digital, tiasa ngalangkungan rekening di handap:
+                </div>
+
+                <!-- BANK 1 -->
+                <div class="bank-card s-card">
+                    <div class="corner-ornament tl"></div>
+                    <div class="corner-ornament tr"></div>
+                    <div class="corner-ornament bl"></div>
+                    <div class="corner-ornament br"></div>
+
+                    <div class="bank-header">
+                        <span class="bank-name">BANK BCA</span>
+                        <span class="bank-badge">Transfer / QRIS</span>
+                    </div>
+                    <div class="bank-body">
+                        <div class="bank-number">123 456 7890</div>
+                        <div class="bank-holder">a.n. Tika Azkiya</div>
+                        <button class="btn-copy-full" onclick="copyText('1234567890', 'Nomor rekening BCA berhasil disalin!')">
+                            <i class="fa-regular fa-copy"></i> Salin Nomor Rekening
+                        </button>
+                    </div>
+                    <div class="qris-inside">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=BCA-Tika-1234567890" alt="QRIS BCA">
+                        <div class="qris-note">Scan via Mobile Banking</div>
+                    </div>
+                </div>
+
+                <!-- BANK 2 -->
+                <div class="bank-card s-card">
+                    <div class="corner-ornament tl"></div>
+                    <div class="corner-ornament tr"></div>
+                    <div class="corner-ornament bl"></div>
+                    <div class="corner-ornament br"></div>
+
+                    <div class="bank-header">
+                        <span class="bank-name">BANK MANDIRI</span>
+                        <span class="bank-badge">Transfer / QRIS</span>
+                    </div>
+                    <div class="bank-body">
+                        <div class="bank-number">987 654 3210</div>
+                        <div class="bank-holder">a.n. Tiko Permana</div>
+                        <button class="btn-copy-full" onclick="copyText('9876543210', 'Nomor rekening Mandiri berhasil disalin!')">
+                            <i class="fa-regular fa-copy"></i> Salin Nomor Rekening
+                        </button>
+                    </div>
+                    <div class="qris-inside">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=MANDIRI-Tiko-9876543210" alt="QRIS Mandiri">
+                        <div class="qris-note">Scan via Mobile Banking</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PENUTUP -->
+            <div class="section footer-section">
+                <div class="sunda-header-wrapper">
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                    <h2 class="section-title">Penutup</h2>
+                    <i class="fa-solid fa-sun-plant-wilt gold-icon"></i>
+                </div>
+                
+                <div class="closing-avatar">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=300&auto=format&fit=crop" alt="Closing Photo">
+                </div>
+
+                <div class="closing-quote">
+                    "Mugia Allah SWT salawasna ngalimpahkeun rohmat miwah karunia-Na ka urang sadayana. Hatur nuhun kana kasumpingan sareng pidu'a restu ti Bapa/Ibu/Sadérék."
+                </div>
+
+                <div class="final-names">Tika & Tiko</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+</body>
+</html>
