@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Eve & Adam</title>
+    <!-- AOS Library untuk animasi scroll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Hubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- AUDIO PLAYER -->
+        <audio id="wedding-music" src="Janji Setia Wedding Song.mp3" loop></audio>
+
+        <!-- FLOATING MUSIC WIDGET -->
+        <div id="music-btn" class="music-widget" style="display:none;" onclick="toggleMusic()">🎵</div>
+
+        <!-- FRAME 1: SCREEN PEMBUKA / COVER -->
+        <div id="cover-page">
+            <div class="cover-box">
+                <div class="vintage-banner">WEDDING INVITATION</div>
+                
+                <div class="rotating-frame-wrapper">
+                    <div class="gold-mandala-frame"></div>
+                    <div class="inner-photo">
+                        <img src="pt5.jpg" alt="Mempelai Utama">
+                    </div>
+                </div>
+
+                <h2 class="font-serif-title">Eve & Adam</h2>
+                <p style="font-size: 13px; color: #666; margin: 15px 0 5px 0;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <h4 class="guest-title" id="guest-name">Tamu Undangan</h4>
+                
+                <button class="btn-vintage" onclick="openInvitation()">✦ Open Invitation ✦</button>
+            </div>
+        </div>
+
+        <!-- MAIN APP LAYOUT -->
+        <div id="main-app">
+
+            <!-- CORE COVER HEADER -->
+            <section class="main-hero-bg">
+                 <h1 class="hero-title">The Wedding Celebration</h1>
+            </section>
+
+            <!-- FRAME 2: SEKSI AYAT ALKITAB -->
+            <div class="verse-bg">
+                <p>"Dan firman-Nya: Sebab itu laki-laki akan meninggalkan ayah dan ibunya dan bersatu dengan isterinya, sehingga keduanya itu menjadi satu daging."</p>
+                <strong class="verse-reference">(Matius 19:5)</strong>
+            </div>
+
+            <!-- FRAME 3: PROFIL MEMPELAI -->
+            <section data-aos="fade-up">
+                <div class="catholic-divider">☩ Α Ω ☩</div>
+                <p>Dengan memohon rahmat Allah Bapa, Putra, dan Roh Kudus, kami mengundang Anda untuk menghadiri pernikahan suci kami:</p>
+                
+                <div class="mempelai-grid">
+                    <!-- Mempelai Wanita -->
+                    <div class="profile-card">
+                        <div class="vintage-photo-frame">
+                            <img src="ls.jpg" alt="Mempelai Wanita">
+                        </div>
+                        <div class="nama-mempelai">Eve Sebastia</div>
+                        <p style="font-size: 13px; color: #777;">Putri pertama dari Bpk. Cristian Sebastian & Ibu Evelyn</p>
+                    </div>
+                    
+                    <div class="ampersand-divider">&amp;</div>
+
+                    <!-- Mempelai Pria -->
+                    <div class="profile-card">
+                        <div class="vintage-photo-frame">
+                            <img src="ls4.jpg" alt="Mempelai Pria">
+                        </div>
+                        <div class="nama-mempelai">Adam Smith</div>
+                        <p style="font-size: 13px; color: #777;">Putra ke-empat dari Bpk. Anton Smith & Ibu Jenny</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 4: STRUKTUR ACARA & MAPS -->
+            <section class="section-acara" data-aos="fade-up">
+                <h2 class="font-serif-title" style="margin-bottom: 25px;">Susunan Upacara</h2>
+                
+                <div class="card-acara">
+                    <span style="font-size: 30px;">⛪</span>
+                    <h3 style="margin: 10px 0 5px 0;">Pemberkatan Nikah Suci</h3>
+                    <p style="font-weight:bold; font-size:14px;">Sabtu, 23 Juni 2026</p>
+                    <p style="font-size:13px; color:#555; margin-bottom:10px;">08.00 - 09.00 WIB</p>
+                    <p style="font-size:13px; font-style:italic;">Katedral Paroki Kasih Luhur, Jakarta Selatan</p>
+                </div>
+
+                <div class="card-acara">
+                    <span style="font-size: 30px;">🥂</span>
+                    <h3 style="margin: 10px 0 5px 0;">Resepsi Pernikahan</h3>
+                    <p style="font-weight:bold; font-size:14px;">Sabtu, 23 Juni 2026</p>
+                    <p style="font-size:13px; color:#555; margin-bottom:10px;">11.00 WIB - Selesai</p>
+                    <p style="font-size:13px; font-style:italic;">Aula Magna Hall Paroki Room, Jakarta Selatan</p>
+                </div>
+
+                <a href="https://maps.google.com" target="_blank" class="btn-vintage btn-maps-link">🗺️ Lihat Maps Lokasi</a>
+            </section>
+
+            <!-- FRAME 5: COUNTDOWN -->
+            <section data-aos="zoom-in">
+                <h3 class="font-serif-title" style="font-size: 20px;">Hari Bahagia Menuju Sakramen Suci</h3>
+                <div class="timer-row">
+                    <div class="timer-block"><span id="days">00</span><label>Hari</label></div>
+                    <div class="timer-block"><span id="hours">00</span><label>Jam</label></div>
+                    <div class="timer-block"><span id="minutes">00</span><label>Menit</label></div>
+                    <div class="timer-block"><span id="seconds">00</span><label>Detik</label></div>
+                </div>
+            </section>
+
+            <!-- FRAME 6: GALLERY FOTO (OUR MOMENTS) -->
+            <section style="background: #fff;" data-aos="fade-up">
+                <h2 class="font-serif-title" style="margin-bottom: 20px;">Our Moments</h2>
+                <div class="gallery-grid">
+                    <img src="pt.jpg" alt="Galeri 1">
+                    <img src="pt2.jpg" alt="Galeri 2">
+                    <img src="pt3.jpg" alt="Galeri 3">
+                    <img src="pt4.jpg" alt="Galeri 4">
+                    <img src="pt6.jpg" alt="Galeri 5">
+                </div>
+            </section>
+
+            <!-- FRAME 7: RSVP & KELOLA UCAPAN -->
+            <section data-aos="fade-up">
+                <div class="rsvp-box">
+                    <h3 style="text-align:center; margin-bottom:20px; font-family:'Times New Roman', serif;">Kirim Ucapan &amp; RSVP</h3>
+                    <form onsubmit="simpanUcapan(event)">
+                        <div class="form-group">
+                            <label for="inp-nama">Nama Anda</label>
+                            <input type="text" id="inp-nama" placeholder="Contoh: Keluarga Budi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inp-pesan">Ucapan / Doa Restu</label>
+                            <textarea id="inp-pesan" rows="3" placeholder="Tulis berkat dan doa..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="inp-konfirmasi">Konfirmasi Kehadiran</label>
+                            <select id="inp-konfirmasi">
+                                <option value="Hadir">Hadir</option>
+                                <option value="Tidak Hadir">Tidak Hadir</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-vintage" style="width:100%; margin:0;">Submit</button>
+                    </form>
+
+                    <div class="ucapan-list" id="box-pesan-tamu">
+                        <div class="ucapan-item">
+                            <strong>Romi &amp; Siska</strong> - <span style="font-size:11px; color:#888;">Hadir</span>
+                            <p>Selamat menempuh hidup baru Eve &amp; Adam! Semoga Tuhan selalu memberkati perjalanan rumah tangga kalian.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 8: PENUTUP -->
+            <section class="section-footer">
+                <div style="font-size: 24px; color: #d4af37; margin-bottom: 15px;">☩</div>
+                <p class="footer-quote">
+                    "Terima kasih yang sebesar-besarnya karena telah meluangkan waktu untuk hadir di hari istimewa kami. Kehadiran, doa, dan dukungan Anda sangat berarti bagi awal perjalanan rumah tangga kami bersama Tuhan."
+                </p>
+                <h3 style="font-family: cursive; margin-top: 30px; color: #d4af37;">Eve &amp; Adam</h3>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- WADAH POP-UP LIGHTBOX UNTUK VIEW FOTO -->
+    <div id="photo-lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Pratinjau Foto">
+    </div>
+
+    <!-- SCRIPT AOS DAN LOGIKA INTERAKSI -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inisialisasi Animasi Scroll (AOS)
+        AOS.init({ once: true });
+
+        // Cache Elemen DOM Musik
+        const trackLagu = document.getElementById('wedding-music');
+        const btnMusik = document.getElementById('music-btn');
+
+        // Mengambil nama tamu dari URL Parameter (?to=Nama+Tamu)
+        const argumenUrl = new URLSearchParams(window.location.search);
+        const panggilanTamu = argumenUrl.get('to');
+        if (panggilanTamu) { 
+            document.getElementById('guest-name').innerText = panggilanTamu; 
+        }
+
+        // Fungsi Membuka Undangan
+        function openInvitation() {
+            document.getElementById('cover-page').style.transform = 'translateY(-100%)';
+            document.getElementById('main-app').style.display = 'block';
+            btnMusik.style.display = 'flex';
+            
+            trackLagu.play().catch(e => console.log("Autoplay musik diblokir oleh browser."));
+            setTimeout(() => { AOS.refresh(); }, 200);
+        }
+
+        // Fungsi Play/Pause Musik
+        function toggleMusic() {
+            if (trackLagu.paused) {
+                trackLagu.play();
+                btnMusik.innerText = "🎵";
+            } else {
+                trackLagu.pause();
+                btnMusik.innerText = "🔇";
+            }
+        }
+
+        // --- SISTEM HITUNG MUNDUR (COUNTDOWN) ---
+        const hariH = new Date("2026-12-12T08:00:00").getTime();
+        
+        const elDays = document.getElementById('days');
+        const elHours = document.getElementById('hours');
+        const elMinutes = document.getElementById('minutes');
+        const elSeconds = document.getElementById('seconds');
+
+        const hitungMundur = setInterval(function() {
+            const sekarang = new Date().getTime();
+            const selisih = hariH - sekarang;
+            
+            if (selisih > 0) {
+                elDays.innerText = String(Math.floor(selisih / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                elHours.innerText = String(Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                elMinutes.innerText = String(Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                elSeconds.innerText = String(Math.floor((selisih % (1000 * 60)) / 1000)).padStart(2, '0');
+            } else {
+                elDays.innerText = "00";
+                elHours.innerText = "00";
+                elMinutes.innerText = "00";
+                elSeconds.innerText = "00";
+                clearInterval(hitungMundur);
+            }
+        }, 1000);
+
+        // --- MANAJEMEN RSVP & UCAPAN ---
+        const inpNama = document.getElementById('inp-nama');
+        const inpPesan = document.getElementById('inp-pesan');
+        const inpKonfirmasi = document.getElementById('inp-konfirmasi');
+        const boxPesanTamu = document.getElementById('box-pesan-tamu');
+
+        function simpanUcapan(event) {
+            event.preventDefault();
+            
+            const nama = inpNama.value.trim();
+            const pesan = inpPesan.value.trim();
+            const status = inpKonfirmasi.value;
+
+            if (nama === "" || pesan === "") {
+                alert("Mohon isi nama dan ucapan Anda dengan benar.");
+                return;
+            }
+
+            const strukturBaru = `
+                <div class="ucapan-item" data-aos="fade-right">
+                    <strong>${escapeHTML(nama)}</strong> - <span style="font-size:11px; color:#888;">${status}</span>
+                    <p>${escapeHTML(pesan)}</p>
+                </div>
+            `;
+            
+            boxPesanTamu.insertAdjacentHTML('afterbegin', strukturBaru);
+            
+            inpNama.value = "";
+            inpPesan.value = "";
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        // --- EFEK KLIK / SENTUHAN PRESTIGE SPARKLES ---
+        document.addEventListener('click', function(e) {
+            for (let i = 0; i < 6; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('click-sparkle');
+                
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                
+                const arahX = (Math.random() - 0.5) * 100 + 'px';
+                const arahY = (Math.random() - 0.5) * 100 + 'px';
+                sparkle.style.setProperty('--x', arahX);
+                sparkle.style.setProperty('--y', arahY);
+                
+                const ukuran = Math.random() * 8 + 4 + 'px';
+                sparkle.style.width = ukuran;
+                sparkle.style.height = ukuran;
+                
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 800);
+            }
+        });
+
+        // --- SISTEM POP-UP LIGHTBOX FOTO ---
+        const lightbox = document.getElementById('photo-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('.gallery-grid img').forEach(img => {
+            img.addEventListener('click', function() {
+                lightboxImg.src = this.src;
+                lightbox.classList.add('show');
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('show');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

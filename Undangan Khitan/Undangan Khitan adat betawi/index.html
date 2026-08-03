@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walimatul Khitan - Rizky (Adat Betawi)</title>
+    <!-- AOS Library untuk animasi scroll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Hubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS DEDIKASI UNTUK GAMBAR ASSET LOKAL (BUKAN EMOJI) */
+        
+        /* ONDEL-ONDEL DI COVER MENGAPIT NAMA */
+        .ondel-wrapper-cover {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .ondel-img-asset {
+            width: 70px; /* Ukuran gambar ondel-ondel diatur proporsional */
+            height: auto;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+            animation: ondelGoyang 2.2s ease-in-out infinite alternate;
+        }
+
+        .ondel-bini {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes ondelGoyang {
+            0% { transform: rotate(-4deg) translateY(0); }
+            100% { transform: rotate(4deg) translateY(-4px); }
+        }
+
+        /* ONDEL-ONDEL COLO KARTU ACARA (Sesuai Referensi image_1.png) */
+        .ondel-frame-acara-wrapper {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: -10px;
+            padding: 0 10px;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .card-acara-container {
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        /* AWAN MEGA MENDUNG ASSET DI ATAS FORM */
+        .section-ucapan-tamu {
+            position: relative;
+            background-color: #e4ede9;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .awan-top-asset {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        /* LAMPU GANTUNG ASSET (DISETTING LEBIH GEDE & PAS) */
+.lampu-gantung-wrapper {
+    position: absolute;
+    top: 5px; /* Ditaekin dikit biar tali atasnya nyelip di balik awan */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 65px; /* Diperlebar jaraknya biar pas di lekukan awan */
+    z-index: 2;
+}
+
+.lampu-img-asset {
+    width: 70px; /* Nah, digedein biar kelihatan jelas dan mantap! */
+    height: auto;
+    animation: lampuGoyang 3.5s ease-in-out infinite alternate;
+    transform-origin: top center;
+}
+
+        @keyframes lampuGoyang {
+            0% { transform: rotate(-6deg); }
+            100% { transform: rotate(6deg); }
+        }
+
+        .kembang-kelapa-divider {
+            text-align: center;
+            font-size: 24px;
+            color: #cca43b;
+            letter-spacing: 5px;
+            margin: 20px 0;
+        }
+
+        .betawi-title-accent {
+            font-family: 'Georgia', serif;
+            color: #cca43b;
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .nama-utama {
+            font-size: 40px;
+            margin: 0;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- AUDIO PLAYER -->
+        <audio id="wedding-music" src="Ya Nabi Salam.mp3" loop></audio>
+
+        <!-- FLOATING MUSIC WIDGET -->
+        <div id="music-btn" class="music-widget" style="display:none;" onclick="toggleMusic()">🎵</div>
+
+        <!-- FRAME 1: SCREEN PEMBUKA / COVER -->
+        <div id="cover-page">
+            <div class="cover-box">
+                <!-- Ornamen Gigi Balang Atas -->
+                <div class="gigi-balang-banner"></div>
+                
+                <div class="kembang-kelapa-divider">🔹۞🔹</div>
+                
+                <h3 class="title-khitan">Walimatul Khitan</h3>
+                
+                <!-- ONDEL-ONDEL ASSET GAMBAR MENGAPIT NAMA -->
+                <div class="ondel-wrapper-cover">
+                    <img src="ondelcowo.png" class="ondel-img-asset ondel-laki" alt="Ondel-ondel Laki">
+                    <h1 class="nama-utama">RIZKY</h1>
+                    <img src="ondelcowo2.png" class="ondel-img-asset ondel-bini" alt="Ondel-ondel Bini">
+                </div>
+                
+                <div class="guest-box">
+                    <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                    <h4 class="guest-title" id="guest-name">Tamu Undangan</h4>
+                </div>
+                
+                <button class="btn-betawi" onclick="openInvitation()">Buka Undangan</button>
+                
+                <!-- Ornamen Gigi Balang Bawah -->
+                <div class="gigi-balang-banner bottom"></div>
+            </div>
+        </div>
+
+        <!-- MAIN APP LAYOUT -->
+        <div id="main-app">
+
+            <!-- CORE HERO HEADER -->
+            <section class="main-hero-bg">
+                <div class="gigi-balang-banner"></div>
+                
+                <p class="doa-khitan" data-aos="fade-up">
+                    <span class="betawi-title-accent">Assalamu’alaikum Warahmatullahi Wabarakatuh</span>
+                    "Ya Allah, muliakanlah putra kami dengan syariat khitan, hiasilah ia dengan ketakwaan, dan jadikanlah ia anak yang sholeh serta berbakti kepada kedua orang tua."
+                </p>
+                
+                <div class="foto-anak-frame" data-aos="zoom-in">
+                    <img src="anak5.jpg" alt="Muhammad Rizky Rohim">
+                </div>
+                
+                <h2 class="nama-lengkap-anak">Muhammad Rizky Rohim</h2>
+                <p class="nama-orangtua">Putra pertama dari Bapak Ikhsan Fadil &amp; Ibu Herni Herdiyani</p>
+                
+                <div class="kembang-kelapa-divider">🔹۞🔹</div>
+            </section>
+
+            <!-- FRAME 2: SUSUNAN ACARA & LOKASI -->
+            <section class="section-acara" data-aos="fade-up">
+                <p class="insyaallah-text">Insya Allah akan diselenggarakan pada:</p>
+                
+                <!-- Acara 1 -->
+                <div class="card-acara-betawi" data-aos="fade-up">
+                    <h3>ARAK-ARAKAN ADAT</h3>
+                    <div class="icon-matahari">۞</div>
+                    <p class="hari-tanggal">Sabtu</p>
+                    <p class="tanggal-detail">20 Desember 2026</p>
+                    <p class="jam-acara">08.00 - 09.00 WIB</p>
+                    <hr class="pembatas-pin">
+                    <p class="lokasi-detail">Kediaman Keluarga (Mulai dari Depan Gang Haji Udin) Jl. Benyamin Sueb No. 45, Kemayoran, Jakarta Pusat</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn-maps-betawi">🗺️ Lihat maps</a>
+                </div>
+
+                <!-- Acara 2 + Ilustrasi Ondel Acara Sampingan -->
+                <div class="card-acara-container">
+                    <div class="card-acara-betawi" data-aos="fade-up">
+                        <h3>TASYAKURAN KHITAN</h3>
+                        <div class="icon-matahari">۞</div>
+                        <p class="hari-tanggal">Sabtu</p>
+                        <p class="tanggal-detail">20 Desember 2026</p>
+                        <p class="jam-acara">10.00 WIB - Selesai</p>
+                        <hr class="pembatas-pin">
+                        <p class="lokasi-detail">Kediaman Keluarga Besar Bapak Ikhsan Jl. Benyamin Sueb No. 45, Kemayoran, Jakarta Pusat</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn-maps-betawi">🗺️ Lihat maps</a>
+                    </div>
+                    
+                    <!-- Dekorasi Gambar Ondel-Ondel Kiri Kanan Kartu Acara -->
+                    <div class="ondel-frame-acara-wrapper" data-aos="fade-up">
+                        <img src="ondelcowo.png" style="width: 55px; height: auto;" alt="Ondel Laki">
+                        <img src="ondelcowo2.png" style="width: 55px; height: auto;" alt="Ondel Bini">
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 3: COUNTDOWN HARI BAHAGIA -->
+            <section class="section-countdown" data-aos="zoom-in">
+                <div class="kembang-kelapa-divider">🔹۞🔹</div>
+                <h3 class="font-serif-title" style="font-size: 20px; color: #143d30;">Menuju Hari Bahagia Khitanan</h3>
+                <div class="timer-row">
+                    <div class="timer-block"><span id="days">00</span><label>Hari</label></div>
+                    <div class="timer-block"><span id="hours">00</span><label>Jam</label></div>
+                    <div class="timer-block"><span id="minutes">00</span><label>Menit</label></div>
+                    <div class="timer-block"><span id="seconds">00</span><label>Detik</label></div>
+                </div>
+            </section>
+
+            <!-- FRAME 4: GALLERY FOTO -->
+            <section style="background: #fff;" data-aos="fade-up">
+                <h2 class="font-serif-title" style="margin-bottom: 20px; color: #143d30;">Dokumentasi Jagoan</h2>
+                <div class="gallery-grid">
+                    <img src="anak1.jpg" alt="Galeri 1">
+                    <img src="anak2.jpg" alt="Galeri 2">
+                    <img src="anak3.jpg" alt="Galeri 3">
+                    <img src="anak4.jpg" alt="Galeri 4">
+                    <img src="anak6.jpg" alt="Galeri 5">
+                </div>
+            </section>
+
+            <!-- FRAME 5: RSVP / TULIS UCAPANMU -->
+            <section class="section-ucapan-tamu" data-aos="fade-up">
+                <!-- GAMBAR ASSET AWAN MEGA MENDUNG ASLI -->
+                <img src="langit.png" class="awan-top-asset" alt="Awan Ornamen">
+
+                <!-- GAMBAR ASSET LAMPU GANTUNG ASLI -->
+                <div class="lampu-gantung-wrapper">
+                    <img src="lampu (1).png" class="lampu-img-asset" alt="Lampu 1">
+                    <img src="lampu (1).png" class="lampu-img-asset" alt="Lampu 2">
+                    <img src="lampu (1).png" class="lampu-img-asset" alt="Lampu 3">
+                </div>
+
+                <h2 class="title-tulis-ucapan" style="position: relative; z-index: 3;">TULIS UCAPANMU</h2>
+                
+                <div class="rsvp-box-betawi" style="position: relative; z-index: 3;">
+                    <form onsubmit="simpanUcapan(event)">
+                        <input type="text" id="inp-nama" placeholder="Nama Anda..." required>
+                        <textarea id="inp-pesan" rows="4" placeholder="Tuliskan Ucapan &amp; Doa Restu Anda disini..." required></textarea>
+                        
+                        <div style="margin-bottom: 15px; text-align: left;">
+                            <label style="font-size: 12px; color: #143d30; font-weight: bold; display: block; margin-bottom: 5px;">Konfirmasi Kehadiran</label>
+                            <select id="inp-konfirmasi" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                                <option value="Hadir">Hadir</option>
+                                <option value="Tidak Hadir">Tidak Hadir</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-kirim-ucapan">Kirim Ucapan</button>
+                    </form>
+
+                    <div class="ucapan-list" id="box-pesan-tamu">
+                        <!-- List ucapan masuk di sini -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 6: PENUTUP -->
+            <section class="section-footer-betawi">
+                <hr class="garis-footer">
+                <h3>TERIMA KASIH</h3>
+                <p class="sub-terimakasih">TERIMA KASIH ATAS UCAPAN &amp; DOA RESTUMU</p>
+                <p class="quote-footer">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada putra kami.</p>
+                <h4 class="keluarga-besar-text">Keluarga Besar Bapak Ikhsan &amp; Ibu Herni</h4>
+                <div class="kembang-kelapa-divider">🔹۞🔹</div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- WADAH POP-UP LIGHTBOX UNTUK VIEW FOTO -->
+    <div id="photo-lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Pratinjau Foto">
+    </div>
+
+    <!-- SCRIPT AOS DAN LOGIKA INTERAKSI -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+
+        const trackLagu = document.getElementById('wedding-music');
+        const btnMusik = document.getElementById('music-btn');
+
+        const argumenUrl = new URLSearchParams(window.location.search);
+        const panggilanTamu = argumenUrl.get('to');
+        if (panggilanTamu) { 
+            document.getElementById('guest-name').innerText = panggilanTamu; 
+        }
+
+        function openInvitation() {
+            document.getElementById('cover-page').style.transform = 'translateY(-100%)';
+            document.getElementById('main-app').style.display = 'block';
+            btnMusik.style.display = 'flex';
+            
+            trackLagu.play().catch(e => console.log("Autoplay musik diblokir."));
+            setTimeout(() => { AOS.refresh(); }, 200);
+        }
+
+        function toggleMusic() {
+            if (trackLagu.paused) {
+                trackLagu.play();
+                btnMusik.innerText = "🎵";
+            } else {
+                trackLagu.pause();
+                btnMusik.innerText = "🔇";
+            }
+        }
+
+        // --- SISTEM HITUNG MUNDUR (Target: 20 Desember 2026) ---
+        const hariH = new Date("2026-12-20T08:00:00").getTime();
+        
+        const elDays = document.getElementById('days');
+        const elHours = document.getElementById('hours');
+        const elMinutes = document.getElementById('minutes');
+        const elSeconds = document.getElementById('seconds');
+
+        const hitungMundur = setInterval(function() {
+            const sekarang = new Date().getTime();
+            const selisih = hariH - sekarang;
+            
+            if (selisih > 0) {
+                elDays.innerText = String(Math.floor(selisih / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                elHours.innerText = String(Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                elMinutes.innerText = String(Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                elSeconds.innerText = String(Math.floor((selisih % (1000 * 60)) / 1000)).padStart(2, '0');
+            } else {
+                elDays.innerText = "00";
+                elHours.innerText = "00";
+                elMinutes.innerText = "00";
+                elSeconds.innerText = "00";
+                clearInterval(hitungMundur);
+            }
+        }, 1000);
+
+        // --- RSVP & UCAPAN ---
+        const inpNama = document.getElementById('inp-nama');
+        const inpPesan = document.getElementById('inp-pesan');
+        const inpKonfirmasi = document.getElementById('inp-konfirmasi');
+        const boxPesanTamu = document.getElementById('box-pesan-tamu');
+
+        function simpanUcapan(event) {
+            event.preventDefault();
+            const nama = inpNama.value.trim();
+            const pesan = inpPesan.value.trim();
+            const status = inpKonfirmasi.value;
+
+            if (nama === "" || pesan === "") return;
+
+            const strukturBaru = `
+                <div class="ucapan-item" data-aos="fade-right">
+                    <strong>${escapeHTML(nama)}</strong> - <span style="font-size:11px; color:#888;">${status}</span>
+                    <p>${escapeHTML(pesan)}</p>
+                </div>
+            `;
+            boxPesanTamu.insertAdjacentHTML('afterbegin', strukturBaru);
+            inpNama.value = "";
+            inpPesan.value = "";
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+        }
+
+        // --- SPARKLES INTERAKSI ---
+        document.addEventListener('click', function(e) {
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('click-sparkle');
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                const arahX = (Math.random() - 0.5) * 80 + 'px';
+                const arahY = (Math.random() - 0.5) * 80 + 'px';
+                sparkle.style.setProperty('--x', arahX);
+                sparkle.style.setProperty('--y', arahY);
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 800);
+            }
+        });
+
+        // --- LIGHTBOX FOTO ---
+        const lightbox = document.getElementById('photo-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('.gallery-grid img').forEach(img => {
+            img.addEventListener('click', function() {
+                lightboxImg.src = this.src;
+                lightbox.classList.add('show');
+            });
+        });
+
+        function closeLightbox() { lightbox.classList.remove('show'); }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    </script>
+</body>
+</html>

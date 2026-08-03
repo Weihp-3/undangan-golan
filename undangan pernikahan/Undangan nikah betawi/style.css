@@ -1,0 +1,442 @@
+/* ====================================
+   1. RESET & BASIC STYLES
+   ==================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Container utama bergaya Mobile Card / Frame */
+.mobile-container {
+  width: 100%;
+  max-width: 430px;
+  background: #ffffff;
+  border: 8px solid #d09b78;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* Standard Card Box */
+.card-box {
+  background: #ffffff;
+  border: 2px solid #5a524c;
+  border-radius: 16px;
+  padding: 20px 15px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+/* Section padding */
+.section {
+  padding: 25px 18px;
+  text-align: center;
+  position: relative;
+  border-bottom: 2px solid #d09b78;
+}
+
+/* Red / Terracotta Primary Color */
+.btn-primary {
+  background-color: #c84b2c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(200, 75, 44, 0.2);
+  transition: all 0.2s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.btn-primary:hover {
+  background-color: #b03d20;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+/* Icon Header Circle/Color */
+.icon-header {
+  font-size: 38px;
+  color: #c84b2c;
+  margin-bottom: 8px;
+}
+
+h2.title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+p.subtitle {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* Ondel-Ondel / Cultural Header-Footer Banner Placeholder */
+.betawi-banner {
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(135deg, #f3a683, #f7d794);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  background-image: radial-gradient(#c84b2c 10%, transparent 11%), radial-gradient(#3c40c6 10%, transparent 11%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  position: relative;
+}
+
+.betawi-banner::after {
+  content: "🎭 Ondel-Ondel & Motif Betawi 🎭";
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #8e44ad;
+}
+
+/* ====================================
+   2. HERO / COVER SECTION
+   ==================================== */
+.hero-section {
+  position: relative;
+  background: linear-gradient(rgba(240, 220, 210, 0.6), rgba(240, 220, 210, 0.8)),
+              url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80') center/cover;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.avatar-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #6c5ce7;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111;
+  margin: 10px 0;
+}
+
+.hero-heart {
+  color: #e74c3c;
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+/* ====================================
+   3. PROFIL MEMPALAI & COUNTDOWN
+   ==================================== */
+.countdown-box {
+  border: 2px solid #b8860b;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 15px 0;
+  background: #fff;
+}
+
+.countdown-timer {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+.profile-card {
+  margin: 20px 0;
+}
+
+.profile-bio {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.divider-heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.divider-heart::before, .divider-heart::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+}
+
+.divider-heart i {
+  color: #e74c3c;
+  margin: 0 10px;
+  font-size: 12px;
+}
+
+/* ====================================
+   4. CERITA CINTA (TIMELINE)
+   ==================================== */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: #c8a27d;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #c8a27d;
+}
+
+.timeline-item h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+}
+
+.timeline-item p {
+  font-size: 11px;
+  color: #666;
+  margin: 5px 0 8px;
+  line-height: 1.4;
+}
+
+.badge-date {
+  display: inline-block;
+  background: #c8a27d;
+  color: #fff;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+/* ====================================
+   5. UNDANGAN & ACARA
+   ==================================== */
+.dashed-line {
+  border-bottom: 1px dashed #aaa;
+  margin: 10px 0;
+}
+
+.event-time {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+/* ====================================
+   6. GALERI & VIDEO
+   ==================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.video-card {
+  background: #e8e8e3;
+  border-radius: 12px;
+  border: 1px solid #aaa;
+  overflow: hidden;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.video-thumb {
+  position: relative;
+  height: 140px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.play-btn {
+  position: absolute;
+  color: #ff0000;
+  font-size: 45px;
+}
+
+.video-info {
+  padding: 10px 12px;
+}
+
+.video-info h4 {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.video-info p {
+  font-size: 11px;
+  color: #666;
+}
+
+/* ====================================
+   7. KADO NIKAH (BANK)
+   ==================================== */
+.bank-logo {
+  height: 35px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.rekening-num {
+  font-size: 13px;
+  color: #666;
+  margin: 4px 0 10px;
+}
+
+/* ====================================
+   8. DOA & UCAPAN (FORM & LIST)
+   ==================================== */
+.form-group {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #777;
+  border-radius: 6px;
+  font-size: 12px;
+  outline: none;
+}
+
+textarea.form-control {
+  resize: vertical;
+  height: 80px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  font-size: 12px;
+  margin: 12px 0;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.messages-box {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.message-item {
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+}
+
+.message-item:last-child {
+  border-bottom: none;
+}
+
+.message-author {
+  font-size: 12px;
+  font-weight: 700;
+  color: #222;
+}
+
+.message-text {
+  font-size: 11px;
+  color: #555;
+  margin: 2px 0;
+}
+
+.message-date {
+  font-size: 9px;
+  color: #999;
+}

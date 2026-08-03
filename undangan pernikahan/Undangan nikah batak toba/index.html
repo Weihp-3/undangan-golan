@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nico & Niki — Undangan Pernikahan</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=Cinzel:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS External -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= GATE / COVER ================= -->
+  <div id="gate">
+    <img src="rumah_balon-removebg-preview.png" alt="Rumah Adat" class="motif-house">
+    <p class="eyebrow">Undangan Pernikahan</p>
+    
+    <!-- Cover Photo Pasangan -->
+    <div class="gate-photo">
+      <div class="inner">
+        <img src="fototoba.jpg" alt="Nico & Niki">
+      </div>
+    </div>
+
+    <div class="names">Nico &amp; Niki</div>
+    <p class="to-label">Kepada Bapak / Ibu / Saudara/i</p>
+    <div class="guest-name" id="guestName">Tamu Undangan</div>
+    <button id="openBtn">Buka Undangan</button>
+    <div class="ulos-strip"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <p class="hero-eyebrow cinzel">Horas &amp; Mauliate — Undangan Pernikahan</p>
+    
+    <div class="hero-photo">
+      <img src="tatoba.jpg" alt="Foto Utama Nico & Niki" class="zoomable">
+    </div>
+
+    <div class="quote-card">
+      <div class="monogram">A &amp; R</div>
+      <p>"Bagot ni holang-holang, bagot sisukkunon,<br>
+      anak pe dapot, boru pe dapot, sahat ma tu parhundulon."</p>
+    </div>
+    <div class="scroll-cue">Gulir<div class="arrow">↓</div></div>
+  </header>
+
+  <!-- ================= MEMPELAI ================= -->
+  <section id="mempelai">
+    <div class="wrap">
+      <div class="section-head center fade-up">
+        <img src="rumah_balon-removebg-preview.png" alt="Rumah Adat" class="motif-house">
+        <p class="eyebrow">Mempelai Pria &amp; Mempelai Perempuan</p>
+        <h2>Kedua Mempelai</h2>
+      </div>
+
+      <!-- Mempelai Pria -->
+      <div class="couple-card fade-up">
+        <div class="medallion">
+          <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="95"/><circle cx="100" cy="100" r="80"/>
+            <path d="M100 5 L100 195 M5 100 L195 100 M32 32 L168 168 M168 32 L32 168"/></svg>
+          <div class="photo">
+            <img src="cowo.jpg" alt="Nico Simanjuntak" class="zoomable">
+          </div>
+        </div>
+        <h3>Nico</h3>
+        <div class="fullname">Nico Simanjuntak</div>
+        <p class="parents">Putra dari<br>Bapak T. Simanjuntak &amp; Ibu R. br. Sitorus</p>
+      </div>
+
+      <div class="center amp-divider">&amp;</div>
+
+      <!-- Mempelai Wanita -->
+      <div class="couple-card fade-up">
+        <div class="medallion">
+          <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="95"/><circle cx="100" cy="100" r="80"/>
+            <path d="M100 5 L100 195 M5 100 L195 100 M32 32 L168 168 M168 32 L32 168"/></svg>
+          <div class="photo">
+            <img src="cewe.jpg" alt="Rani Sinamboela" class="zoomable">
+          </div>
+        </div>
+        <h3>Niki</h3>
+        <div class="fullname">Niki Sinamboela</div>
+        <p class="parents">Putri dari<br>Bapak S. Sinamboela &amp; Ibu M. br. Panggabean</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ACARA + COUNTDOWN ================= -->
+  <section id="acara">
+    <div class="wrap">
+      <div class="section-head center fade-up">
+        <img src="rumah_balon-removebg-preview.png" alt="Rumah Adat" class="motif-house">
+        <p class="eyebrow">Save The Date</p>
+        <div class="countdown" id="countdown">
+          <div class="cd-box"><div class="num" id="cd-d">00</div><div class="lbl">Hari</div></div>
+          <div class="cd-box"><div class="num" id="cd-h">00</div><div class="lbl">Jam</div></div>
+          <div class="cd-box"><div class="num" id="cd-m">00</div><div class="lbl">Menit</div></div>
+          <div class="cd-box"><div class="num" id="cd-s">00</div><div class="lbl">Detik</div></div>
+        </div>
+      </div>
+
+      <div class="acara-card fade-up">
+        <div class="n">1. ADAT</div>
+        <h3>Martumpol</h3>
+        <div class="dt">Jumat, 13 Nov 2026 · 10.00 WIB</div>
+        <div class="loc">Gedung Serbaguna HKBP<br>Balige, Toba</div>
+        <a class="pill-outline" href="https://maps.google.com" target="_blank" rel="noopener">Google Map</a>
+      </div>
+      <div class="acara-card fade-up">
+        <div class="n">2. IBADAH</div>
+        <h3>Pemberkatan Nikah</h3>
+        <div class="dt">Sabtu, 14 Nov 2026 · 09.00 WIB</div>
+        <div class="loc">Gereja HKBP Balige<br>Balige, Toba</div>
+        <a class="pill-outline" href="https://maps.google.com" target="_blank" rel="noopener">Google Map</a>
+      </div>
+      <div class="acara-card fade-up">
+        <div class="n">3. ADAT NA GOK</div>
+        <h3>Resepsi &amp; Pesta Unjuk</h3>
+        <div class="dt">Sabtu, 14 Nov 2026 · 12.00 WIB</div>
+        <div class="loc">Sopo Partungkoan<br>Balige, Toba</div>
+        <a class="pill-outline" href="https://maps.google.com" target="_blank" rel="noopener">Google Map</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LOKASI ================= -->
+  <section id="lokasi" class="center">
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <img src="rumah_balon-removebg-preview.png" alt="Rumah Adat" class="motif-house">
+        <p class="eyebrow">Peta Lokasi</p>
+        2. Menuju Tempat Acara</h2>
+      </div>
+      <div class="map-card fade-up">
+        <iframe src="https://www.google.com/maps?q=Balige,Toba,Sumatera+Utara&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <a class="btn-light fade-up" href="https://maps.google.com" target="_blank" rel="noopener">Buka Di Google Maps</a>
+    </div>
+  </section>
+
+  <!-- ================= GALERI ================= -->
+  <section id="galeri">
+    <div class="wrap">
+      <div class="section-head center fade-up">
+        <img src="rumah_balon-removebg-preview.png" alt="Rumah Adat" class="motif-house">
+        <p class="eyebrow">Moment Bersama</p>
+      </div>
+      
+      <div class="gallery fade-up">
+        <div class="g-item"><img src="tatoba.jpg" alt="Galeri 1" class="zoomable"></div>
+        <div class="g-item"><img src="martumpl.jpeg" alt="Galeri 2" class="zoomable"></div>
+        <div class="g-item"><img src="Pemberkatan Nikah.jpeg" alt="Galeri 3" class="zoomable"></div>
+        <div class="g-item"><img src="fototoba.jpg" alt="Galeri 4" class="zoomable"></div>
+        <div class="g-item wide"><img src="martumpl.jpeg" alt="Galeri Wide" class="zoomable"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CERITA KAMI ================= -->
+  <section id="cerita">
+    <div class="wrap story-card fade-up">
+      <div class="shimmer-effect"></div>
+      <p class="eyebrow">Perjalanan Kasih</p>
+      <h2>Cerita Kami</h2>
+      <div class="timeline">
+        <div class="tl-item" data-n="1">
+          <h3>Pertama Bersua</h3>
+          <p>Momen tak terduga yang menjadi awal mula dua takdir saling menyapa dan menumbuhkan rasa.</p>
+        </div>
+        <div class="tl-item" data-n="2">
+          <h3>Merajut Hubungan</h3>
+          <p>Memahami kekurangan dan melengkapi kelebihan, berjalan beriringan melintasi waktu.</p>
+        </div>
+        <div class="tl-item" data-n="3">
+          <h3>Martumpol</h3>
+          <p>Ikrar janji pertunangan di hadapan Tuhan dan restu penuh hangat dari keluarga besar.</p>
+        </div>
+        <div class="tl-item" data-n="4">
+          <h3>Menuju Pelaminan</h3>
+          <p>Dengan puji dan syukur, kami siap melangkah memasuki gerbang rumah tangga yang kudus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RSVP ================= -->
+  <section id="rsvp">
+    <div class="wrap card-panel fade-up">
+      <div class="section-head center">
+        <p class="eyebrow">Konfirmasi Kehadiran</p>
+        <h2>RSVP</h2>
+      </div>
+      <form id="rsvpForm">
+        <div class="field"><label>Nama Lengkap</label><input type="text" id="rsvpNama" placeholder="Nama Anda"></div>
+        <div class="field"><label>Konfirmasi Kehadiran</label>
+          <select id="rsvpHadir"><option value="">Pilih salah satu</option><option>Hadir</option><option>Tidak Hadir</option><option>Masih Ragu</option></select>
+        </div>
+        <div class="field"><label>Jumlah Tamu</label><input type="number" min="1" max="5" value="1" id="rsvpJumlah"></div>
+        <div class="field"><label>Doa &amp; Ucapan</label><textarea rows="3" id="rsvpPesan" placeholder="Tuliskan doa dan ucapan untuk kedua mempelai"></textarea></div>
+        <button type="button" id="rsvpSubmit" class="btn-solid">Kirim RSVP</button>
+        <p class="toast" id="rsvpError" style="color:#a33;">Mohon isi nama dan konfirmasi kehadiran dulu ya.</p>
+        <p class="toast" id="rsvpToast">Mauliate! Konfirmasi kamu sudah kami terima 🙏</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= UCAPAN ================= -->
+  <section class="center">
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <p class="eyebrow">Doa &amp; Restu</p>
+        <h2>Ucapan Tamu</h2>
+      </div>
+      <div class="wishes-list fade-up" id="wishesList">
+        <div class="wish"><b>Keluarga Besar Simanjuntak</b><p>Selamat menempuh hidup baru, semoga menjadi keluarga yang sauduk-duk saroha. Horas!</p></div>
+        <div class="wish"><b>Sahabat Kuliah</b><p>Bahagia sekali melihat kalian sampai di tahap ini. Sehat selalu untuk kalian berdua.</p></div>
+        <div class="wish"><b>Tulang &amp; Nantulang</b><p>Semoga rejeki lancar, momongan cepat menyusul, dan rumah tangga penuh berkat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KADO ================= -->
+  <section id="kado" class="center">
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <img src="rumah_balon-removebg-preview.png" alt="Rumah Adat" class="motif-house">
+        <p class="eyebrow">Tanda Kasih</p>
+        <h2>Amplop Digital</h2>
+        <p style="max-width:400px;margin:12px auto 0;font-size:.86rem;opacity:.8;">
+          Kehadiran serta doa restu Bapak/Ibu/Saudara-i adalah karunia terindah. Namun jika ingin memberi tanda kasih, dapat melalui:
+        </p>
+      </div>
+      <div class="kado-grid fade-up">
+        <div class="bank-card red">
+          <div class="chip"></div>
+          <div class="bank">BANK BCA</div>
+          <div class="acc">1234 5678 90</div>
+          <div class="own">a.n. Nico Simanjuntak</div>
+          <button class="copy-btn" onclick="copyAcc('1234567890', this)">Salin Nomor</button>
+        </div>
+        <div class="bank-card navy">
+          <div class="chip"></div>
+          <div class="bank">BANK MANDIRI</div>
+          <div class="acc">0987 6543 21</div>
+          <div class="own">a.n. Niki Sinamboela</div>
+          <button class="copy-btn" onclick="copyAcc('0987654321', this)">Salin Nomor</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="gate-row">
+      <img src="rumah_balon-removebg-preview.png" alt="Rumah Adat" class="motif-house">
+    </div>
+    <div class="horas">HORAS · HORAS · HORAS</div>
+    <h2>Mauliate godang</h2>
+    <p>Terima kasih atas doa, restu, dan kasih sayang Bapak/Ibu/Saudara-i. Kami menantikan kehadiran Anda dalam hari bahagia kami.</p>
+    <p style="margin-top:18px;font-style:italic;">Nico Simanjuntak &amp; Niki Sinamboela</p>
+    <div class="credit">Dibuat dengan sukacita untuk hari yang penuh berkat</div>
+  </footer>
+
+  <!-- ================= LIGHTBOX / MODAL FOTO ================= -->
+  <div id="imageModal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Foto Diperbesar">
+  </div>
+
+  <!-- JS External -->
+  <script src="script.js"></script>
+</body>
+</html>

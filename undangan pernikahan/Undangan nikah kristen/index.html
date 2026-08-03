@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Runi & Gear</title>
+    <!-- AOS Library untuk animasi scroll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Hubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- AUDIO PLAYER -->
+        <audio id="wedding-music" src="Janji Setia Wedding Song.mp3" loop></audio>
+
+        <!-- FLOATING MUSIC WIDGET -->
+        <div id="music-btn" class="music-widget" style="display:none;" onclick="toggleMusic()">🎵</div>
+
+        <!-- FRAME 1: SCREEN PEMBUKA / COVER -->
+        <div id="cover-page">
+            <div class="cover-box">
+                <div class="wedding-banner-gold">WEDDING INVITATION</div>
+                
+                <div class="mandala-frame-wrapper">
+                    <!-- FRAME MANDALA -->
+                    <img src="frameft.png" class="gold-mandala-img" alt="Frame Mandala">
+                    <!-- FOTO MEMPELAI DI TENGAH -->
+                    <div class="inner-photo">
+                        <img src="wedfoto.jpeg" alt="Mempelai Utama">
+                    </div>
+                </div>
+
+                <div class="couple-name-banner">Runi &amp; Gear</div>
+                
+                <div class="guest-box">
+                    <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                    <h4 class="guest-title" id="guest-name">Tamu Undangan</h4>
+                </div>
+                
+                <button class="btn-vintage-gold" onclick="openInvitation()">✦ Open Invitation ✦</button>
+            </div>
+        </div>
+
+        <!-- MAIN APP LAYOUT -->
+        <div id="main-app">
+
+            <!-- FRAME 2: BANNER HERO & AYAT ALKITAB -->
+            <section class="main-hero-bg">
+                <div class="hero-header-banner">Wedding Kristen</div>
+                <div class="hero-verse-bg">
+                    <div class="verse-card-overlay" data-aos="fade-up">
+                        <p>"Dan firman-Nya: Sebab itu laki-laki akan meninggalkan ayah dan ibunya dan bersatu dengan isterinya, sehingga keduanya itu menjadi satu daging."</p>
+                        <span class="verse-ref">(Matius 19:6)</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 3: PROFIL MEMPELAI -->
+            <section class="section-mempelai" data-aos="fade-up">
+                <div class="mempelai-grid">
+                    <!-- Mempelai Wanita -->
+                    <div class="profile-card">
+                        <div class="gold-photo-frame">
+                            <img src="fotowanita.jpeg" class="img-bride" alt="Runi Runa">
+                        </div>
+                        <span class="role-title">The Bride</span>
+                        <h3 class="nama-mempelai">Runi Runa</h3>
+                        <p class="orangtua">Anak ke-2 dari<br>Bapak Bigar Ligar<br>&amp;<br>Ibu Lenar</p>
+                    </div>
+                    
+                    <div class="ampersand-divider">&amp;</div>
+
+                    <!-- Mempelai Pria -->
+                    <div class="profile-card">
+                        <div class="gold-photo-frame">
+                            <img src="fotopria.16.jpeg" class="img-groom" alt="Gear Rotak">
+                        </div>
+                        <span class="role-title">The Groom</span>
+                        <h3 class="nama-mempelai">Gear Rotak</h3>
+                        <p class="orangtua">Anak ke-4 dari<br>Bapak Zack Ligar<br>&amp;<br>Ibu Sina</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 4: COUNTDOWN TIMER -->
+            <section class="section-countdown" data-aos="zoom-in">
+                <div class="timer-gold-box">
+                    <div class="timer-row">
+                        <div class="timer-block"><span id="days">0</span><label>Hari</label></div>
+                        <div class="timer-block"><span id="hours">0</span><label>Jam</label></div>
+                        <div class="timer-block"><span id="minutes">0</span><label>Menit</label></div>
+                        <div class="timer-block"><span id="seconds">0</span><label>Detik</label></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 5: SUSUNAN ACARA & MAPS -->
+            <section class="section-acara" data-aos="fade-up">
+                <!-- Acara 1 -->
+                <div class="card-acara" data-aos="fade-up">
+                    <h3 class="title-acara">PEMBERKATAN NIKAH</h3>
+                    <div class="church-icon">⛪</div>
+                    <p class="hari-tanggal">Minggu 4 April 2027</p>
+                    <p class="jam-acara">08.00 - 09.00 WIB</p>
+                    <p class="lokasi-acara">Auditorium Budi Luhur Jl. Ciledug Raya No. 99, Petukangan Utara Kec. Pesanggrahan - Jakarta Selatan</p>
+                </div>
+
+                <!-- Acara 2 -->
+                <div class="card-acara" data-aos="fade-up">
+                    <h3 class="title-acara">RESEPSI PERNIKAHAN</h3>
+                    <div class="church-icon">⛪</div>
+                    <p class="hari-tanggal">Minggu 4 April 2027</p>
+                    <p class="jam-acara">11.00 WIB - Selesai</p>
+                    <p class="lokasi-acara">Auditorium Budi Luhur Jl. Ciledug Raya No. 99, Petukangan Utara Kec. Pesanggrahan - Jakarta Selatan</p>
+                    
+                    <a href="https://maps.google.com" target="_blank" class="btn-maps-gold">🗺️ Lihat maps</a>
+                </div>
+            </section>
+
+            <!-- FRAME 6: GALLERY FOTO (OUR MOMENTS - HEADER FOTO BACK3) -->
+            <section class="section-gallery" data-aos="fade-up">
+                <div class="gallery-hero-title">
+                    <h2>Our Moments</h2>
+                </div>
+                
+                <div class="gallery-grid-christian">
+                    <div class="grid-row-2">
+                        <img src="wedfoto.jpeg" alt="Moments 1">
+                        <img src="wedfoto.jpeg" alt="Moments 2">
+                    </div>
+                    <div class="grid-row-1">
+                        <img src="wedfoto.jpeg" alt="Moments 3">
+                    </div>
+                    <div class="grid-row-2">
+                        <img src="wedfoto.jpeg" alt="Moments 4">
+                        <img src="wedfoto.jpeg" alt="Moments 5">
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 7: UCAPAN & RSVP (HEADER FOTO BACK2) -->
+            <section class="section-ucapan" data-aos="fade-up">
+                <div class="ucapan-hero-header">
+                    <h2>KIRIM UCAPAN SELAMATMU</h2>
+                </div>
+                
+                <div class="rsvp-form-container">
+                    <form onsubmit="simpanUcapan(event)">
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" id="inp-nama" placeholder="Nama Anda..." required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Ucapan</label>
+                            <textarea id="inp-pesan" rows="4" placeholder="Ucapan Anda..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Konfirmasi Kehadiran</label>
+                            <select id="inp-konfirmasi">
+                                <option value="Hadir">Hadir</option>
+                                <option value="Tidak Hadir">Tidak Hadir</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-submit-gold">✈ Submit</button>
+                    </form>
+
+                    <h4 class="sub-title-komentar">Komentar Terbaru</h4>
+                    <div class="ucapan-list" id="box-pesan-tamu">
+                        <div class="ucapan-item">
+                            <strong>Ripa</strong> - <span style="font-size:11px; color:#888;">Hadir</span>
+                            <p>Selamat atas pernikahan kalian. Semoga menjadi keluarga yang diberkati Tuhan selalu.</p>
+                        </div>
+                        <div class="ucapan-item">
+                            <strong>Pira</strong> - <span style="font-size:11px; color:#888;">Hadir</span>
+                            <p>Selamat menempuh hidup baru Runi &amp; Gear. Tuhan Yesus memberkati rumah tangga kalian.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 8: PENUTUP (HEADER FOTO BACK1 & KARTU LEBIH PANJANG) -->
+            <section class="section-footer-christian">
+                <div class="footer-hero-header">
+                    <h2>UNGKAPAN TERIMA KASIH</h2>
+                </div>
+
+                <div class="footer-card-gold" data-aos="zoom-in">
+                    <div class="btn-badge-thanks">TERIMA KASIH</div>
+                    <p class="thanks-quote">
+                        Kehadiran serta doa restu dari Bapak/Ibu/Saudara/i sekalian merupakan karunia dan berkat yang tak terhingga bagi kami. 
+                        <br><br>
+                        Terima kasih telah hadir dan menjadi saksi suci atas pengikatan janji kasih kami di dalam hadirat Tuhan Yesus Kristus. 
+                        <br><br>
+                        Semoga sukacita, kasih, dan damai sejahtera Allah Bapa di Surga senantiasa menyertai dan memberkati kehidupan kita semua secara berlimpah.
+                    </p>
+                    
+                    <div class="closing-family">
+                        <p class="text-salam">KAMI YANG BERBAHAGIA</p>
+                        <h3 class="family-names">Runi &amp; Gear</h3>
+                        <p class="family-parents">Beserta Keluarga Besar Kedua Mempelai</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- WADAH POP-UP LIGHTBOX FOTO -->
+    <div id="photo-lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Pratinjau Foto">
+    </div>
+
+    <!-- SCRIPT AOS DAN LOGIKA INTERAKSI -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+
+        const trackLagu = document.getElementById('wedding-music');
+        const btnMusik = document.getElementById('music-btn');
+
+        const argumenUrl = new URLSearchParams(window.location.search);
+        const panggilanTamu = argumenUrl.get('to');
+        if (panggilanTamu) { 
+            document.getElementById('guest-name').innerText = panggilanTamu; 
+        }
+
+        function openInvitation() {
+            document.getElementById('cover-page').style.transform = 'translateY(-100%)';
+            document.getElementById('main-app').style.display = 'block';
+            btnMusik.style.display = 'flex';
+            
+            trackLagu.play().catch(e => console.log("Autoplay musik diblokir."));
+            setTimeout(() => { AOS.refresh(); }, 200);
+        }
+
+        function toggleMusic() {
+            if (trackLagu.paused) {
+                trackLagu.play();
+                btnMusik.innerText = "🎵";
+            } else {
+                trackLagu.pause();
+                btnMusik.innerText = "🔇";
+            }
+        }
+
+        // --- COUNTDOWN TIMER (4 April 2027) ---
+        const hariH = new Date("2027-04-04T08:00:00").getTime();
+        
+        const elDays = document.getElementById('days');
+        const elHours = document.getElementById('hours');
+        const elMinutes = document.getElementById('minutes');
+        const elSeconds = document.getElementById('seconds');
+
+        const hitungMundur = setInterval(function() {
+            const sekarang = new Date().getTime();
+            const selisih = hariH - sekarang;
+            
+            if (selisih > 0) {
+                elDays.innerText = Math.floor(selisih / (1000 * 60 * 60 * 24));
+                elHours.innerText = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                elMinutes.innerText = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+                elSeconds.innerText = Math.floor((selisih % (1000 * 60)) / 1000);
+            } else {
+                elDays.innerText = "0";
+                elHours.innerText = "0";
+                elMinutes.innerText = "0";
+                elSeconds.innerText = "0";
+                clearInterval(hitungMundur);
+            }
+        }, 1000);
+
+        // --- RSVP & UCAPAN ---
+        const inpNama = document.getElementById('inp-nama');
+        const inpPesan = document.getElementById('inp-pesan');
+        const inpKonfirmasi = document.getElementById('inp-konfirmasi');
+        const boxPesanTamu = document.getElementById('box-pesan-tamu');
+
+        function simpanUcapan(event) {
+            event.preventDefault();
+            const nama = inpNama.value.trim();
+            const pesan = inpPesan.value.trim();
+            const status = inpKonfirmasi.value;
+
+            if (nama === "" || pesan === "") return;
+
+            const strukturBaru = `
+                <div class="ucapan-item" data-aos="fade-right">
+                    <strong>${escapeHTML(nama)}</strong> - <span style="font-size:11px; color:#888;">${status}</span>
+                    <p>${escapeHTML(pesan)}</p>
+                </div>
+            `;
+            boxPesanTamu.insertAdjacentHTML('afterbegin', strukturBaru);
+            inpNama.value = "";
+            inpPesan.value = "";
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+        }
+
+        // --- EFEK KLIK SPARKLE EMAS ---
+        document.addEventListener('click', function(e) {
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('click-sparkle');
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                const arahX = (Math.random() - 0.5) * 80 + 'px';
+                const arahY = (Math.random() - 0.5) * 80 + 'px';
+                sparkle.style.setProperty('--x', arahX);
+                sparkle.style.setProperty('--y', arahY);
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 800);
+            }
+        });
+
+        // --- LIGHTBOX POPUP FOTO ---
+        const lightbox = document.getElementById('photo-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('.gallery-grid-christian img').forEach(img => {
+            img.addEventListener('click', function() {
+                lightboxImg.src = this.src;
+                lightbox.classList.add('show');
+            });
+        });
+
+        function closeLightbox() { lightbox.classList.remove('show'); }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    </script>
+</body>
+</html>

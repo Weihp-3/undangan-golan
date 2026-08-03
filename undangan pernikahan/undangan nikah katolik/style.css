@@ -1,0 +1,452 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #121212;
+    font-family: 'Georgia', serif;
+    color: #3e2723;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* CONTAINER UTAMA (BACKGROUND ASET KONTEN) */
+.container {
+    max-width: 450px;
+    margin: 0 auto;
+    /* Ganti 'bg-konten.jpg' dengan file gambar background konten utama kamu */
+    background: linear-gradient(rgba(253, 248, 235, 0.25), rgba(253, 248, 235, 0.25)), url('VINTAGE.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat-y;
+    min-height: 100vh;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0,0,0,0.7);
+}
+
+.font-serif-title {
+    font-family: 'Times New Roman', serif;
+    letter-spacing: 2px;
+}
+
+.catholic-divider {
+    font-size: 24px;
+    color: #b58d3d;
+    margin: 20px 0;
+    letter-spacing: 5px;
+}
+
+section {
+    padding: 50px 20px;
+    position: relative;
+}
+
+/* COVER PAGE SCREEN PENUH MELUNCUR KE ATAS */
+#cover-page {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    /* Ganti 'bg-cover.jpg' dengan aset background cover pembuka kamu */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('VINTAGE.jpg') center/cover;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.cover-box {
+    background: rgba(253, 248, 235, 0.95);
+    width: 90%;
+    max-width: 380px;
+    padding: 40px 20px;
+    border: 3px double #b58d3d;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    margin: auto;
+}
+
+.vintage-banner {
+    background: #4a2c11;
+    color: #d4af37;
+    padding: 8px 15px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    border: 1px solid #b58d3d;
+}
+
+.guest-title {
+    color: #4a2c11; 
+    font-size: 18px; 
+    margin-bottom: 20px;
+}
+
+/* BINGKAI BULAT BERPUTAR */
+.rotating-frame-wrapper {
+    position: relative;
+    width: 200px; /* Kita besarkan sedikit biar lebih megah */
+    height: 200px;
+    margin: 0 auto 25px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gold-mandala-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('frameft.png') center/contain no-repeat; /* Menggunakan contain agar ukiran emasnya utuh tidak terpotong */
+    border: none; /* KITA HAPUS BORDER DASHED BIAR GAK MENGGANGGU BINGKAI EMAS ASLI */
+    border-radius: 50%;
+    animation: putarHalus 25s linear infinite; /* Sedikit diperlambat biar putarannya elegan */
+    z-index: 1; /* Di bawah foto sedikit melebar keluar */
+}
+
+.inner-photo {
+    position: absolute;
+    /* Menaruh foto tepat pas di dalam lingkaran tengah mandala emas */
+    width: 125px; 
+    height: 125px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #b58d3d; /* Outline emas tipis melingkari foto */
+    z-index: 2; /* Berada di atas bingkai tengah */
+}
+
+.inner-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes putarHalus {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* TOMBOL VINTAGE */
+.btn-vintage {
+    background: #4a2c11;
+    color: #fdf8eb;
+    border: 2px solid #b58d3d;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.btn-vintage:hover {
+    background: #b58d3d;
+    color: #4a2c11;
+}
+
+.btn-maps-link {
+    text-shadow: none; 
+    text-decoration: none; 
+    display: inline-block;
+}
+
+/* MAIN CONTENT */
+.main-hero-bg {
+    /* Ganti 'bg-cover.jpg' dengan gambar hero atas setelah undangan dibuka */
+    background: url('salib1.jpg') center/top no-repeat; 
+    height: 50vh; 
+    display: flex; 
+    align-items: flex-end; 
+    justify-content: center; 
+    padding-bottom: 40px;
+}
+
+.hero-title {
+    color: #fff; 
+    text-shadow: 2px 2px 5px #000; 
+    font-size: 30px;
+}
+
+.verse-bg {
+    /* Ganti 'bg-verse.jpg' dengan latar belakang ayat alkitab kamu */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('salib.jpg') center/cover;
+    color: #fff;
+    padding: 40px 25px;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.verse-reference {
+    display: block; 
+    margin-top: 10px; 
+    color: #d4af37;
+}
+
+/* MEMPELAI GRID */
+.mempelai-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.vintage-photo-frame {
+    width: 150px;
+    height: 200px;
+    margin: 0 auto 15px auto;
+    border: 8px solid #4a2c11;
+    outline: 2px solid #b58d3d;
+}
+
+.vintage-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nama-mempelai {
+    font-size: 24px;
+    font-family: 'Times New Roman', serif;
+    color: #4a2c11;
+    font-weight: bold;
+}
+
+.ampersand-divider {
+    font-size: 28px; 
+    font-family: cursive; 
+    color: #b58d3d;
+}
+
+/* SUSUNAN ACARA */
+.section-acara {
+    background: rgba(74, 44, 17, 0.05);
+}
+
+.card-acara {
+    background: #fff;
+    border: 1px solid #e0d4be;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+/* COUNTDOWN TIMER */
+.timer-row {
+    display: flex;
+    justify-content: space-around;
+    background: #4a2c11;
+    padding: 15px 10px;
+    border-radius: 50px;
+    border: 2px solid #b58d3d;
+    margin: 20px 0;
+}
+
+.timer-block {
+    color: #fdf8eb;
+    font-weight: bold;
+}
+
+.timer-block span {
+    display: block;
+    font-size: 22px;
+    color: #d4af37;
+}
+
+.timer-block label {
+    font-size: 10px;
+}
+
+/* GALLERY GRID */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+.gallery-grid img:nth-child(3) {
+    grid-column: span 2;
+    height: 200px;
+}
+
+/* RSVP FORM */
+.rsvp-box {
+    background: rgba(74, 44, 17, 0.05);
+    border: 2px dashed #b58d3d;
+    padding: 25px 20px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4a2c11;
+    background: #fff;
+}
+
+.ucapan-list {
+    max-height: 250px;
+    overflow-y: auto;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #e0d4be;
+    margin-top: 15px;
+}
+
+.ucapan-item {
+    border-bottom: 1px dashed #ccc;
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+/* FLOATING AUDIO CONTROLLER */
+.music-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+    width: 45px;
+    height: 45px;
+    background: #4a2c11;
+    border: 2px solid #b58d3d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d4af37;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+.section-footer {
+    background: #4a2c11; 
+    color: #fdf8eb; 
+    padding: 60px 20px;
+}
+
+.footer-quote {
+    font-size: 13px; 
+    line-height: 1.6; 
+    font-style: italic;
+}
+
+/* EFEK SENTUHAN / SPARKLE PARTICLES */
+.click-sparkle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #d4af37; /* Warna emas senada dengan mandala */
+    border-radius: 50%;
+    pointer-events: none; /* Biar gak ngeblok klik tombol di bawahnya */
+    z-index: 99999; /* Selalu di paling atas */
+    box-shadow: 0 0 10px #ffdf7a, 0 0 20px #d4af37;
+    animation: mekarHilang 0.8s ease-out forwards;
+}
+
+@keyframes mekarHilang {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        /* Bintang memencar ke arah acak dan mengecil */
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+/* --- EFEK HOVER SHINE PADA GALERI --- */
+.gallery-grid img {
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+    position: relative;
+    border: 2px solid #d4af37;
+    border-radius: 4px;
+}
+
+/* Efek foto terangkat saat didekati */
+.gallery-grid img:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* --- TAMPILAN LIGHTBOX POP-UP --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999999; /* Di atas efek sparkle */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px); /* Efek background nge-blur estetik */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.show {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 85%;
+    max-height: 80%;
+    border: 3px solid #d4af37;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    transform: scale(0.7);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lightbox.show .lightbox-content {
+    transform: scale(1); /* Efek pop-up membal/mentul halus */
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.lightbox-close:hover {
+    color: #d4af37;
+}

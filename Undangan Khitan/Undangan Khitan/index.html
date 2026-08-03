@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Khitanan Yuda Hadi Purnama</title>
+    <!-- Menggunakan AOS Library untuk efek animasi scroll agar hemat code -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* --- CORE STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+        }
+        body {
+            background-color: #1a1a1a;
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            background: #fffdf7;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        section {
+            padding: 60px 20px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* --- BUTTONS & INTERACTION EFFECTS --- */
+        .btn {
+            background: #8b5a2b;
+            color: white;
+            padding: 12px 30px;
+            border: 2px solid #d4af37;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 15px 0;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: color 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        /* Efek Kilatan & Hover Glow pada Tombol Biasa */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.6s ease;
+        }
+        .btn:hover::before {
+            left: 100%;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(139, 90, 43, 0.4);
+            background: #a06c3a;
+        }
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Tombol Maps Hijau Khusus */
+        .btn-maps {
+            background: #5cb85c;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 25px;
+            font-size: 15px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .btn-maps:hover {
+            background: #4cae4c;
+            box-shadow: 0 6px 15px rgba(76, 174, 76, 0.5);
+        }
+
+        /* --- MUSIK FLOATING BUTTON --- */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            width: 45px;
+            height: 45px;
+            background: rgba(139, 90, 43, 0.85);
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            display: none; /* Muncul setelah cover dibuka */
+            justify-content: center;
+            align-items: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            animation: berputar 4s linear infinite paused; /* Berputar kalau musik jalan */
+        }
+        .music-control.playing {
+            animation-play-state: running;
+        }
+        @keyframes berputar {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- EFEK DAUN/BUNGA GUGUR (PARTIKEL) --- */
+        #particle-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 5;
+        }
+        .leaf {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #d4af37;
+            opacity: 0.6;
+            border-radius: 0 20px;
+            animation: gugur linear infinite;
+        }
+        @keyframes gugur {
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- FRAME 1: COVER UNDANGAN --- */
+        #frame-1 {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('jawa.png') center/cover no-repeat;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .cover-content {
+            background: rgba(255, 255, 255, 0.40);
+            padding: 30px 20px;
+            border-radius: 10px;
+            border: 2px solid #d4af37;
+            width: 85%;
+            max-width: 380px;
+            backdrop-filter: blur(5px);
+        }
+        .avatar-frame {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid #d4af37;
+            margin: 0 auto 20px auto;
+            overflow: hidden;
+            background: #eee;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .avatar-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        #main-content { display: none; }
+
+        /* --- FRAME 2: MUKA SANG ANAK --- */
+        #frame-2 {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 80px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 90%), url('jawamode.jpg') center/cover no-repeat;
+        }
+        #frame-2 h1 { color: #ffffff; font-size: 24px; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+
+        /* --- FRAME 3: SAMBUTAN --- */
+        #frame-3 {
+            background: url('JAWABACK.jpg') center/cover no-repeat;
+            color: #5c4033;
+        }
+        #frame-3::before {
+            content: ""; position: absolute; top:0; left:0; width:100%; height:100%;
+            background: rgba(255, 255, 253, 247, 0.7); z-index: 1;
+        }
+        .frame-3-content { position: relative; z-index: 2; }
+
+        /* --- FRAME 4 & 5: TEMPAT, TANGGAL & MAPS --- */
+        #frame-4-5 {
+            background: url('framejawa.jpg') center/cover no-repeat;
+            color: #fff;
+        }
+        .countdown-container { display: flex; justify-content: space-around; margin: 30px 0 10px 0; }
+        .circle-timer {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(118, 106, 94, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #bfa07a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .circle-timer span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .circle-timer label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #bfa07a;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        .maps-box img { width: 100%; border-radius: 8px; display: block; transition: transform 0.3s ease; }
+        .maps-box img:hover { transform: scale(1.02); }
+
+        /* --- FRAME 6: KELUARGA --- */
+        #frame-6 {
+            background: url('groundjawa.jpg') center/cover no-repeat;
+            color: #4a3319;
+            font-weight: bold;
+        }
+
+        /* --- FRAME 7: Kehadiran --- */
+        #frame-7 {
+            background: url('backsawah.jpg') center/cover no-repeat;
+        }
+        .form-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .form-card h2 { text-align: center; margin-bottom: 20px; font-family: cursive; color: #8b5a2b; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 13px; margin-bottom: 5px; color: #666; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 10px; background: #ebdcb9; border: 1px solid #c8b282; border-radius: 4px;
+            font-family: sans-serif;
+        }
+
+        /* --- FRAME 8: LOG PAGE UCAPAN (POP UP OVERLAY) --- */
+        #frame-8-page {
+            position: fixed; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 999999;
+            display: none;
+            overflow-y: auto; 
+            padding: 20px 10px;
+        }
+        .ucapan-container-box {
+            max-width: 430px; 
+            margin: 10px auto; 
+            background: #fffdf7;
+            padding: 20px; 
+            border-radius: 12px; 
+            border: 2px solid #d4af37; 
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .btn-close-top {
+            background: #5cb85c !important; /* Hijau segar */
+            color: #fff !important;
+            width: 100%;
+            margin: 0 0 20px 0 !important;
+            border: 1px solid #4cae4c !important;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            font-size: 15px !important;
+            padding: 12px 0 !important;
+        }
+        .ucapan-list-scroll {
+            max-height: 380px; 
+            overflow-y: auto; 
+            margin-top: 15px; 
+            background: #ebdcb9;
+            padding: 12px; 
+            border-radius: 8px; 
+            text-align: left;
+        }
+        .ucapan-item {
+            background: white; color: #333; padding: 12px; border-radius: 6px; margin-bottom: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .ucapan-item strong { color: #8b5a2b; }
+        .ucapan-item span { font-size: 10px; color: #888; float: right; }
+
+        /* --- FRAME 9: GALLERY --- */
+        #frame-9 {
+            background: url('backframe.jpg') center/cover no-repeat;
+            padding: 40px 20px;
+        }
+        .gallery-title { font-family: cursive; font-size: 26px; color: #333; margin-bottom: 20px; }
+        .gallery-layout {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+        }
+        .gallery-layout img { width: 100%; height: 110px; object-fit: cover; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: transform 0.3s; }
+        .gallery-layout img:hover { transform: scale(1.05); z-index: 10; }
+        .gallery-layout img:nth-child(4) { grid-column: span 3; height: 180px; }
+
+        /* --- FRAME 10: PENUTUP --- */
+        #frame-10 {
+            background: url('back1.jpg') center/cover no-repeat;
+            padding: 60px 20px;
+        }
+        .logo-bawah { width: 120px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <!-- AUDIO ELEMENT -->
+    <audio id="backsound" src="musik.mp3" loop></audio>
+
+    <!-- FLOATING AUDIO BUTTON -->
+    <div id="music-btn" class="music-control" onclick="toggleMusik()">🎵</div>
+
+    <div class="container">
+        <!-- Wadah Efek Partikel Daun Gugur -->
+        <div id="particle-container"></div>
+
+        <!-- FRAME 1: SCREEN PEMBUKA -->
+        <div id="frame-1">
+            <div class="cover-content">
+                <p style="font-size: 12px; letter-spacing: 2px; color: #8b5a2b;">KHITANAN YUDA PURNAMA</p>
+                <div class="avatar-frame">
+                    <img src="anak1.jpg" alt="Foto Yuda">
+                </div>
+                <p style="font-size: 14px; margin-bottom: 5px;">Kepada Bapak/Ibu/Saudara/i:</p>
+                <h3 style="margin-bottom: 20px; color: #8b5a2b;" id="nama-tamu">Ahmad</h3>
+                <button class="btn" onclick="bukaUndangan()">Buka Undangan</button>
+            </div>
+        </div>
+
+        <!-- MAIN LAYOUT -->
+        <div id="main-content">
+
+            <!-- FRAME 2: PENGENALAN MUKA ANAK -->
+            <section id="frame-2">
+                <h1 data-aos="zoom-in" data-aos-duration="1200">KHITANAN YUDA HADI PURNAMA</h1>
+            </section>
+
+            <!-- FRAME 3: SAMBUTAN & DOA -->
+            <section id="frame-3">
+                <div class="frame-3-content" data-aos="fade-up" data-aos-duration="1000">
+                    <p style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">السَّلَّامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+                    <p>Dengan memohon Rahmat dan Ridho Allah SWT kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri Khitanan putra kami</p>
+                    <h2 style="margin: 20px 0; color: #8b5a2b;">YUDA HADI PURNAMA</h2>
+                    <p style="font-size: 12px; font-style: italic; color: #666;">Putra kedua dari Bpk. Akhdan Ziyad & Ibu Rohini</p>
+                    <div class="avatar-frame" style="width: 90px; height: 90px; margin: 15px auto;"><img src="anak2.jpg"></div>
+                    <p style="font-size: 13px; font-style: italic; border-top: 1px dashed #c8b282; padding-top: 15px;">
+                        "Peristiwa penting dalam perjalanan hidup lelaki muslim adalah menjelang akil baligh, saat manis dalam kenangan sejarah panjang seorang muslim adalah untuk pertama dan cuma sekali ketika ia dikhitan. Ya Allah perkenankanlah kami mengkhitankan putra kami"
+                    </p>
+                </div>
+            </section>
+
+            <!-- FRAME 4 & 5: TEMPAT, TANGGAL & MAPS -->
+            <section id="frame-4-5">
+                <div data-aos="fade-up" data-aos-duration="1000">
+                    <h2 style="color: #fff; font-size: 32px; font-family: 'Georgia', serif; font-weight: bold; margin-bottom: 20px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Save The Date</h2>
+                    <p style="margin-top: 15px; font-size: 18px; font-weight: bold; color: #fff;">Minggu, 08 Agustus 2026</p>
+                    <p style="font-size: 14px; color: #eee; margin-top: 5px;">Pukul 08:30 WIB Sampai Selesai</p>
+                    <p style="font-size: 14px; color: #eee; margin-top: 5px; padding: 0 20px;">Jalan Kenangan, RT 001 RW.003 Banten</p>
+                    
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-maps">
+                        📍 Maps Lokasi Acara
+                    </a>
+                </div>
+
+                <!-- COUNTDOWN TIMER BULAT -->
+                <div class="countdown-container" style="display: flex; justify-content: space-evenly; margin: 20px 0 30px 0;" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="circle-timer"><span id="days">0</span><label>Day</label></div>
+                    <div class="circle-timer"><span id="hours">0</span><label>Hour</label></div>
+                    <div class="circle-timer"><span id="minutes">0</span><label>Min</label></div>
+                    <div class="circle-timer"><span id="seconds">0</span><label>Sec</label></div>
+                </div>
+
+                <!-- PREVIEW GAMBAR MAPS KOTAK -->
+                <div class="maps-box" style="background: #ffffff; padding: 12px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin: 0 15px 0 15px;" data-aos="fade-up">
+                    <img src="maps.jpg" alt="Peta Lokasi">
+                </div>
+            </section>
+
+            <!-- FRAME 6: UCAPAN PEMBUKA KELUARGA -->
+            <section id="frame-6" data-aos="fade-up" data-aos-duration="1000">
+                <p style="font-size: 18px; margin-bottom: 15px;">وَعَلَيْكُمُ السَّلَامُ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+                <p>Kami yang berbahagia,</p>
+                <h3 style="color: #8b5a2b; margin: 10px 0;">Kel. Bpk. Akhdan Ziyad & Ibu Rohini</h3>
+                <p style="font-size: 13px; color: #666; border-top: 1px dashed #8b5a2b; padding-top: 10px; display:inline-block;">Turut Mengundang : Seluruh Keluarga & Kerabat</p>
+            </section>
+
+            <!-- FRAME 7: FORM KEHADIRAN -->
+            <section id="frame-7" data-aos="fade-up" data-aos-duration="1000">
+                <div class="form-card">
+                    <h2>Kehadiran</h2>
+                    <form onsubmit="prosesKirimUcapan(event)">
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" id="ins-nama" placeholder="Bapak Budi" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Ucapan</label>
+                            <textarea id="ins-pesan" rows="3" placeholder="Tulis ucapan selamat..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Kehadiran</label>
+                            <select id="ins-hadir">
+                                <option value="Hadir">Hadir</option>
+                                <option value="Tidak Hadir">Tidak Hadir</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Kirim</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- FRAME 9: OUR GALLERY -->
+            <section id="frame-9" data-aos="fade-up" data-aos-duration="1000">
+                <div class="gallery-title">Our Gallery</div>
+                <div class="gallery-layout">
+                    <img src="anak3.jpg" alt="Foto 1">
+                    <img src="anak4.jpg" alt="Foto 2">
+                    <img src="anak6.jpg" alt="Foto 3">
+                    <img src="anak5.jpg" alt="Foto 4">
+                    <img src="anak2.jpg" alt="Foto 5">
+                    <img src="anak1.jpg" alt="Foto 6">
+                    <img src="jawamode.jpg" alt="Foto 7">
+                </div>
+            </section>
+
+            <!-- FRAME 10: PENUTUP -->
+            <section id="frame-10" data-aos="fade-up" data-aos-duration="1100">
+                <img src="kipasku.png" class="logo-bawah" alt="Mandala Icon">
+                <div class="avatar-frame" style="width: 80px; height: 80px;"><img src="anak2.jpg"></div>
+                <p style="font-size: 14px; font-style: italic; margin-top: 15px; color: #4a3319;">
+                    "Merupakan suatu kebahagiaan dan kehormatan bagi kami, Apabila Bapak/Ibu/Saudara/i, Berkenan Hadir di Acara kami"
+                </p>
+            </section>
+
+        </div>
+
+        <!-- FRAME 8: POP-UP LIST UCAPAN -->
+        <div id="frame-8-page">
+            <div class="ucapan-container-box">
+                <button type="button" class="btn btn-close-top" onclick="tutupPageUcapan()">✓ Lihat Undangan Lagi</button>
+                <h2 style="font-family: cursive; margin-bottom: 5px; color: #8b5a2b;">Daftar Ucapan</h2>
+                <p style="font-size: 13px; color: #666; margin-bottom: 10px;" id="stat-hadir">1345 Orang Menyatakan Hadir</p>
+                
+                <div class="ucapan-list-scroll" id="container-pesan-tamu">
+                    <div class="ucapan-item">
+                        <strong>Lian</strong> <span>2026-08-01 22:44:10</span>
+                        <p>Selamat khitan Yuda</p>
+                    </div>
+                    <div class="ucapan-item">
+                        <strong>Adi</strong> <span>2026-08-01 22:45:17</span>
+                        <p>Selamat Khitan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT AOS ANIMATION -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+
+        const lagu = document.getElementById('backsound');
+        const tombolMusik = document.getElementById('music-btn');
+
+        function bukaUndangan() {
+            document.getElementById('frame-1').style.transform = 'translateY(-100%)';
+            document.getElementById('main-content').style.display = 'block';
+            tombolMusik.style.display = 'flex';
+            
+            lagu.play().then(() => {
+                tombolMusik.classList.add('playing');
+            }).catch(err => console.log("Autoplay dicegah browser."));
+            
+            setTimeout(() => { AOS.refresh(); }, 100);
+            buatPartikelGugur();
+        }
+
+        function toggleMusik() {
+            if (lagu.paused) {
+                lagu.play();
+                tombolMusik.classList.add('playing');
+                tombolMusik.innerText = "🎵";
+            } else {
+                lagu.pause();
+                tombolMusik.classList.remove('playing');
+                tombolMusik.innerText = "🔇";
+            }
+        }
+
+        function buatPartikelGugur() {
+            const wadah = document.getElementById('particle-container');
+            setInterval(() => {
+                const daun = document.createElement('div');
+                daun.classList.add('leaf');
+                daun.style.left = Math.random() * 100 + '%';
+                daun.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                daun.style.width = daun.style.height = (Math.random() * 8 + 10) + 'px';
+                wadah.appendChild(daun);
+                setTimeout(() => { daun.remove(); }, 7000);
+            }, 600);
+        }
+
+        const URLVar = new URLSearchParams(window.location.search);
+        const parseTamu = URLVar.get('to');
+        if (parseTamu) { document.getElementById('nama-tamu').innerText = parseTamu; }
+
+        const targetDate = new Date("Aug 8, 2026 08:30:00").getTime();
+        setInterval(function() {
+            const kini = new Date().getTime();
+            const jarak = targetDate - kini;
+            if(jarak > 0) {
+                document.getElementById('days').innerText = Math.floor(jarak / (1000 * 60 * 60 * 24));
+                document.getElementById('hours').innerText = Math.floor((jarak % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((jarak % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').innerText = Math.floor((jarak % (1000 * 60)) / 1000);
+            }
+        }, 1000);
+
+        let countHadir = 1345;
+        function prosesKirimUcapan(e) {
+            e.preventDefault();
+            const nm = document.getElementById('ins-nama').value;
+            const ps = document.getElementById('ins-pesan').value;
+            const hd = document.getElementById('ins-hadir').value;
+            const waktu = new Date().toISOString().replace('T', ' ').substring(0, 19);
+
+            if(hd === "Hadir") { countHadir++; }
+            document.getElementById('stat-hadir').innerText = `${countHadir} Orang Menyatakan Hadir`;
+
+            const htmlBaru = `
+                <div class="ucapan-item">
+                    <strong>${nm}</strong> <span>${waktu}</span>
+                    <p>${ps}</p>
+                </div>
+            `;
+            document.getElementById('container-pesan-tamu').insertAdjacentHTML('afterbegin', htmlBaru);
+            
+            document.getElementById('frame-8-page').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function tutupPageUcapan() {
+            document.getElementById('frame-8-page').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('ins-nama').value = "";
+            document.getElementById('ins-pesan').value = "";
+        }
+    </script>
+</body>
+</html>

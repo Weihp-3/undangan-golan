@@ -1,0 +1,472 @@
+/* CSS Reset & Variabel */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #F4F3EF;
+    --primary-color: #2B3E50; /* Navy Gelap elegan dari Figma */
+    --accent-color: #8E9A86;  /* Sage Green lembut */
+    --text-dark: #2C3E50;
+    --text-muted: #7F8C8D;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e5e2da;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background-image: url('backkeramic.jpg'); /* Background tekstur keramik lembut */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Container Pembungkus Mobile-First (Max 450px) */
+.app-container {
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* 1. Hero / Cover Section */
+.hero-section {
+    height: 90vh;
+    background-image: linear-gradient(to bottom, rgba(43,62,80,0.15), rgba(43,62,80,0.5)), url('pt.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px 60px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+.hero-names {
+    font-family: 'Satisfy', cursive;
+    font-size: 56px;
+    margin: 20px 0 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    color: #FFFFFF;
+}
+
+.hero-date {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    border-top: 1px solid rgba(255,255,255,0.4);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding: 8px 25px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 2. Countdown Melayang ala Figma */
+.countdown-floating {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    padding: 15px 10px;
+    width: 88%;
+    margin: -40px auto 40px;
+    box-shadow: 0 10px 25px rgba(43,62,80,0.12);
+    position: relative;
+    z-index: 100;
+    border: 1px solid rgba(142, 154, 134, 0.2);
+}
+
+.countdown-item {
+    text-align: center;
+    flex: 1;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Cinzel', serif;
+}
+
+.countdown-item label {
+    font-size: 9px;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* 3. Pembuka & Salam */
+.section-padding {
+    padding: 50px 25px;
+    text-align: center;
+}
+
+.rose-divider {
+    width: 60px;
+    height: auto;
+    margin: 0 auto 20px;
+    opacity: 0.8;
+}
+
+.wedding-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--accent-color);
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.main-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.opening-text {
+    font-size: 12.5px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* 4. Profil Pengantin Sesuai Figma */
+.profile-card-container {
+    padding: 0 20px;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 24px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    margin-bottom: 30px;
+    text-align: center;
+    border: 1px solid rgba(142, 154, 134, 0.1);
+}
+
+.profile-frame {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 4px solid var(--bg-color);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+    transition: transform 0.6s ease;
+}
+
+.profile-card:hover .profile-frame {
+    transform: scale(1.05);
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-nickname {
+    font-family: 'Satisfy', cursive;
+    font-size: 36px;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.profile-fullname {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+.profile-parents {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-top: 15px;
+    border-top: 1px dashed rgba(142, 154, 134, 0.25);
+    padding-top: 15px;
+}
+
+.profile-parents strong {
+    color: var(--primary-color);
+}
+
+.instagram-button {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 11px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+.instagram-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.center-wedding-banner {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    margin: 15px 0 35px;
+    display: block;
+}
+
+/* 5. Quran Verse / Kutipan Romantis */
+.quote-block {
+    background-color: rgba(142, 154, 134, 0.1);
+    padding: 35px 25px;
+    text-align: center;
+    border-top: 1px solid rgba(142, 154, 134, 0.2);
+    border-bottom: 1px solid rgba(142, 154, 134, 0.2);
+    margin: 20px 0;
+}
+
+.quote-text {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #555;
+    font-style: italic;
+}
+
+/* 6. Detail Acara & Maps */
+.event-card-wrapper {
+    padding: 30px 20px;
+}
+
+.event-card {
+    background: white;
+    border-radius: 28px;
+    padding: 40px 20px;
+    box-shadow: 0 10px 30px rgba(43,62,80,0.05);
+    text-align: center;
+    border: 1px solid rgba(142, 154, 134, 0.15);
+}
+
+.maps-indicator-img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.event-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.event-details-text {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.maps-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(43,62,80,0.25);
+    transition: all 0.3s;
+}
+
+.maps-btn-primary img {
+    width: 14px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.maps-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(43,62,80,0.35);
+}
+
+/* 7. Love Story Section */
+.story-container {
+    padding: 40px 20px;
+}
+
+.story-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.story-timeline-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.03);
+    padding: 20px;
+    margin-bottom: 35px;
+    border: 1px solid rgba(142, 154, 134, 0.12);
+    transition: transform 0.4s ease;
+}
+
+.story-timeline-card:hover {
+    transform: translateY(-5px);
+}
+
+.story-image-box {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.story-image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+.story-timeline-card:hover .story-image-box img {
+    transform: scale(1.05);
+}
+
+.story-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.story-desc {
+    font-size: 11.5px;
+    line-height: 1.7;
+    color: #666;
+    text-align: justify;
+}
+
+/* 8. Susunan Acara / Rundown */
+.rundown-section {
+    padding: 45px 25px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(142, 154, 134, 0.15);
+}
+
+.rundown-item {
+    display: flex;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.rundown-time {
+    width: 75px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--primary-color);
+    padding-top: 2px;
+}
+
+.rundown-line {
+    width: 16px;
+    position: relative;
+    margin-right: 15px;
+}
+
+.rundown-line::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    z-index: 2;
+}
+
+.rundown-line::after {
+    content: '';
+    width: 2px;
+    background-color: rgba(142, 154, 134, 0.2);
+    position: absolute;
+    top: 15px;
+    bottom: -25px;
+    left: 7px;
+    z-index: 1;
+}
+
+.rundown-item:last-child .rundown-line::after {
+    display: none;
+}
+
+.rundown-detail h4 {
+    font-size: 13.5px;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.rundown-detail p {
+    font-size: 11.5px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 9. Footer Penutup */
+.footer-banner {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.footer-title {
+    font-family: 'Satisfy', cursive;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.footer-text {
+    font-size: 11px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.footer-bunny {
+    width: 40px;
+    height: auto;
+    margin: 25px auto 0;
+    display: block;
+    opacity: 0.9;
+}
