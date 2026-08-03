@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Undangan Ulang Tahun Ke-5 Aira Syafiqah - Teman-teman dan Keluarga Diundang Dalam Perayaan Ulang Tahun Bertema Hello Kitty!">
+  <title>Undangan Ulang Tahun Aira Syafiqah Ke-5 🎀</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="cover-active">
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Floating Particles Background -->
+  <div id="particles-container" class="particles-container"></div>
+
+  <!-- Floating Music Toggle Button -->
+  <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle Background Music" title="Putar / Hentikan Musik">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+    </svg>
+  </button>
+
+  <!-- Background Music Audio -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="https://assets.mixkit.co/music/preview/mixkit-happy-times-158.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ======================================================
+       COVER SECTION (COVER INTERAKTIF / LOCK SCREEN)
+       ====================================================== -->
+  <section id="cover-screen" class="cover-screen">
+    <div class="cover-card">
+      <!-- Ribbon Sticker Header -->
+      <div class="ribbon-sticker">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        HAPPY BIRTHDAY
+      </div>
+
+      <!-- Photo Frame Template for Birthday Girl -->
+      <div class="photo-frame-wrapper">
+        <div class="photo-frame-inner">
+          <img src="assets/images/hero.png" alt="Aira Syafiqah Photo Frame">
+        </div>
+        <div class="photo-frame-ribbon">🎀</div>
+      </div>
+
+      <p class="cover-subtitle">UNDANGAN ULANG TAHUN</p>
+      <h1 class="cover-title">Aira Syafiqah</h1>
+      <div class="cover-age-badge">TURNING 5th YEARS OLD 🎈</div>
+
+      <div class="cover-guest-box">
+        <p class="cover-guest-label">Spesial Mengundang Bapak/Ibu/Saudara/i:</p>
+        <p id="guest-name" class="cover-guest-name">Tamu Undangan</p>
+      </div>
+
+      <button id="btn-open-invitation" class="btn-open-invitation">
+        <span>Buka Undangan</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       MAIN CONTENT CONTAINER
+       ====================================================== -->
+  <main class="main-wrapper">
+
+    <!-- 1. PEMBUKA (OPENING SECTION) -->
+    <section class="section-container opening-header">
+      <div class="opening-icon">🌸</div>
+      <p class="greeting-text">Assalamu’alaikum Wr. Wb.</p>
+      <p class="section-desc">
+        Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i serta teman-teman sekalian untuk menghadiri syukuran ulang tahun putri tercinta kami:
+      </p>
+
+      <div class="hero-card">
+        <img src="assets/images/hero.png" alt="Aira Syafiqah" class="hero-profile-img">
+        <h2 style="color: var(--bright-pink); font-size: 1.8rem; margin-bottom: 4px;">Aira Syafiqah</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Putri dari Bapak Ahmad & Ibu Siska</p>
+
+        <!-- Real-Time Countdown Timer -->
+        <h3 style="margin-top: 24px; font-size: 1rem; color: var(--bright-pink);">Hitung Mundur Acara ⏰</h3>
+        <div class="countdown-box">
+          <div class="timer-tile">
+            <div id="timer-days" class="timer-number">00</div>
+            <div class="timer-label">Hari</div>
+          </div>
+          <div class="timer-tile">
+            <div id="timer-hours" class="timer-number">00</div>
+            <div class="timer-label">Jam</div>
+          </div>
+          <div class="timer-tile">
+            <div id="timer-minutes" class="timer-number">00</div>
+            <div class="timer-label">Menit</div>
+          </div>
+          <div class="timer-tile">
+            <div id="timer-seconds" class="timer-number">00</div>
+            <div class="timer-label">Detik</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ISI - MEMORY & GALERI KENANGAN -->
+    <section class="section-container">
+      <div class="section-badge">
+        <span>📸</span> GALERI KENANGAN
+      </div>
+      <h2 class="section-title">Sweet Moments Aira</h2>
+      <p class="section-desc">
+        Momen-momen indah dan tumbuh kembang Aira menuju usia yang ke-5 tahun.
+      </p>
+
+      <div class="memory-grid">
+        <div class="memory-card">
+          <span class="memory-sticker">1 Th 🍼</span>
+          <img src="assets/images/memory_1.png" alt="Momen Usia 1 Tahun Aira">
+          <div class="memory-caption">Langkah Pertama</div>
+        </div>
+        <div class="memory-card">
+          <span class="memory-sticker">2 Th 🌸</span>
+          <img src="assets/images/memory_2.png" alt="Momen Usia 2 Tahun Aira">
+          <div class="memory-caption">Ceria & Menggemaskan</div>
+        </div>
+        <div class="memory-card">
+          <span class="memory-sticker">3 Th 🎂</span>
+          <img src="assets/images/memory_3.png" alt="Momen Usia 3 Tahun Aira">
+          <div class="memory-caption">Pesta Kue Ulang Tahun</div>
+        </div>
+        <div class="memory-card">
+          <span class="memory-sticker">4 Th 🎀</span>
+          <img src="assets/images/memory_4.png" alt="Momen Usia 4 Tahun Aira">
+          <div class="memory-caption">Putri Kecil Cerdas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ISI - JADWAL ACARA & LOKASI -->
+    <section class="section-container">
+      <div class="section-badge">
+        <span>📅</span> JADWAL & LOKASI
+      </div>
+      <h2 class="section-title">Rangkaian Acara</h2>
+      <p class="section-desc">
+        Keseruan pesta ulang tahun Aira akan diselenggarakan pada:
+      </p>
+
+      <div class="event-card">
+        <div class="event-icon">🎂</div>
+        <h3 class="event-name">Pesta Syukuran Ulang Tahun</h3>
+        
+        <div class="event-detail-item">
+          <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+          <span><strong>Minggu, 15 Agustus 2026</strong></span>
+        </div>
+
+        <div class="event-detail-item">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          <span>Pukul 10:00 WIB s/d Selesai</span>
+        </div>
+
+        <div class="event-detail-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span><strong>Grand Ballroom Pink Palace</strong><br>Jl. Mawar Indah No. 12, Jakarta</span>
+        </div>
+
+        <div class="dress-code-badge">
+          🎀 Dress Code: <strong>Pink & White Pastel</strong>
+        </div>
+
+        <div class="btn-group">
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-action btn-action-primary">
+            <span>Google Maps</span> 🗺️
+          </a>
+          <button id="btn-copy-address" class="btn-action">
+            <span>Salin Alamat</span> 📋
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ISI - RSVP & BUKU UCAPAN -->
+    <section class="section-container">
+      <div class="section-badge">
+        <span>💬</span> BUKU UCAPAN & RSVP
+      </div>
+      <h2 class="section-title">Konfirmasi & Doa</h2>
+      <p class="section-desc">
+        Berikan doa terbaik dan konfirmasi Kehadiran Anda untuk menyemarakkan ulang tahun Aira!
+      </p>
+
+      <div class="rsvp-card">
+        <form id="rsvp-form">
+          <div class="form-group">
+            <label class="form-label" for="rsvp-name">Nama Lengkap</label>
+            <input type="text" id="rsvp-name" class="form-input" placeholder="Masukkan nama Anda..." required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvp-status">Konfirmasi Kehadiran</label>
+            <select id="rsvp-status" class="form-select">
+              <option value="attending">Ya, Saya Akan Hadir 🎉</option>
+              <option value="absent">Maaf, Tidak Bisa Hadir 🙏</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvp-message">Pesan & Doa Ulang Tahun</label>
+            <textarea id="rsvp-message" class="form-textarea" rows="3" placeholder="Tuliskan ucapan & doa hangat untuk Aira..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-open-invitation btn-gmail-rsvp" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #ea4335, #d93025); box-shadow: 0 6px 20px rgba(234, 67, 53, 0.35);">
+            <span>Kirim RSVP via Gmail</span> 📧
+          </button>
+          <p class="form-hint">⚡ Pesan akan langsung otomatis terbuka di Gmail dan tersimpan pada buku ucapan.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 5. ISI - KIRIM HADIAH / AMPLOP DIGITAL -->
+    <section class="section-container">
+      <div class="section-badge">
+        <span>🎁</span> KIRIM HADIAH / AMPLOP DIGITAL
+      </div>
+      <h2 class="section-title">Amplop Digital</h2>
+      <p class="section-desc">
+        Doa restu Anda merupakan hadiah terindah bagi kami. Namun jika ingin memberikan tanda kasih untuk Aira, Anda dapat menyalurkannya melalui transfer rekening atau scan QRIS berikut:
+      </p>
+
+      <div class="gift-grid">
+        <!-- Rekening BCA -->
+        <div class="gift-card">
+          <div class="gift-card-header">
+            <span class="bank-badge bca-badge">BCA</span>
+            <span class="gift-icon">💳</span>
+          </div>
+          <h3 class="bank-name">Bank BCA</h3>
+          <p class="account-number">1234-5678-90</p>
+          <p class="account-holder">a.n. Siska Pratama (Ibu Aira)</p>
+          <button class="btn-action btn-copy-acc" data-copy="1234567890" data-label="BCA">
+            <span>Salin No. Rekening BCA</span> 📋
+          </button>
+        </div>
+
+        <!-- Rekening Mandiri -->
+        <div class="gift-card">
+          <div class="gift-card-header">
+            <span class="bank-badge mandiri-badge">MANDIRI</span>
+            <span class="gift-icon">💳</span>
+          </div>
+          <h3 class="bank-name">Bank Mandiri</h3>
+          <p class="account-number">9000-0123-4567</p>
+          <p class="account-holder">a.n. Ahmad Syafiq (Ayah Aira)</p>
+          <button class="btn-action btn-copy-acc" data-copy="900001234567" data-label="Mandiri">
+            <span>Salin No. Rekening Mandiri</span> 📋
+          </button>
+        </div>
+
+        <!-- Scan QRIS -->
+        <div class="gift-card gift-card-qris">
+          <div class="gift-card-header">
+            <span class="bank-badge qris-badge">QRIS ALL PAYMENT</span>
+            <span class="gift-icon">📱</span>
+          </div>
+          <h3 class="bank-name">Scan QRIS E-Wallet</h3>
+          <p class="qris-subtext">GoPay • OVO • DANA • ShopeePay • LinkAja • M-Banking</p>
+          
+          <div class="qris-image-wrapper">
+            <img src="assets/images/qris.png" alt="Scan QRIS Amplop Digital Ulang Tahun Aira" class="qris-image" id="qris-preview-img">
+            <div class="qris-zoom-hint">🔍 Klik untuk memperbesar QRIS</div>
+          </div>
+
+          <div class="ewallet-info">
+            <p class="account-number">0812-3456-7890</p>
+            <p class="account-holder">a.n. Siska Pratama</p>
+          </div>
+
+          <button class="btn-action btn-copy-acc" data-copy="081234567890" data-label="E-Wallet">
+            <span>Salin No. E-Wallet</span> 📋
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PENUTUP (CLOSING SECTION) -->
+    <section class="section-container closing-section">
+      <div class="closing-card">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">💖</div>
+        <h2 class="section-title">Terima Kasih</h2>
+        <p class="section-desc">
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada putri kami.
+        </p>
+
+        <p class="family-signature">
+          Kami yang berbahagia,<br>
+          <strong>Keluarga Besar Bpk. Ahmad & Ibu Siska</strong>
+        </p>
+      </div>
+
+      <div class="footer-credit">
+        <p>© 2026 Undangan Ulang Tahun Aira Syafiqah • Theme Hello Kitty Pastel</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox Modal for Gallery -->
+  <div id="lightbox-modal" class="lightbox-modal">
+    <span id="lightbox-close" class="lightbox-close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Enlarged Memory Photo">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
