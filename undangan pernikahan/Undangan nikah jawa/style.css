@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #333;
+}
+
+/* MENGHILANGKAN SCROLLBAR DI BROWSER */
+::-webkit-scrollbar {
+    display: none;
+}
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.mobile-container {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #111;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    overflow-x: hidden;
+}
+
+/* ANIMASI */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* SECTION BASE */
+.section {
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.content-hidden { display: none; }
+.gold-text { color: #C5A059 !important; }
+.small-title { font-size: 0.8rem; color: #aaa; }
+.section-title { font-family: 'Cinzel', serif; font-size: 1.3rem; color: #8c6d2d; margin-top: 5px; }
+
+/* 1. HERO COVER */
+.hero-section {
+    height: 100vh;
+    background: url('assets/fotonikah.jpg') center top / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 80%, #111 100%);
+}
+
+.hero-content { position: relative; z-index: 2; width: 100%; padding: 0 20px; }
+.sub-title { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 2px; }
+.date-hero { font-size: 0.75rem; color: #ccc; margin-top: 4px; }
+.bride-groom { font-family: 'Cinzel', serif; font-size: 1.8rem; color: #C5A059; margin: 10px 0; }
+.guest-to { font-size: 0.75rem; color: #ddd; }
+
+.guest-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #C5A059;
+    padding: 8px 15px;
+    border-radius: 6px;
+    margin: 10px auto;
+    width: 80%;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.btn-open {
+    background: #C5A059; color: #fff; border: none; padding: 10px 24px;
+    border-radius: 20px; font-weight: 600; cursor: pointer; margin-top: 5px;
+    animation: pulse 2s infinite;
+    transition: background 0.3s ease;
+}
+.btn-open:hover { background: #a88443; }
+
+/* 2. BACKGROUND STYLES */
+.dark-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
+                url('assets/motif batik.jpg') center/cover no-repeat;
+    color: #fff;
+}
+
+.gold-bg {
+    background: linear-gradient(rgba(238, 222, 186, 0.93), rgba(238, 222, 186, 0.93)), 
+                url('assets/motifjawa.jpg') center/cover no-repeat;
+    color: #222;
+}
+
+/* COUNTDOWN */
+.countdown-flex { display: flex; justify-content: center; gap: 15px; margin: 20px 0 15px; }
+.count-item span { font-size: 1.6rem; font-weight: bold; color: #fff; font-family: 'Cinzel', serif; }
+.count-item p { font-size: 0.7rem; color: #C5A059; }
+
+.btn-cal {
+    display: inline-block; background: #C5A059; color: #fff; text-decoration: none;
+    font-size: 0.75rem; padding: 6px 14px; border-radius: 4px; margin-bottom: 20px; font-weight: 600;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.btn-cal:hover { transform: scale(1.05); background: #a88443; }
+
+.quote-text { font-size: 0.75rem; line-height: 1.5; color: #ccc; font-style: italic; }
+.quote-src { font-size: 0.7rem; color: #C5A059; margin-top: 5px; }
+
+/* BANNER PREWED */
+.banner-frame {
+    width: 100%; height: 150px; border: 2px solid #C5A059; border-radius: 8px;
+    overflow: hidden; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.banner-frame:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4); }
+.banner-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+/* PENGANTIN */
+.logo-adat { width: 55px; margin-bottom: 5px; animation: float 3s ease-in-out infinite; }
+.subtitle { font-size: 0.75rem; color: #555; margin-top: 2px; }
+
+.couple-flex { margin-top: 20px; }
+.couple-card { margin-bottom: 15px; }
+.photo-frame {
+    width: 120px; height: 160px; margin: 0 auto 10px; border-radius: 60px 60px 0 0;
+    overflow: hidden; border: 2px solid #8c6d2d; cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.photo-frame:hover { transform: scale(1.04); box-shadow: 0 5px 15px rgba(140, 109, 45, 0.5); }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+.and-text { font-family: 'Sacramento', cursive; font-size: 2.2rem; color: #8c6d2d; margin: 5px 0; }
+
+/* ACARA KUBAH */
+.motto-text { font-size: 0.65rem; color: #555; margin: 5px 0 20px; }
+.dome-flex { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; }
+.dome-card {
+    background: #fff; width: 48%; padding: 20px 10px;
+    border-radius: 80px 80px 0 0; border: 1px solid #C5A059; text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dome-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.15); }
+.dome-icon { font-size: 1.2rem; color: #222; margin-bottom: 5px; }
+.dome-card h3 { font-family: 'Cinzel', serif; font-size: 0.75rem; color: #8c6d2d; line-height: 1.2; }
+.line-gold { width: 30px; height: 1px; background: #C5A059; margin: 8px auto; }
+.date-big { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: bold; color: #8c6d2d; }
+.month-text { font-size: 0.7rem; font-style: italic; color: #666; }
+.time-text { font-size: 0.65rem; color: #8c6d2d; font-weight: 600; margin-top: 4px; }
+
+.loc-title { font-size: 0.75rem; color: #555; margin-top: 10px; }
+.loc-name { font-family: 'Cinzel', serif; font-size: 0.95rem; color: #111; }
+.loc-address { font-size: 0.7rem; color: #666; margin-bottom: 12px; }
+.map-container { border-radius: 6px; overflow: hidden; border: 1px solid #C5A059; margin-bottom: 12px; }
+
+.btn-gold {
+    display: inline-block; background: #C5A059; color: #fff; text-decoration: none;
+    font-size: 0.75rem; padding: 8px 18px; border-radius: 20px; font-weight: 600;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+.btn-gold:hover { transform: scale(1.05); background: #a88443; }
+
+/* PERJALANAN KAMI */
+.story-container { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+.story-card { background: #e0e0e0; color: #222; padding: 12px; border-radius: 8px; text-align: left; }
+.story-card h4 { font-size: 0.75rem; color: #8c6d2d; font-family: 'Cinzel', serif; margin-bottom: 3px; }
+.story-card p { font-size: 0.7rem; color: #333; line-height: 1.3; }
+
+/* GALERI */
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 15px; }
+.gallery-item { height: 140px; border-radius: 12px; overflow: hidden; background: #fff; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.gallery-item:hover { transform: scale(1.05); z-index: 2; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+/* RSVP & KOMENTAR */
+#rsvp-form { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+#rsvp-form input, #rsvp-form select, #rsvp-form textarea {
+    padding: 12px; border-radius: 6px; border: 1px solid #C5A059; background: #a66c43; color: #fff; font-family: inherit; font-size: 0.8rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+#rsvp-form input:focus, #rsvp-form select:focus, #rsvp-form textarea:focus { outline: none; border: 1px solid #fff; box-shadow: 0 0 8px rgba(197, 160, 89, 0.5); }
+#rsvp-form input::placeholder, #rsvp-form textarea::placeholder { color: #ddd; }
+
+.btn-red-submit {
+    background: #8b0000; color: #fff; border: none; padding: 10px; border-radius: 20px;
+    font-weight: 600; cursor: pointer; font-size: 0.85rem; margin-top: 5px;
+    transition: 0.3s ease;
+}
+.btn-red-submit:hover { transform: scale(1.05); box-shadow: 0 4px 10px rgba(139,0,0,0.5); }
+
+/* BOX UCAPAN / KOMENTAR */
+.comments-box {
+    margin-top: 25px; display: flex; flex-direction: column; gap: 10px; max-height: 250px; overflow-y: auto; text-align: left;
+}
+.comment-item {
+    background: rgba(255, 255, 255, 0.08); border-left: 3px solid #C5A059; padding: 10px 12px; border-radius: 4px;
+}
+.comment-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.comment-header strong { color: #C5A059; font-size: 0.8rem; }
+.badge-hadir { background: #2e7d32; color: #fff; font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; }
+.badge-tidak { background: #c62828; color: #fff; font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; }
+.comment-text { font-size: 0.75rem; color: #ddd; line-height: 1.3; }
+
+/* ATM CARD */
+.atm-card {
+    background: linear-gradient(135deg, #fceabb 0%, #f8b500 50%, #fccd4d 100%);
+    border-radius: 16px; padding: 18px; margin-top: 15px; text-align: left;
+    color: #222; box-shadow: 0 5px 15px rgba(0,0,0,0.3); position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.atm-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(248, 181, 0, 0.4); }
+.atm-top { display: flex; justify-content: flex-end; }
+.atm-logo { height: 28px; object-fit: contain; }
+.atm-chip {
+    width: 38px; height: 28px; background: linear-gradient(135deg, #ffe066, #d4af37);
+    border-radius: 5px; margin: 10px 0; border: 1px solid #b8860b;
+}
+.atm-body { margin-top: 10px; }
+.atm-holder { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
+.atm-number { font-family: monospace; font-size: 0.85rem; letter-spacing: 1.5px; }
+.btn-copy-atm {
+    position: absolute; right: 15px; bottom: 15px; background: rgba(0,0,0,0.5);
+    color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 0.7rem; cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-copy-atm:hover { background: rgba(0,0,0,0.8); transform: scale(1.05); }
+
+/* FOOTER */
+.footer-section {
+    height: 100vh;
+    background: url('assets/fotonikah.jpg') center top / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.footer-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 80%, #000 100%);
+}
+
+.footer-content { position: relative; z-index: 2; padding: 0 20px; }
+.footer-text { font-size: 0.65rem; line-height: 1.4; color: #ddd; font-style: italic; }
+.thank-you { font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 12px; }
+.bride-groom-footer { font-family: 'Cinzel', serif; font-size: 1.5rem; color: #C5A059; margin-top: 4px; }
+
+/* LIGHTBOX */
+.lightbox {
+    display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9); align-items: center; justify-content: center;
+}
+.lightbox img { max-width: 85%; max-height: 75%; border-radius: 8px; border: 2px solid #C5A059; }
+.close-btn { position: absolute; top: 20px; right: 25px; color: #fff; font-size: 30px; cursor: pointer; transition: 0.3s; }
+.close-btn:hover { color: #C5A059; transform: scale(1.1); }
