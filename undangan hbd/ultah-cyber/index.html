@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBER-QUEST // Undangan Ulang Tahun Ke-5 Alden</title>
+  <meta name="description" content="Misi Ulang Tahun Ke-5 Alden! Bergabunglah dalam petualangan cyber futuristik ini. Confirmed RSVP & Cyber Memories inside!">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyber-theme">
+
+  <!-- Background Particle & Grid Canvas -->
+  <canvas id="cyberCanvas"></canvas>
+  <div class="scanline"></div>
+
+  <!-- Audio Equalizer Floating Controls -->
+  <div class="floating-audio-widget" id="audioWidget">
+    <div class="widget-header">
+      <div class="equalizer-bars" id="eqVisualizer">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <span class="sound-status" id="soundStatusText">AUDIO: READY</span>
+    </div>
+    <div class="widget-controls">
+      <button class="btn-icon" id="btnAudioPlay" title="Putar/Hentikan Lagu Ultah">
+        <i class="fa-solid fa-play" id="audioPlayIcon"></i>
+      </button>
+      <button class="btn-icon" id="btnAudioSfx" title="Toggle Sound FX">
+        <i class="fa-solid fa-volume-high" id="sfxIcon"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- COVER / HERO SECTION (LOCK SCREEN) -->
+  <section class="cyber-cover" id="coverSection">
+    <div class="hud-frame">
+      <div class="hud-corner top-left"></div>
+      <div class="hud-corner top-right"></div>
+      <div class="hud-corner bottom-left"></div>
+      <div class="hud-corner bottom-right"></div>
+      
+      <div class="cover-content">
+        <div class="badge-tag"><i class="fa-solid fa-shield-halved"></i> SECRET MISSION INVITATION</div>
+        <h1 class="glitch-text" data-text="CYBER BIRTHDAY">CYBER BIRTHDAY</h1>
+        <div class="subtitle-level">LEVEL 5 UNLOCKED // ALDEN'S QUEST</div>
+        
+        <div class="guest-card">
+          <div class="guest-label">SPECIAL AGENT INVITATION FOR:</div>
+          <div class="guest-name" id="guestNameDisplay">GUEST AGENT</div>
+        </div>
+
+        <p class="mission-brief">
+          Sistem mendeteksi perayaan ulang tahun ke-5 **Alden Cyber-X**! Akses dokumen rahasia lokasi, galeri memori, serta konfirmasi kehadiranmu di bawah ini.
+        </p>
+
+        <button class="cyber-btn primary-btn" id="btnOpenInvitation">
+          <span class="btn-glow"></span>
+          <span class="btn-text"><i class="fa-solid fa-terminal"></i> BUKA UNDANGAN CYBER</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN APP CONTAINER (Revealed after opening) -->
+  <main class="main-content" id="mainContent">
+    
+    <!-- NAVIGATION BAR -->
+    <nav class="cyber-nav">
+      <div class="nav-brand"><i class="fa-solid fa-microchip"></i> ALDEN//V5.0</div>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#memories" class="nav-link"><i class="fa-solid fa-database"></i> Memory</a>
+        <a href="#music" class="nav-link"><i class="fa-solid fa-music"></i> Song</a>
+        <a href="#location" class="nav-link"><i class="fa-solid fa-location-dot"></i> Location</a>
+        <a href="#rsvp" class="nav-link"><i class="fa-solid fa-paper-plane"></i> RSVP</a>
+      </div>
+    </nav>
+
+    <!-- HERO HEADER & COUNTDOWN -->
+    <section class="cyber-hero" id="hero">
+      <div class="container">
+        <div class="hero-header text-center">
+          <div class="cy-badge">CONFIDENTIAL LOG // 15 AGUSTUS 2026</div>
+          <h2 class="hero-title">HAPPY 5th BIRTHDAY, ALDEN!</h2>
+          <p class="hero-desc">Pertumbuhan 5 Tahun Karakter Superhero Cyber Terbaik Kami</p>
+        </div>
+
+        <!-- COUNTDOWN TIMER -->
+        <div class="countdown-card">
+          <div class="card-label"><i class="fa-solid fa-clock"></i> T-MINUS COUNTDOWN UNTIL PARTY LAUNCH</div>
+          <div class="countdown-grid" id="countdownGrid">
+            <div class="time-box">
+              <span class="number" id="cdDays">00</span>
+              <span class="unit">HARI</span>
+            </div>
+            <div class="time-separator">:</div>
+            <div class="time-box">
+              <span class="number" id="cdHours">00</span>
+              <span class="unit">JAM</span>
+            </div>
+            <div class="time-separator">:</div>
+            <div class="time-box">
+              <span class="number" id="cdMins">00</span>
+              <span class="unit">MENIT</span>
+            </div>
+            <div class="time-separator">:</div>
+            <div class="time-box">
+              <span class="number" id="cdSecs">00</span>
+              <span class="unit">DETIK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMORY BANK SECTION (MEMORY) -->
+    <section class="cyber-section" id="memories">
+      <div class="container">
+        <div class="section-title">
+          <span class="title-sub">// SYSTEM LOGS</span>
+          <h2><i class="fa-solid fa-box-archive"></i> MEMORY BANK (EVOLUTION LOGS)</h2>
+          <p>Kumpulan rekaman memori perjalanan Alden dari Level 1 hingga Level 5</p>
+        </div>
+
+        <div class="memory-grid">
+          <!-- Memory Card 1 -->
+          <div class="memory-card" data-level="1" data-year="2022" data-title="GENESIS PROTOCOL" data-desc="Awal mula petualangan Alden di dunia! Tangisan pertama yang mengubah segalanya menjadi berwarna.">
+            <div class="card-hud-border"></div>
+            <div class="memory-img-wrapper">
+              <div class="cyber-avatar lvl-1">
+                <i class="fa-solid fa-baby"></i>
+                <div class="scan-effect"></div>
+              </div>
+              <span class="level-tag">LEVEL 1 (1 th)</span>
+            </div>
+            <div class="memory-info">
+              <h3>GENESIS PROTOCOL</h3>
+              <span class="date-log"><i class="fa-solid fa-calendar"></i> Tahun 2022</span>
+              <p>Inisialisasi sistem karakter Alden. Bayi lucu nan penuh energi!</p>
+              <button class="btn-scan-memory"><i class="fa-solid fa-expand"></i> Inspect Log</button>
+            </div>
+          </div>
+
+          <!-- Memory Card 2 -->
+          <div class="memory-card" data-level="2" data-year="2023" data-title="FIRST STEPS DRIVE" data-desc="Alden berhasil menguasai navigasi dua kaki! Langkah pertama menjelajah seluruh rumah.">
+            <div class="card-hud-border"></div>
+            <div class="memory-img-wrapper">
+              <div class="cyber-avatar lvl-2">
+                <i class="fa-solid fa-shoe-prints"></i>
+                <div class="scan-effect"></div>
+              </div>
+              <span class="level-tag">LEVEL 2 (2 th)</span>
+            </div>
+            <div class="memory-info">
+              <h3>FIRST STEPS DRIVE</h3>
+              <span class="date-log"><i class="fa-solid fa-calendar"></i> Tahun 2023</span>
+              <p>Berjalan dan berlari mengelilingi ruangan dengan gelak tawa.</p>
+              <button class="btn-scan-memory"><i class="fa-solid fa-expand"></i> Inspect Log</button>
+            </div>
+          </div>
+
+          <!-- Memory Card 3 -->
+          <div class="memory-card" data-level="3" data-year="2024" data-title="TALK & DISCOVER" data-desc="Kosakata Alden melesat tinggi! Suka bertanya, bernyanyi, dan bermain robotik.">
+            <div class="card-hud-border"></div>
+            <div class="memory-img-wrapper">
+              <div class="cyber-avatar lvl-3">
+                <i class="fa-solid fa-robot"></i>
+                <div class="scan-effect"></div>
+              </div>
+              <span class="level-tag">LEVEL 3 (3 th)</span>
+            </div>
+            <div class="memory-info">
+              <h3>TALK & DISCOVER</h3>
+              <span class="date-log"><i class="fa-solid fa-calendar"></i> Tahun 2024</span>
+              <p>Eksplorasi rasa ingin tahu tentang dinosaurus, mobil, dan robot.</p>
+              <button class="btn-scan-memory"><i class="fa-solid fa-expand"></i> Inspect Log</button>
+            </div>
+          </div>
+
+          <!-- Memory Card 4 -->
+          <div class="memory-card" data-level="4" data-year="2025" data-title="SUPER ARCADE MASTER" data-desc="Mulai masuk sekolah TK, punya banyak teman squad baru, dan makin kreatif!">
+            <div class="card-hud-border"></div>
+            <div class="memory-img-wrapper">
+              <div class="cyber-avatar lvl-4">
+                <i class="fa-solid fa-gamepad"></i>
+                <div class="scan-effect"></div>
+              </div>
+              <span class="level-tag">LEVEL 4 (4 th)</span>
+            </div>
+            <div class="memory-info">
+              <h3>SUPER ARCADE MASTER</h3>
+              <span class="date-log"><i class="fa-solid fa-calendar"></i> Tahun 2025</span>
+              <p>Membangun lego raksasa, mewarnai, dan jadi kapten tim bermain.</p>
+              <button class="btn-scan-memory"><i class="fa-solid fa-expand"></i> Inspect Log</button>
+            </div>
+          </div>
+
+          <!-- Memory Card 5 -->
+          <div class="memory-card highlight" data-level="5" data-year="2026" data-title="LEVEL 5 UNLOCKED!" data-desc="Hari ini! Alden genap 5 tahun, siap untuk selebrasi pesta ulang tahun cyber paling meriah!">
+            <div class="card-hud-border"></div>
+            <div class="memory-img-wrapper">
+              <div class="cyber-avatar lvl-5">
+                <i class="fa-solid fa-cake-candles"></i>
+                <div class="scan-effect"></div>
+              </div>
+              <span class="level-tag">LEVEL 5 (NOW)</span>
+            </div>
+            <div class="memory-info">
+              <h3>LEVEL 5 UNLOCKED!</h3>
+              <span class="date-log"><i class="fa-solid fa-calendar"></i> 15 Agustus 2026</span>
+              <p>Alden resmi mencapai level 5! Siap pesta meriah bersama teman-teman.</p>
+              <button class="btn-scan-memory"><i class="fa-solid fa-expand"></i> Inspect Log</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAGU ULANG TAHUN SECTION (MUSIC PLAYER & KARAOKE) -->
+    <section class="cyber-section" id="music">
+      <div class="container">
+        <div class="section-title">
+          <span class="title-sub">// AUDIO SYNTHESIZER</span>
+          <h2><i class="fa-solid fa-compact-disc"></i> LAGU ULANG TAHUN CYBER 8-BIT</h2>
+          <p>Dengarkan nada instrumen synthesizer dan ikuti lirik karaoke di bawah ini</p>
+        </div>
+
+        <div class="player-panel">
+          <div class="player-top">
+            <div class="synth-display">
+              <div class="song-title"><i class="fa-solid fa-music"></i> TRACK: "HAPPY BIRTHDAY ALDEN (CYBER SYNTH REMIX)"</div>
+              <div class="song-tempo">BPM: 128 | SYNTH WAVE 8-BIT STEREO</div>
+            </div>
+            <div class="visualizer-screen">
+              <div class="wave-bar" style="--i:1"></div>
+              <div class="wave-bar" style="--i:2"></div>
+              <div class="wave-bar" style="--i:3"></div>
+              <div class="wave-bar" style="--i:4"></div>
+              <div class="wave-bar" style="--i:5"></div>
+              <div class="wave-bar" style="--i:6"></div>
+              <div class="wave-bar" style="--i:7"></div>
+              <div class="wave-bar" style="--i:8"></div>
+              <div class="wave-bar" style="--i:9"></div>
+              <div class="wave-bar" style="--i:10"></div>
+            </div>
+          </div>
+
+          <!-- KARAOKE LYRICS DISPLAY -->
+          <div class="lyrics-box" id="lyricsBox">
+            <div class="lyric-line" id="lyricLine1">🎶 Selamat Ulang Tahun Kami Ucapkan! 🎶</div>
+            <div class="lyric-line" id="lyricLine2">🎶 Selamat Panjang Umur Kita Kan Doakan! 🎶</div>
+            <div class="lyric-line" id="lyricLine3">🎶 Selamat Sejahtera, Sehat Sentosa! 🎶</div>
+            <div class="lyric-line" id="lyricLine4">✨ Selamat Panjang Umur dan Bahagia! ✨</div>
+            <div class="lyric-line highlight-lyric" id="lyricLine5">🚀 POTONG KUENYA! POTONG KUENYA SEKARANG JUGA! 🚀</div>
+          </div>
+
+          <div class="player-actions">
+            <button class="cyber-btn secondary-btn" id="btnMainPlayMusic">
+              <i class="fa-solid fa-play" id="mainPlayIcon"></i> <span id="mainPlayText">PUTAR LAGU ULTAH</span>
+            </button>
+            <button class="cyber-btn outline-btn" id="btnRestartMusic">
+              <i class="fa-solid fa-rotate-left"></i> ULANGI LAGU
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION & QUEST TIMELINE -->
+    <section class="cyber-section" id="location">
+      <div class="container">
+        <div class="section-title">
+          <span class="title-sub">// COORDINATES & AGENDA</span>
+          <h2><i class="fa-solid fa-map-location-dot"></i> LOKASI MISSION BASE & AGENT TIMELINE</h2>
+          <p>Petunjuk arah lokasi pesta dan susunan acara pesta ulang tahun</p>
+        </div>
+
+        <div class="location-grid">
+          <!-- Location Details Card -->
+          <div class="cyber-card">
+            <h3><i class="fa-solid fa-building-flag"></i> CYBER REALM ARCADE HQ</h3>
+            <ul class="info-list">
+              <li><i class="fa-solid fa-calendar-day"></i> <strong>Hari / Tanggal:</strong> Sabtu, 15 Agustus 2026</li>
+              <li><i class="fa-solid fa-clock"></i> <strong>Waktu Mission:</strong> 15.00 WIB - Selesai</li>
+              <li><i class="fa-solid fa-map-pin"></i> <strong>Alamat HQ:</strong> Cyber Fun Park Level 3, Jl. Future Neon No. 88, Jakarta</li>
+              <li><i class="fa-solid fa-shirt"></i> <strong>Dress Code:</strong> Cyber Neon / Futuristic / Baju Cerah</li>
+            </ul>
+
+            <div class="map-actions">
+              <a href="https://maps.google.com" target="_blank" class="cyber-btn primary-btn small">
+                <i class="fa-solid fa-diamond-turn-right"></i> BUKA GOOGLE MAPS
+              </a>
+              <a href="https://waze.com" target="_blank" class="cyber-btn outline-btn small">
+                <i class="fa-solid fa-route"></i> BUKA WAZE
+              </a>
+            </div>
+          </div>
+
+          <!-- Timeline Quest Card -->
+          <div class="cyber-card">
+            <h3><i class="fa-solid fa-list-check"></i> QUEST TIMELINE HARI H</h3>
+            <div class="timeline-list">
+              <div class="tl-item">
+                <div class="tl-time">15.00 WIB</div>
+                <div class="tl-content">
+                  <h4>Regristrasi Agent Squad</h4>
+                  <p>Penyambutan tamu, foto di Cyber Backdrop & pengambilan Cyber Badge</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-time">15.30 WIB</div>
+                <div class="tl-content">
+                  <h4>Operasi Tiup Lilin & Potong Kue</h4>
+                  <p>Menyanyikan lagu ulang tahun & ritual tiup lilin Level 5 Alden</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-time">16.00 WIB</div>
+                <div class="tl-content">
+                  <h4>Cyber Arcade Mini Games</h4>
+                  <p>Lomba seru, quiz superhero, dan pembagian souvenir menarik</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-time">17.00 WIB</div>
+                <div class="tl-content">
+                  <h4>Foto Bersama & Closing Mission</h4>
+                  <p>Sesi foto bersama seluruh Squad Agent dan ramah tamah</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM RSVP (MENGIRIM KE EMAIL PENGGUNA) -->
+    <section class="cyber-section" id="rsvp">
+      <div class="container">
+        <div class="section-title">
+          <span class="title-sub">// TRANSMISSION PROTOCOL</span>
+          <h2><i class="fa-solid fa-paper-plane"></i> FORM RSVP & KONFIRMASI (KIRIM KE EMAIL)</h2>
+          <p>Isi formulir kehadiran di bawah ini. Konfirmasi RSVP akan terkirim langsung ke email penyelenggara pesta!</p>
+        </div>
+
+        <div class="rsvp-layout">
+          <!-- Form Card -->
+          <div class="rsvp-card">
+            
+            <!-- Email Destination Settings Box -->
+            <div class="email-config-box">
+              <label for="recipientEmailInput"><i class="fa-solid fa-envelope"></i> Email Penerima RSVP (Email Pengguna):</label>
+              <div class="input-with-btn">
+                <input type="email" id="recipientEmailInput" value="orangtua.alden@gmail.com" placeholder="Masukkan email kamu di sini...">
+                <button type="button" class="btn-email-save" id="btnSaveEmail" title="Simpan target email"><i class="fa-solid fa-floppy-disk"></i> Set Email</button>
+              </div>
+              <span class="email-hint"><i class="fa-solid fa-circle-info"></i> Form RSVP secara otomatis mengirimkan data tamu langsung ke inbox email di atas via FormSubmit.co.</span>
+            </div>
+
+            <!-- Main RSVP Form -->
+            <form id="rsvpForm" action="https://formsubmit.co/orangtua.alden@gmail.com" method="POST">
+              <!-- FormSubmit Configuration Fields -->
+              <input type="hidden" name="_subject" value="[RSVP ULTAN ALDEN 5th] Konfirmasi Kehadiran Tamu Baru!">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+
+              <div class="form-group">
+                <label for="guestNameInput"><i class="fa-solid fa-user"></i> Nama Agent / Tamu:</label>
+                <input type="text" id="guestNameInput" name="Nama_Tamu" required placeholder="Contoh: Budi & Keluarga">
+              </div>
+
+              <div class="form-group">
+                <label><i class="fa-solid fa-signal"></i> Konfirmasi Kehadiran:</label>
+                <div class="radio-cyber-group">
+                  <label class="radio-label">
+                    <input type="radio" name="Status_Kehadiran" value="SIAP HADIR (CONFIRMED)" checked>
+                    <span class="radio-custom"></span>
+                    <span class="radio-text"><i class="fa-solid fa-circle-check"></i> Siap Hadir (Confirmed)</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="Status_Kehadiran" value="MAAF TIDAK BISA HADIR">
+                    <span class="radio-custom"></span>
+                    <span class="radio-text"><i class="fa-solid fa-circle-xmark"></i> Maaf Tidak Bisa Hadir</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="Status_Kehadiran" value="MASIH RAGU-RAGU">
+                    <span class="radio-custom"></span>
+                    <span class="radio-text"><i class="fa-solid fa-circle-question"></i> Masih Ragu-ragu</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="guestCountSelect"><i class="fa-solid fa-users"></i> Jumlah Personel Squad (Tamu):</label>
+                <select id="guestCountSelect" name="Jumlah_Personel">
+                  <option value="1 Orang">1 Personel</option>
+                  <option value="2 Orang" selected>2 Personel (Orang Tua + Anak)</option>
+                  <option value="3 Orang">3 Personel</option>
+                  <option value="4+ Orang">4+ Personel Squad</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="messageInput"><i class="fa-solid fa-comment-dots"></i> Pesan & Doa Ulang Tahun Untuk Alden:</label>
+                <textarea id="messageInput" name="Pesan_Doa" rows="4" placeholder="Tuliskan ucapan dan doa terbaikmu untuk Alden di sini..." required></textarea>
+              </div>
+
+              <button type="submit" class="cyber-btn primary-btn full-width" id="btnSubmitRsvp">
+                <span class="btn-glow"></span>
+                <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> TRANSMIT RSVP KE EMAIL</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Console Terminal Output & Local Guestbook -->
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <span class="term-dot red"></span>
+              <span class="term-dot yellow"></span>
+              <span class="term-dot green"></span>
+              <span class="term-title">TERMINAL LOGS // GUESTBOOK FEED</span>
+            </div>
+            
+            <div class="terminal-body" id="terminalLogBody">
+              <div class="log-entry system">[SYSTEM]: Initializing RSVP Protocol v5.0...</div>
+              <div class="log-entry system">[SYSTEM]: Destination Email Ready. Awaiting user input.</div>
+              <!-- Dynamic entries rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="cyber-footer">
+      <div class="container text-center">
+        <p class="footer-title">CYBER BIRTHDAY MISSION // LEVEL 5 UNLOCKED</p>
+        <p class="footer-sub">Sampai Jumpa Di Pesta Ulang Tahun Alden! 🚀✨</p>
+        <div class="footer-credits">Designed with Cyber Aesthetics for Alden's 5th Birthday</div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL FOR MEMORY INSPECTION -->
+  <div class="cyber-modal" id="memoryModal">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-hud-border"></div>
+      <div class="modal-header">
+        <span class="modal-level-tag" id="modalLevelTag">LEVEL 1</span>
+        <h3 id="modalTitle">LOG TITLE</h3>
+      </div>
+      <div class="modal-body">
+        <div class="modal-icon-display" id="modalIcon">
+          <i class="fa-solid fa-baby"></i>
+        </div>
+        <p class="modal-desc" id="modalDesc">Detailed description here...</p>
+        <div class="modal-meta">
+          <span><i class="fa-solid fa-clock"></i> RECORDED YEAR: <strong id="modalYear">2022</strong></span>
+          <span><i class="fa-solid fa-shield-halved"></i> STATUS: VERIFIED DATA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
