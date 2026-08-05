@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Undangan Pernikahan Digital - Rania & Rangga - Motion Minang Elegant Traditional Wedding"
+    />
+    <meta name="theme-color" content="#4A2527" />
+    <title>Rania & Rangga | The Wedding</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="split-container">
+      <!-- ========== KIRI: HERO ========== -->
+      <aside class="hero-side">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-side-content">
+          <p class="hero-side-label">THE WEDDING OF</p>
+          <h1 class="hero-side-names">
+            <span>RANIA</span>
+            <span class="amp">&</span>
+            <span>RANGGA</span>
+          </h1>
+          <p class="hero-side-date">Sabtu, 20 Desember 2026</p>
+          <p class="hero-side-theme">Adat Minangkabau</p>
+        </div>
+        <div class="hero-ornament-left"></div>
+        <div class="hero-ornament-right"></div>
+      </aside>
+
+      <!-- ========== KANAN: PANEL ========== -->
+      <main class="panel-side" id="panel-side">
+        <div class="panel-inner">
+          <!-- COVER -->
+          <div id="cover-page" class="cover-page">
+            <div class="cover-card">
+              <div class="panel-motif"></div>
+              <div class="cover-content">
+                <div class="rumah-icon">
+                  <img
+                    src="./assets/images/deco.png"
+                    alt="Dekorasi Minang"
+                    class="deco-img"
+                  />
+                </div>
+                <p class="cover-label">PERNIKAHAN</p>
+                <h1 class="cover-name">RANIA</h1>
+                <span class="cover-amp">&</span>
+                <h1 class="cover-name">RANGGA</h1>
+                <p class="cover-date">Sabtu, 20 Desember 2026</p>
+
+                <div class="guest-info">
+                  <p class="guest-label">Kepada Yth.</p>
+                  <p class="guest-name" id="guest-name">Bapak/Ibu/Saudara/i</p>
+                </div>
+
+                <button class="btn-open" id="btn-open">
+                  <i data-lucide="mail"></i>
+                  <span>BUKA UNDANGAN</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MAIN CONTENT -->
+          <div id="main-content" class="main-content">
+            <!-- 1. Salam Pembuka + Ayat -->
+            <section
+              class="section-block section-bg-a"
+              id="salam"
+              data-anim="salam"
+            >
+              <p class="section-label arabic-label">
+                بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+              </p>
+              <div class="ayat-card">
+                <div class="quote-mark">"</div>
+                <p class="ayat-text">
+                  Wahai manusia, sesungguhnya Kami telah menciptakan kamu dari
+                  seorang laki-laki dan perempuan. Kemudian, Kami menjadikan
+                  kamu berbangsa-bangsa dan bersuku-suku agar kamu saling
+                  mengenal. Sesungguhnya yang paling mulia di antara kamu di
+                  sisi Allah adalah orang yang paling bertakwa.
+                </p>
+                <p class="ayat-source">QS. Al-Hujurat: 13</p>
+              </div>
+              <p class="salam-text">
+                Dengan memohon rahmat dan ridho Allah SWT, kami mengundang
+                Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.
+              </p>
+            </section>
+
+            <!-- 2. Mempelai -->
+            <section
+              class="section-block section-bg-b"
+              id="mempelai"
+              data-anim="mempelai"
+            >
+              <p class="section-label">MEMPELAI</p>
+              <div class="couple-row">
+                <div class="person-card person-bride" data-anim="bride">
+                  <p class="person-label">THE BRIDE</p>
+                  <div class="photo-wrap">
+                    <img
+                      src="./assets/images/deco-2.png"
+                      alt=""
+                      class="frame-deco frame-deco-left"
+                    />
+                    <div class="person-photo-frame">
+                      <img
+                        src="./assets/images/wanita.jpg"
+                        alt="Rania"
+                        class="person-photo"
+                      />
+                      <div class="frame-ornament"></div>
+                    </div>
+                  </div>
+                  <h2 class="person-name">RANIA</h2>
+                  <p class="person-fullname">Rania Maharani</p>
+                  <div class="person-parents">
+                    <p>Putri dari:</p>
+                    <p>Bapak Ahmad Rizal</p>
+                    <p>& Ibu Siti Aminah</p>
+                  </div>
+                </div>
+
+                <div class="couple-heart" data-anim="heart">❤</div>
+
+                <div class="person-card person-groom" data-anim="groom">
+                  <p class="person-label">THE GROOM</p>
+                  <div class="photo-wrap">
+                    <div class="person-photo-frame">
+                      <img
+                        src="./assets/images/pria.png"
+                        alt="Rangga"
+                        class="person-photo"
+                      />
+                      <div class="frame-ornament"></div>
+                    </div>
+                    <img
+                      src="./assets/images/deco-2.png"
+                      alt=""
+                      class="frame-deco frame-deco-right"
+                    />
+                  </div>
+                  <h2 class="person-name">RANGGA</h2>
+                  <p class="person-fullname">Rangga Marajo</p>
+                  <div class="person-parents">
+                    <p>Putra dari:</p>
+                    <p>Bapak Budi Santoso</p>
+                    <p>& Ibu Ratna Dewi</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 3. Love Story -->
+            <section
+              class="section-block section-bg-a"
+              id="cerita"
+              data-anim="cerita"
+            >
+              <p class="section-label">OUR LOVE STORY</p>
+              <div class="timeline">
+                <div class="timeline-item" data-anim="story-1">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-year">2021</span>
+                    <h4>PERTEMUAN</h4>
+                    <p>
+                      Takdir mempertemukan kami di sebuah acara keluarga. Dari
+                      situ cerita kami dimulai.
+                    </p>
+                  </div>
+                </div>
+                <div class="timeline-item" data-anim="story-2">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-year">2022</span>
+                    <h4>MENJALIN HUBUNGAN</h4>
+                    <p>
+                      Kami memutuskan untuk membangun hubungan yang lebih
+                      serius. Setiap hari penuh warna.
+                    </p>
+                  </div>
+                </div>
+                <div class="timeline-item" data-anim="story-3">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-year">2025</span>
+                    <h4>LAMARAN</h4>
+                    <p>
+                      Kami melangkah menuju pernikahan. Momen penuh haru bersama
+                      keluarga.
+                    </p>
+                  </div>
+                </div>
+                <div class="timeline-item" data-anim="story-4">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-year">2026</span>
+                    <h4>PERNIKAHAN</h4>
+                    <p>
+                      Kami siap memulai perjalanan baru bersama menuju hari
+                      bahagia.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 4. Countdown -->
+            <section
+              class="section-block section-bg-b"
+              id="countdown"
+              data-anim="countdown"
+            >
+              <p class="section-label light">MENUJU HARI BAHAGIA</p>
+              <div class="countdown-grid">
+                <div class="count-card">
+                  <span class="count-number" id="days">00</span
+                  ><span class="count-label">HARI</span>
+                </div>
+                <div class="count-card">
+                  <span class="count-number" id="hours">00</span
+                  ><span class="count-label">JAM</span>
+                </div>
+                <div class="count-card">
+                  <span class="count-number" id="minutes">00</span
+                  ><span class="count-label">MENIT</span>
+                </div>
+                <div class="count-card">
+                  <span class="count-number" id="seconds">00</span
+                  ><span class="count-label">DETIK</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- 5. Detail Acara -->
+            <section
+              class="section-block section-bg-a"
+              id="acara"
+              data-anim="acara"
+            >
+              <p class="section-label">DETAIL ACARA</p>
+              <div class="event-stack">
+                <div class="event-card" data-anim="event-1">
+                  <div class="event-icon">
+                    <img
+                      src="./assets/images/wedding-icon.png"
+                      alt="Akad Nikah"
+                    />
+                  </div>
+                  <h3 class="event-title">AKAD NIKAH</h3>
+                  <div class="event-item">
+                    <i data-lucide="calendar"></i>
+                    <span>Sabtu, 20 Desember 2026</span>
+                  </div>
+                  <div class="event-item">
+                    <i data-lucide="clock"></i>
+                    <span>08.00 WIB – Selesai</span>
+                  </div>
+                  <div class="event-item">
+                    <i data-lucide="map-pin"></i>
+                    <span>Hotel Santika Bukittinggi</span>
+                  </div>
+                  <p class="event-address">
+                    Jl. Tuanku Nan Renceh No.33, Kayu Kubu, Kec. Guguk Panjang,
+                    Kota Bukittinggi, Sumatera Barat 26115
+                  </p>
+                </div>
+
+                <div class="event-card" data-anim="event-2">
+                  <div class="event-icon">
+                    <img
+                      src="./assets/images/reception-icon.png"
+                      alt="Resepsi"
+                    />
+                  </div>
+                  <h3 class="event-title">RESEPSI</h3>
+                  <div class="event-item">
+                    <i data-lucide="calendar"></i>
+                    <span>Sabtu, 20 Desember 2026</span>
+                  </div>
+                  <div class="event-item">
+                    <i data-lucide="clock"></i>
+                    <span>11.00 WIB – Selesai</span>
+                  </div>
+                  <div class="event-item">
+                    <i data-lucide="map-pin"></i>
+                    <span>Hotel Santika Bukittinggi</span>
+                  </div>
+                  <p class="event-address">
+                    Jl. Tuanku Nan Renceh No.33, Kayu Kubu, Kec. Guguk Panjang,
+                    Kota Bukittinggi, Sumatera Barat 26115
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- 6. Lokasi / Maps -->
+            <section
+              class="section-block section-bg-b"
+              id="lokasi"
+              data-anim="lokasi"
+            >
+              <p class="section-label">LOKASI ACARA</p>
+              <div class="map-card">
+                <p class="map-venue">Hotel Santika Bukittinggi</p>
+                <p class="map-address">
+                  Jl. Tuanku Nan Renceh No.33, Kayu Kubu, Kec. Guguk Panjang,
+                  Kota Bukittinggi, Sumatera Barat 26115
+                </p>
+                <div class="map-embed">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7620141154016!2d100.3657448!3d-0.30439659999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd5399a54d90ae3%3A0xc2bd27541d31f56b!2sHotel%20Santika%20Bukittinggi!5e0!3m2!1sen!2sid!4v1785904938609!5m2!1sen!2sid"
+                    width="600"
+                    height="450"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                  ></iframe>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/o58cFxTYR9aZJVCq9"
+                  target="_blank"
+                  class="btn-maps"
+                  rel="noopener"
+                >
+                  <i data-lucide="map"></i><span>BUKA GOOGLE MAPS</span>
+                </a>
+              </div>
+            </section>
+
+            <!-- 7. Gallery -->
+            <section
+              class="section-block section-bg-a"
+              id="galeri"
+              data-anim="galeri"
+            >
+              <p class="section-label">OUR MOMENTS</p>
+              <div class="gallery-grid" id="gallery-grid">
+                <div
+                  class="gallery-item"
+                  data-anim="gal-1"
+                  data-full="./assets/images/memori-1.jpg"
+                >
+                  <img
+                    src="./assets/images/memori-1.jpg"
+                    alt="Moment 1"
+                    loading="lazy"
+                  />
+                </div>
+                <div
+                  class="gallery-item"
+                  data-anim="gal-2"
+                  data-full="./assets/images/memori-4.png"
+                >
+                  <img
+                    src="./assets/images/memori-4.png"
+                    alt="Moment 2"
+                    loading="lazy"
+                  />
+                </div>
+                <div
+                  class="gallery-item"
+                  data-anim="gal-3"
+                  data-full="./assets/images/memori-3.png"
+                >
+                  <img
+                    src="./assets/images/memori-3.png"
+                    alt="Moment 3"
+                    loading="lazy"
+                  />
+                </div>
+                <div
+                  class="gallery-item"
+                  data-anim="gal-4"
+                  data-full="./assets/images/memori-5.png"
+                >
+                  <img
+                    src="./assets/images/memori-5.png"
+                    alt="Moment 4"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </section>
+
+            <!-- 8. Amplop Digital -->
+            <section
+              class="section-block section-bg-b"
+              id="gift"
+              data-anim="gift"
+            >
+              <p class="section-label">AMPLOP DIGITAL</p>
+              <p class="gift-intro">
+                Doa restu Anda merupakan hadiah terindah. Namun jika ingin
+                memberikan tanda kasih:
+              </p>
+              <div class="gift-cards">
+                <div class="gift-card" data-anim="gift-1">
+                  <img
+                    src="./assets/images/bca.png"
+                    alt="BCA"
+                    class="bank-logo"
+                  />
+                  <h4>BANK BCA</h4>
+                  <p class="bank-number">1234567890</p>
+                  <p class="bank-holder">a.n. Rania Maharani</p>
+                  <button class="btn-copy" data-copy="1234567890">
+                    <i data-lucide="copy"></i><span>SALIN REKENING</span>
+                  </button>
+                </div>
+                <div class="gift-card" data-anim="gift-2">
+                  <img
+                    src="./assets/images/bni.png"
+                    alt="BNI"
+                    class="bank-logo"
+                  />
+                  <h4>BNI</h4>
+                  <p class="bank-number">081234567890</p>
+                  <p class="bank-holder">a.n. Rania Maharani</p>
+                  <button class="btn-copy" data-copy="081234567890">
+                    <i data-lucide="copy"></i><span>SALIN NOMOR</span>
+                  </button>
+                </div>
+                <div class="gift-card" data-anim="gift-3">
+                  <img
+                    src="./assets/images/gift.png"
+                    alt="Kirim Hadiah"
+                    class="bank-logo"
+                  />
+                  <h4>KIRIM HADIAH</h4>
+                  <p class="gift-receiver">Penerima: Rania & Rangga</p>
+                  <p class="gift-address">
+                    Jl. Sudirman No. 123, Padang, Sumatera Barat 25111
+                  </p>
+                  <button
+                    class="btn-copy"
+                    data-copy="Jl. Sudirman No. 123, Padang, Sumatera Barat 25111"
+                  >
+                    <i data-lucide="copy"></i><span>SALIN ALAMAT</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <!-- 9. RSVP -->
+            <section
+              class="section-block section-bg-a"
+              id="rsvp"
+              data-anim="rsvp"
+            >
+              <p class="section-label">KONFIRMASI KEHADIRAN</p>
+              <form id="rsvp-form" class="rsvp-form">
+                <div class="form-group">
+                  <label for="rsvp-name">Nama Lengkap</label>
+                  <input
+                    type="text"
+                    id="rsvp-name"
+                    required
+                    placeholder="Masukkan nama lengkap"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="rsvp-guests">Jumlah Tamu</label>
+                  <input
+                    type="number"
+                    id="rsvp-guests"
+                    min="1"
+                    max="10"
+                    value="1"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Status Kehadiran</label>
+                  <div class="radio-group">
+                    <label class="radio-label"
+                      ><input
+                        type="radio"
+                        name="status"
+                        value="Akan Hadir"
+                        required
+                      /><span>Akan Hadir</span></label
+                    >
+                    <label class="radio-label"
+                      ><input
+                        type="radio"
+                        name="status"
+                        value="Masih Diusahakan"
+                      /><span>Masih Diusahakan</span></label
+                    >
+                    <label class="radio-label"
+                      ><input
+                        type="radio"
+                        name="status"
+                        value="Tidak Dapat Hadir"
+                      /><span>Tidak Dapat Hadir</span></label
+                    >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="rsvp-message">Ucapan dan Doa</label>
+                  <textarea
+                    id="rsvp-message"
+                    rows="3"
+                    placeholder="Tuliskan ucapan dan doa..."
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                  <i data-lucide="send"></i><span>KIRIM KONFIRMASI</span>
+                </button>
+              </form>
+              <div class="rsvp-success" id="rsvp-success" style="display: none">
+                <i data-lucide="check-circle"></i>
+                <p>Terima kasih! Konfirmasi Anda telah kami terima.</p>
+              </div>
+            </section>
+
+            <!-- 10. Ucapan & Doa -->
+            <section
+              class="section-block section-bg-b"
+              id="ucapan"
+              data-anim="ucapan"
+            >
+              <p class="section-label">BEST WISHES</p>
+              <div class="wishes-list" id="wishes-list">
+                <div class="wish-card empty-wish">
+                  <p>
+                    Belum ada ucapan. Jadilah yang pertama memberikan doa restu!
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- 11. Penutup -->
+            <section
+              class="section-block closing-block section-bg-a"
+              data-anim="closing"
+            >
+              <p class="closing-text">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+                Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+              </p>
+              <h2 class="closing-thanks">TERIMA KASIH</h2>
+              <h1 class="closing-names">
+                <span>RANIA</span>
+                <span class="amp">&</span>
+                <span>RANGGA</span>
+              </h1>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <button class="music-btn" id="music-btn" aria-label="Toggle Music">
+      <i data-lucide="music" class="music-icon"></i>
+    </button>
+
+    <div class="toast" id="toast">Berhasil disalin</div>
+
+    <!-- Lightbox Gallery -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Tutup">
+        <i data-lucide="x"></i>
+      </button>
+      <button
+        class="lightbox-nav lightbox-prev"
+        id="lightbox-prev"
+        aria-label="Sebelumnya"
+      >
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <button
+        class="lightbox-nav lightbox-next"
+        id="lightbox-next"
+        aria-label="Berikutnya"
+      >
+        <i data-lucide="chevron-right"></i>
+      </button>
+      <img src="" alt="Preview" id="lightbox-img" />
+    </div>
+
+    <audio id="wedding-audio" loop preload="auto">
+      <source src="./assets/audio/music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
