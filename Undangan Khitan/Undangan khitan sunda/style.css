@@ -1,0 +1,531 @@
+/* --- RESET & BASIC STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #2D4A3E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    background-color: #1b3022;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+/* --- ANIMASI-ANIMASI BARU KEREENN --- */
+
+/* 1. Animasi Mengambang (Floating) */
+.float-anim {
+    animation: melayang 3s ease-in-out infinite;
+}
+
+@keyframes melayang {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* 2. Animasi Denyut Tombol (Pulse) */
+.pulse-btn {
+    animation: denyut 2s infinite;
+}
+
+@keyframes denyut {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(45, 74, 62, 0.4); }
+    70% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(45, 74, 62, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(45, 74, 62, 0); }
+}
+
+/* 3. Efek Hover / Tap Foto Zoom Interaktif */
+.zoom-hover {
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+
+.zoom-hover img {
+    transition: transform 0.4s ease;
+}
+
+.zoom-hover:hover img, .zoom-hover:active img {
+    transform: scale(1.1);
+}
+
+/* 4. Efek Glow Badge Sunda */
+.glow-anim {
+    animation: glowing 2.5s infinite alternate;
+}
+
+@keyframes glowing {
+    from { box-shadow: 0 0 5px #8B5E34; }
+    to { box-shadow: 0 0 15px #8B5E34; }
+}
+
+/* 5. Kartu Interaktif Hover */
+.card-interactive {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-interactive:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(45, 74, 62, 0.12);
+}
+
+
+/* --- MUSIC CONTROL BUTTON --- */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    background: #2D4A3E;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    animation: berputar 4s linear infinite paused;
+}
+
+.music-control.playing {
+    animation-play-state: running;
+}
+
+@keyframes berputar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* --- EFEK GUGUR DAUN / BUNGA --- */
+#particle-container {
+    position: absolute;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('assets/daun-removebg-preview.png') center/contain no-repeat;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: gugur linear infinite;
+}
+
+@keyframes gugur {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.9; }
+    100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- COVER SCREEN (FRAME 1) --- */
+#frame-1 {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #1b3022;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#frame-1.hide {
+    transform: translateY(-100%);
+}
+
+.sunda-card {
+    background: #FFFFFF;
+    border: 1px solid #D8C3A5;
+    border-radius: 20px;
+    padding: 25px 20px;
+    margin: 20px 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(45, 74, 62, 0.05);
+}
+
+.cover-card {
+    width: 100%;
+    max-width: 380px;
+    border: 2px solid #8B5E34;
+}
+
+.ornamen-ikat {
+    width: 65px;
+    height: auto;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.badge-sunda {
+    display: inline-block;
+    background: #E8E3D9;
+    color: #8B5E34;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.avatar-frame-sunda {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #8B5E34;
+    margin: 0 auto 15px;
+}
+
+.avatar-frame-sunda img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nama-anak-cover {
+    font-family: 'Marcellus', serif;
+    font-size: 24px;
+    color: #2D4A3E;
+    margin-bottom: 15px;
+}
+
+.tamu-text {
+    font-size: 12px;
+    color: #666;
+}
+
+.nama-tamu-box {
+    font-size: 18px;
+    font-weight: 700;
+    color: #8B5E34;
+    margin: 5px 0 20px;
+}
+
+.btn-sunda {
+    background: #2D4A3E;
+    color: #FFF;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-sunda:hover {
+    background: #1e332a;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* --- MAIN CONTENT & SECTIONS --- */
+#main-content {
+    display: none;
+}
+
+.section-hero {
+    height: 60vh;
+    border-radius: 0 0 30px 30px;
+    background: linear-gradient(to bottom, transparent, rgba(45, 74, 62, 0.9)), url('assets/Anaksunda.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 40px;
+    text-align: center;
+    color: white;
+}
+
+.sub-hero {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #D8C3A5;
+}
+
+.hero-overlay h2 {
+    font-family: 'Marcellus', serif;
+    font-size: 26px;
+    margin-top: 5px;
+}
+
+.salam {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8B5E34;
+    margin-bottom: 10px;
+}
+
+.isi-pembuka {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.nama-anak-main {
+    font-family: 'Marcellus', serif;
+    color: #2D4A3E;
+    font-size: 22px;
+}
+
+.ortu-text {
+    font-size: 13px;
+    color: #8B5E34;
+    margin-bottom: 15px;
+}
+
+.small-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 2px solid #8B5E34;
+}
+
+.small-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quote-box {
+    background: #F4F0EA;
+    padding: 12px;
+    border-radius: 10px;
+    font-style: italic;
+    font-size: 12px;
+    color: #444;
+}
+
+/* --- ACARA & COUNTDOWN --- */
+.card-dark {
+    background: #2D4A3E;
+    color: #FFF;
+}
+
+.title-gold {
+    color: #D8C3A5;
+    font-family: 'Marcellus', serif;
+}
+
+.divider-leaf {
+    margin: 8px 0 15px;
+    font-size: 16px;
+}
+
+.info-waktu .hari-tanggal {
+    font-size: 16px;
+    font-weight: 700;
+    color: #F4F0EA;
+}
+
+.info-waktu .jam-acara {
+    font-size: 13px;
+    color: #D8C3A5;
+    margin: 4px 0;
+}
+
+.info-waktu .alamat-lengkap {
+    font-size: 12px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.grid-time {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    width: 65px;
+}
+
+.grid-time span {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #D8C3A5;
+}
+
+.grid-time small {
+    font-size: 10px;
+    color: #eee;
+}
+
+.btn-maps-sunda {
+    display: inline-block;
+    background: #8B5E34;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.maps-preview {
+    width: 100%;
+    height: 140px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.maps-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* --- KELUARGA & PENUTUP --- */
+.nama-keluarga {
+    color: #2D4A3E;
+    margin: 10px 0 5px;
+}
+
+.slogan-sunda {
+    font-style: italic;
+    color: #8B5E34;
+    font-size: 13px;
+}
+
+.teks-penutup {
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+}
+
+/* --- FORM & GALLERY --- */
+.form-title {
+    font-family: 'Marcellus', serif;
+    margin-bottom: 5px;
+}
+
+.form-sunda {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.form-sunda label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.form-sunda input, 
+.form-sunda textarea, 
+.form-sunda select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #D8C3A5;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.gallery-sunda {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.gal-item {
+    border-radius: 12px;
+    height: 120px;
+}
+
+.gal-item.item-big {
+    grid-column: span 2;
+    height: 180px;
+}
+
+.gal-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* --- POP-UP MODAL UCAPAN --- */
+#frame-8-page {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-sunda {
+    background: #FFF;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    padding: 20px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ucapan-scroll-sunda {
+    overflow-y: auto;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.item-ucapan-sunda {
+    background: #F4F0EA;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.item-ucapan-sunda strong {
+    color: #2D4A3E;
+}
+
+.item-ucapan-sunda span {
+    font-size: 10px;
+    color: #888;
+    float: right;
+}
+
+.item-ucapan-sunda p {
+    margin-top: 5px;
+    color: #444;
+}
