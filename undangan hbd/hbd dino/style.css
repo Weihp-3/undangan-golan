@@ -1,0 +1,453 @@
+/* RESET & BASE STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  
+  /* Warna dasar hijau tua */
+  background-color: #afb4b1; 
+  
+  /* Masukkan gambar pattern dino pilihanmu di sini */
+  background-image: url('back.jpg'); 
+  
+  /* Agar pattern mengulang terus ke bawah & samping */
+  background-repeat: repeat; 
+  background-size: 300px auto; /* Sesuaikan ukuran besar/kecilnya motif */
+  
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   FLOATING MUSIC BUTTON
+   ========================================== */
+.music-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: #8cc63f;
+  color: #0d381e;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+}
+
+.hidden-btn {
+  display: none;
+}
+
+/* Animasi Berputar Saat Musik Menyala */
+.music-btn.playing {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* COVER AMPLOP */
+.envelope-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #062b16;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+}
+
+.envelope-card {
+  width: 100%;
+  max-width: 360px;
+  background-color: #79b72c;
+  border: 4px solid #8cc63f;
+  border-radius: 25px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  color: #0d381e;
+  animation: floatEnvelope 3s ease-in-out infinite;
+}
+
+.envelope-icon { font-size: 3.5rem; margin-bottom: 10px; }
+.to-text { margin: 20px 0; font-size: 0.95rem; }
+
+.envelope-overlay.open {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes floatEnvelope {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* CONTAINER UTAMA */
+.mobile-container {
+  width: 100%;
+  max-width: 420px;
+  background-color: #062b16;
+  min-height: 100vh;
+  padding: 20px 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transition: opacity 0.5s ease;
+}
+
+.hidden-content {
+  opacity: 0;
+  pointer-events: none;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.visible-content {
+  opacity: 1;
+  pointer-events: auto;
+  height: auto;
+  overflow: visible;
+}
+
+/* TYPOGRAPHY */
+h1, h2 { font-family: 'Fredoka One', cursive, sans-serif; text-align: center; }
+.title-main { font-size: 1.8rem; color: #ffffff; }
+.subtitle-name { font-size: 1.3rem; color: #d4f570; }
+.section-title { font-size: 1.8rem; color: #ffffff; text-align: center; margin-bottom: 15px; }
+
+/* HOVER EFFECT */
+.interactive-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.interactive-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.08);
+}
+
+/* BUTTONS */
+.btn {
+  display: block;
+  width: 80%;
+  margin: 15px auto 0;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary { background-color: #8cc63f; color: #0d381e; }
+.btn-open { background-color: #0d381e; color: #ffffff; width: 90%; }
+.btn-secondary { background-color: #8cc63f; color: #0d381e; }
+.btn-submit { background-color: #ffffff; color: #0d381e; width: 50%; border-radius: 15px; }
+
+.btn:hover { transform: scale(1.05); }
+
+/* HERO */
+.egg-frame {
+  width: 180px;
+  height: 230px;
+  background-color: #8cc63f;
+  margin: 15px auto 0;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  overflow: hidden;
+  border: 4px solid #a3e048;
+}
+
+.egg-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ABOUT */
+.egg-card-text {
+  background-color: #79b72c;
+  border-radius: 40px;
+  padding: 25px 20px;
+  text-align: center;
+  color: #0d381e;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border: 3px solid #99d744;
+}
+
+.dino-silhouettes { display: flex; justify-content: space-between; padding: 10px 20px 0; font-size: 1.8rem; }
+
+/* MEMORIES */
+.memories-grid { display: flex; justify-content: center; align-items: center; gap: 10px; }
+.egg-mini-frame {
+  width: 95px;
+  height: 125px;
+  background-color: #8cc63f;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  overflow: hidden;
+  border: 3px solid #ffffff;
+}
+.egg-mini-frame img { width: 100%; height: 100%; object-fit: cover; }
+.center-egg { width: 110px; height: 145px; z-index: 2; }
+
+/* SCHEDULE & COUNTDOWN */
+.schedule-card {
+  background-color: #79b72c;
+  border-radius: 30px;
+  padding: 12px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.schedule-card .time { font-size: 0.85rem; opacity: 0.9; }
+.schedule-card .event-name { font-size: 1.1rem; font-weight: 700; }
+
+.countdown-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #79b72c;
+  border-radius: 20px;
+  padding: 15px 10px;
+  margin-top: 15px;
+  text-align: center;
+}
+.time-box span { display: block; font-size: 1.3rem; font-weight: bold; }
+.time-box small { font-size: 0.75rem; }
+
+/* ==========================================
+   LOKASI BENTUK TELUR PECAH (PETA FIT SHAPE)
+   ========================================== */
+.location-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container Pembungkus Telur Utuh */
+.egg-location-wrapper {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.4));
+  display: flex;
+  flex-direction: column;
+  gap: 3px; /* Garis retakan tipis antara cangkang atas & bawah */
+}
+
+/* 1. Cangkang Atas Telur (Teks) */
+.egg-top-shell {
+  background-color: #8cc63f;
+  color: #0d381e;
+  padding: 30px 20px 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+  clip-path: polygon(
+    0% 0%, 
+    100% 0%, 
+    100% calc(100% - 15px), 
+    90% 100%, 
+    80% calc(100% - 15px), 
+    70% 100%, 
+    60% calc(100% - 15px), 
+    50% 100%, 
+    40% calc(100% - 15px), 
+    30% 100%, 
+    20% calc(100% - 15px), 
+    10% 100%, 
+    0% calc(100% - 15px)
+  );
+}
+
+.egg-top-shell .event-date {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.egg-top-shell .event-time {
+  margin-bottom: 8px;
+}
+
+/* 2. Cangkang Bawah Telur (Bingkai Peta) */
+.egg-bottom-shell {
+  background-color: #8cc63f; /* Lis hijau telur di tepi peta */
+  padding: 6px; /* Ketebalan bingkai hijau cangkang */
+  height: 220px;
+  border-radius: 0 0 50% 50% / 0 0 60% 60%;
+  clip-path: polygon(
+    0% 15px, 
+    10% 0%, 
+    20% 15px, 
+    30% 0%, 
+    40% 15px, 
+    50% 0%, 
+    60% 15px, 
+    70% 0%, 
+    80% 15px, 
+    90% 0%, 
+    100% 15px, 
+    100% 100%, 
+    0% 100%
+  );
+}
+
+/* 3. Peta Langsung Memotong Mengikuti Bentuk Telur Retak */
+.map-frame-egg {
+  width: 100%;
+  height: 100%;
+  border: none;
+  /* Memotong peta persis sesuai cangkang bawah telur */
+  border-radius: 0 0 48% 48% / 0 0 58% 58%;
+  clip-path: polygon(
+    0% 15px, 
+    10% 0%, 
+    20% 15px, 
+    30% 0%, 
+    40% 15px, 
+    50% 0%, 
+    60% 15px, 
+    70% 0%, 
+    80% 15px, 
+    90% 0%, 
+    100% 15px, 
+    100% 100%, 
+    0% 100%
+  );
+}
+
+/* ==========================================
+   BIRTHDAY GIFT SECTION
+   ========================================== */
+.gift-card {
+  background-color: #79b72c;
+  border-radius: 35px;
+  padding: 25px 20px;
+  text-align: center;
+  color: #0d381e;
+  border: 3px solid #99d744;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.gift-desc {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Container QR Code dengan frame putih lengkung */
+.qr-container {
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+}
+
+.qr-image {
+  width: 160px;
+  height: 160px;
+  display: block;
+}
+
+/* Detail Rekening */
+.bank-details {
+  width: 100%;
+  background-color: #0d381e;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.bank-name {
+  color: #d4f570;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.account-number {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin: 4px 0;
+}
+
+.account-holder {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+/* Tombol Copy */
+.btn-copy {
+  background-color: #8cc63f;
+  color: #0d381e;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-copy:hover {
+  transform: scale(1.05);
+  background-color: #a3e048;
+}
+
+/* RSVP */
+.rsvp-card {
+  background-color: #1a5e36;
+  border-radius: 30px;
+  padding: 20px;
+  border: 2px solid #8cc63f;
+}
+.form-title { color: #ffffff; margin-bottom: 15px; font-size: 1.6rem; }
+.form-group { margin-bottom: 12px; display: flex; flex-direction: column; }
+.form-group label { font-size: 0.8rem; margin-bottom: 4px; color: #ffffff; }
+.form-group input, .form-group textarea, .form-group select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #79b72c;
+  color: #0d381e;
+  font-weight: 600;
+  outline: none;
+}
+
+/* THANK YOU */
+.thanks-section { text-align: center; padding: 20px 10px; }
+.thanks-text { font-size: 0.85rem; line-height: 1.5; color: #d4f570; }
