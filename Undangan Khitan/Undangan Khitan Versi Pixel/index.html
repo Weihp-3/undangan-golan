@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Up! Walimatul Khitan Ahmad Dimas Prasetyo</title>
+    
+    <!-- Google Fonts: Modern Clean Text (Rajdhani) + Arcade Titles (Press Start 2P) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Press+Start+2P&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+
+    <!-- Style CSS Gaming -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- AUDIO BACKSOUND GAME -->
+    <audio id="backsound" src="assets/pixelsong.mp3" loop preload="auto"></audio>
+    <div id="music-btn" class="music-control" onclick="toggleMusik()">🔊</div>
+
+    <div class="container">
+
+        <!-- Partikel Efek -->
+        <div id="particle-container"></div>
+
+        <!-- FRAME 1: COVER SCREEN (PRESS START) -->
+        <div id="frame-1">
+            <div class="game-card cover-card">
+                <span class="badge-game">LEVEL UP! WALIMATUL KHITAN</span>
+                
+                <div class="avatar-frame-game">
+                    <a href="assets/anak1.jpg" data-lightbox="cover" data-title="PLAYER 1: Ahmad Dimas Prasetyo">
+                        <img src="assets/anak1.jpg" alt="Ahmad Dimas Prasetyo">
+                    </a>
+                </div>
+                
+                <h1 class="nama-anak-cover">Ahmad Dimas Prasetyo</h1>
+                <p class="txt-sub">UNDANGAN UNTUK PLAYER 2:</p>
+                <div class="game-card" id="nama-tamu" style="margin: 10px 0; padding: 10px; color: var(--neon-cyan); border-color: var(--neon-cyan); font-weight: bold;">Fadil</div>
+                
+                <button class="btn-game" onclick="bukaUndangan()">
+                    <span>🎮 PRESS START TO PLAY</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT AREA -->
+        <div id="main-content">
+
+            <!-- FRAME 2: HERO BANNER -->
+            <section id="frame-2">
+                <div class="game-card" data-aos="zoom-in" style="border-color: var(--neon-yellow);">
+                    <span class="badge-game">PLAYER 1 HAS UNLOCKED NEW LEVEL</span>
+                    <h2>ACARA KHITANAN</h2>
+                    <h1 class="nama-anak-main">Ahmad Dimas Prasetyo</h1>
+                </div>
+            </section>
+
+            <!-- FRAME 3: SAMBUTAN & DOA -->
+            <section id="frame-3">
+                <div class="game-card" data-aos="fade-up">
+                    <p class="salam-text">السَّلَّامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+                    <p class="txt-body">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara khitanan putra kami:</p>
+                    
+                    <h2 class="nama-anak-main">Ahmad Dimas Prasetyo</h2>
+                    <p class="txt-sub">Putra kedua dari Bpk. Akhdan Ziyad & Ibu Rohini</p>
+
+                    <div class="small-avatar" style="margin: 15px auto;">
+                        <a href="assets/anak2.jpg" data-lightbox="profil" data-title="Ahmad Dimas Prasetyo">
+                            <img src="assets/anak2.jpg" alt="Dimas">
+                        </a>
+                    </div>
+
+                    <div class="quote-box">
+                        <p style="color: var(--neon-yellow);">"Semoga putra kami dijadikan anak yang soleh, berbakti kepada orang tua, serta berguna bagi agama, bangsa, dan negara."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 4 & 5: WAKTU & QUEST COUNTDOWN -->
+            <section id="frame-4-5">
+                <div class="game-card" data-aos="fade-up" style="border-color: var(--neon-cyan);">
+                    <h3 style="color: var(--neon-cyan);">QUEST COUNTDOWN</h3>
+                    <p class="txt-sub" style="margin-bottom: 10px;">--- LOKASI ACARA UTAMA ---</p>
+
+                    <div style="margin: 15px 0;">
+                        <p class="txt-date">Minggu, 08 Agustus 2026</p>
+                        <p style="color: var(--neon-green); font-weight: 600;">Pukul 08:30 WIB s/d Selesai</p>
+                        <p class="txt-body" style="margin-top: 5px;">Jalan Kenangan, RT 001 RW.003 Banten</p>
+                    </div>
+
+                    <!-- Countdown Grid -->
+                    <div class="countdown-grid" data-aos="zoom-in">
+                        <div class="grid-time"><span id="days">0</span><small>DAYS</small></div>
+                        <div class="grid-time"><span id="hours">0</span><small>HRS</small></div>
+                        <div class="grid-time"><span id="minutes">0</span><small>MIN</small></div>
+                        <div class="grid-time"><span id="seconds">0</span><small>SEC</small></div>
+                    </div>
+
+                    <a href="https://maps.google.com" target="_blank" class="btn-maps-game">
+                        📍 BUKA LOKASI (GOOGLE MAPS)
+                    </a>
+
+                    <!-- Preview Gambar Maps -->
+                    <div style="margin-top: 15px;">
+                        <a href="assets/mapsview.jpg" data-lightbox="maps" data-title="Peta Lokasi Acara Khitanan">
+                            <img src="assets/mapsview.jpg" alt="Peta Lokasi" style="width: 100%; border: 2px solid var(--border-pixel);">
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 6: KELUARGA BESAR -->
+            <section id="frame-6">
+                <div class="game-card" data-aos="fade-up">
+                    <p class="salam-text">وَعَلَيْكُمُ السَّلَامُ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+                    <p class="txt-body">Kami yang berbahagia,</p>
+                    <h3 style="color: var(--neon-yellow); margin: 10px 0; font-size: 14px;">Keluarga Bpk. Akhdan Ziyad & Ibu Rohini</h3>
+                </div>
+            </section>
+
+            <!-- FRAME 7: UCAPAN & RSVP -->
+            <section id="frame-7">
+                <div class="game-card" data-aos="fade-up" style="border-color: var(--neon-pink);">
+                    <h3 style="color: var(--neon-pink); margin-bottom: 15px;">MULTIPLAYER RSVP</h3>
+                    <form onsubmit="prosesKirimUcapan(event)">
+                        <div class="form-game">
+                            <label>NAMA TAMU (Player Name):</label>
+                            <input type="text" id="ins-nama" placeholder="Contoh: Bpk. Budi" required>
+                        </div>
+                        <div class="form-game">
+                            <label>PESAN & DOA:</label>
+                            <textarea id="ins-pesan" rows="3" placeholder="Tuliskan ucapan dan doa Anda..." required></textarea>
+                        </div>
+                        <div class="form-game">
+                            <label>KONFIRMASI KEHADIRAN:</label>
+                            <select id="ins-hadir">
+                                <option value="Hadir">SIAP HADIR (Ready to Join)</option>
+                                <option value="Tidak Hadir">HALANGAN (AFK / Absent)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-game">KIRIM UCAPAN 📩</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- FRAME 9: SCREENSHOT GALLERY -->
+            <section id="frame-9">
+                <div class="game-card" data-aos="fade-up">
+                    <h3 style="color: var(--neon-yellow); margin-bottom: 5px;">SCREENSHOT GALLERY</h3>
+                    <p class="txt-sub" style="margin-bottom: 15px;">*Ketuk foto untuk melihat ukuran penuh</p>
+                    
+                    <div class="gallery-game">
+                        <div class="gal-item">
+                            <a href="assets/anak3.jpg" data-lightbox="galeri" data-title="Screenshot 1">
+                                <img src="assets/anak3.jpg" alt="Foto 1">
+                            </a>
+                        </div>
+                        <div class="gal-item">
+                            <a href="assets/anak4.jpg" data-lightbox="galeri" data-title="Screenshot 2">
+                                <img src="assets/anak4.jpg" alt="Foto 2">
+                            </a>
+                        </div>
+                        <div class="gal-item">
+                            <a href="assets/anak6.jpg" data-lightbox="galeri" data-title="Screenshot 3">
+                                <img src="assets/anak6.jpg" alt="Foto 3">
+                            </a>
+                        </div>
+                        <div class="gal-item">
+                            <a href="assets/anak5.jpg" data-lightbox="galeri" data-title="Screenshot 4">
+                                <img src="assets/anak5.jpg" alt="Foto 4">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 10: PENUTUP -->
+            <section id="frame-10">
+                <div class="game-card" data-aos="fade-up">
+                    <div class="small-avatar" style="margin-bottom: 15px;">
+                        <a href="assets/anak2.jpg" data-lightbox="penutup" data-title="GAME OVER - THANK YOU">
+                            <img src="assets/anak2.jpg" alt="Dimas">
+                        </a>
+                    </div>
+                    <p class="txt-body">
+                        "Terima kasih yang sebesar-besarnya atas kehadiran dan doa restu dari Bapak/Ibu/Saudara/i sekalian."
+                    </p>
+                    <p style="color: var(--neon-yellow); font-family: 'Press Start 2P'; font-size: 9px; margin-top: 15px;">THANK YOU FOR PLAYING!</p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- POP-UP DAFTAR UCAPAN -->
+        <div id="frame-8-page">
+            <div class="game-card" style="background: #000; border-color: var(--neon-green); margin: 20px;">
+                <button type="button" class="btn-game" onclick="tutupPageUcapan()">✓ KEMBALI KE UNDANGAN</button>
+                <h3 style="margin-top: 20px; color: var(--neon-cyan);">PESAN PLAYER</h3>
+                <p class="txt-sub" id="stat-hadir">1 Player Joined</p>
+                
+                <div id="container-pesan-tamu" style="max-height: 250px; overflow-y: auto; text-align: left; margin-top: 15px;">
+                    <div style="border-bottom: 1px dashed #444; padding: 8px 0;">
+                        <strong style="color: var(--neon-yellow); font-size: 16px;">Lian</strong> <span style="font-size: 12px; color: #aaa;">2026-08-01</span>
+                        <p style="color: #fff; margin-top: 3px;" class="txt-body">Selamat dikhitan Dimas, semoga jadi anak yang soleh!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

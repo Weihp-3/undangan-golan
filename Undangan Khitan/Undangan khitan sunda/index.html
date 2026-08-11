@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walimatul Khitan Yuda Hadi Purnama</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- AUDIO BACKSOUND SUNDA -->
+    <audio id="backsound" src="assets/lagusunda.mp3" loop preload="auto"></audio>
+    <div id="music-btn" class="music-control" onclick="toggleMusik()">🎵</div>
+
+    <div class="container">
+
+        <!-- Efek Gugur Daun / Bunga -->
+        <div id="particle-container"></div>
+
+        <!-- FRAME 1: COVER SCREEN -->
+        <div id="frame-1">
+            <div class="sunda-card cover-card">
+                <!-- Ornaments Ikat Sunda -->
+                <img src="assets/ikatsunda-removebg-preview.png" class="ornamen-ikat float-anim" alt="Ikat Sunda">
+                <span class="badge-sunda glow-anim">WALIMATUL KHITAN</span>
+                
+                <div class="avatar-frame-sunda zoom-hover">
+                    <a href="assets/anak1.jpg" data-lightbox="cover" data-title="Yuda Hadi Purnama">
+                        <img src="assets/anak1.jpg" alt="Yuda Hadi Purnama">
+                    </a>
+                </div>
+                
+                <h1 class="nama-anak-cover">Yuda Hadi Purnama</h1>
+                <p class="tamu-text">Katur Dumateng Bapak/Ibu/Saudara/i:</p>
+                <div class="nama-tamu-box" id="nama-tamu">Ahmad</div>
+                
+                <button class="btn-sunda pulse-btn" onclick="bukaUndangan()">
+                    <span>🍃 Buka Undangan</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT AREA -->
+        <div id="main-content">
+
+            <!-- FRAME 2: HERO BANNER -->
+            <section id="frame-2" class="section-hero">
+                <div class="hero-overlay" data-aos="zoom-in">
+                    <span class="sub-hero">HAJAT KHITANAN</span>
+                    <h2>YUDA HADI PURNAMA</h2>
+                </div>
+            </section>
+
+            <!-- FRAME 3: SAMBUTAN & DOA -->
+            <section id="frame-3">
+                <div class="sunda-card card-interactive" data-aos="fade-up">
+                    <p class="salam">السَّلَّامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+                    <p class="isi-pembuka">Kalayan ngagungkeun asma Allah Nu Maha Welas tur Maha Asih, sim kuring ngahaturkeun uleman ka Bapak/Ibu/Saudara/i dina raraga Khitanan putra kuring:</p>
+                    
+                    <h2 class="nama-anak-main">YUDA HADI PURNAMA</h2>
+                    <p class="ortu-text">Putra kadua ti Bpk. Akhdan Ziyad & Ibu Rohini</p>
+
+                    <div class="small-avatar zoom-hover">
+                        <a href="assets/anak2.jpg" data-lightbox="profil" data-title="Yuda Hadi Purnama">
+                            <img src="assets/anak2.jpg" alt="Yuda">
+                        </a>
+                    </div>
+
+                    <div class="quote-box">
+                        <p>"Mugi-mugi putra sim kuring dijantenkeun putra anu soleh, berbakti ka sepuh, migunani ka agama, bangsa, lan nagara."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 4 & 5: WAKTU, MAPS, & COUNTDOWN -->
+            <section id="frame-4-5">
+                <div class="sunda-card card-dark card-interactive" data-aos="fade-up">
+                    <h3 class="title-gold">Waktu & Tempat Acara</h3>
+                    <div class="divider-leaf float-anim">🍃</div>
+
+                    <div class="info-waktu">
+                        <p class="hari-tanggal">Minggu, 08 Agustus 2026</p>
+                        <p class="jam-acara">Tabuh 08:30 WIB Dugi ka Selesai</p>
+                        <p class="alamat-lengkap">Jalan Kenangan, RT 001 RW.003 Banten</p>
+                    </div>
+
+                    <!-- Countdown Grid -->
+                    <div class="countdown-grid" data-aos="zoom-in">
+                        <div class="grid-time"><span id="days">0</span><small>Dinten</small></div>
+                        <div class="grid-time"><span id="hours">0</span><small>Jam</small></div>
+                        <div class="grid-time"><span id="minutes">0</span><small>Menit</small></div>
+                        <div class="grid-time"><span id="seconds">0</span><small>Detik</small></div>
+                    </div>
+
+                    <a href="https://maps.google.com" target="_blank" class="btn-maps-sunda pulse-btn">
+                        📍 Peta Lokasi Acara
+                    </a>
+
+                    <!-- Preview Gambar Maps -->
+                    <div class="maps-preview zoom-hover">
+                        <a href="assets/mapsview.jpg" data-lightbox="maps" data-title="Peta Lokasi Acara Khitanan">
+                            <img src="assets/mapsview.jpg" alt="Peta Lokasi">
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 6: KELUARGA BESAR -->
+            <section id="frame-6">
+                <div class="sunda-card card-interactive" data-aos="fade-up">
+                    <p class="salam">وَعَلَيْكُمُ السَّلَامُ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+                    <p>Anu nuju bingah,</p>
+                    <h3 class="nama-keluarga">Keluarga Bpk. Akhdan Ziyad & Ibu Rohini</h3>
+                    <p class="slogan-sunda">"Silih Asih, Silih Asah, Silih Asuh"</p>
+                </div>
+            </section>
+
+            <!-- FRAME 7: UCAPAN & RSVP -->
+            <section id="frame-7">
+                <div class="sunda-card card-interactive" data-aos="fade-up">
+                    <h3 class="form-title">Konfirmasi Kehadiran</h3>
+                    <form onsubmit="prosesKirimUcapan(event)">
+                        <div class="form-sunda">
+                            <label>Wasta (Nama)</label>
+                            <input type="text" id="ins-nama" placeholder="Contoh: Bpk. Budi" required>
+                        </div>
+                        <div class="form-sunda">
+                            <label>Piwulang & Doa (Pesan)</label>
+                            <textarea id="ins-pesan" rows="3" placeholder="Tulis ucapan lan doa..." required></textarea>
+                        </div>
+                        <div class="form-sunda">
+                            <label>Kehadiran</label>
+                            <select id="ins-hadir">
+                                <option value="Hadir">Bisa Hadir</option>
+                                <option value="Tidak Hadir">Teu Bisa Hadir</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-sunda btn-full pulse-btn">Kirim Doa</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- FRAME 9: GALERI FOTO -->
+            <section id="frame-9">
+                <div class="sunda-card card-interactive" data-aos="fade-up">
+                    <h3 class="form-title">Galeri Semarak Sunda</h3>
+                    <p style="font-size: 11px; color: #888; margin-bottom: 12px;">*Tap foto pikeun ngagedean (Klik foto untuk memperbesar)</p>
+                    
+                    <div class="gallery-sunda">
+                        <div class="gal-item item-big zoom-hover">
+                            <a href="assets/anak3.jpg" data-lightbox="galeri" data-title="Galeri Yuda 1">
+                                <img src="assets/anak3.jpg" alt="Foto 1">
+                            </a>
+                        </div>
+                        <div class="gal-item zoom-hover">
+                            <a href="assets/anak4.jpg" data-lightbox="galeri" data-title="Galeri Yuda 2">
+                                <img src="assets/anak4.jpg" alt="Foto 2">
+                            </a>
+                        </div>
+                        <div class="gal-item zoom-hover">
+                            <a href="assets/anak6.jpg" data-lightbox="galeri" data-title="Galeri Yuda 3">
+                                <img src="assets/anak6.jpg" alt="Foto 3">
+                            </a>
+                        </div>
+                        <div class="gal-item zoom-hover">
+                            <a href="assets/anak5.jpg" data-lightbox="galeri" data-title="Galeri Yuda 4">
+                                <img src="assets/anak5.jpg" alt="Foto 4">
+                            </a>
+                        </div>
+                        <div class="gal-item zoom-hover">
+                            <a href="assets/anak2.jpg" data-lightbox="galeri" data-title="Galeri Yuda 5">
+                                <img src="assets/anak2.jpg" alt="Foto 5">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FRAME 10: PENUTUP -->
+            <section id="frame-10">
+                <div class="sunda-card card-penutup card-interactive" data-aos="fade-up">
+                    <div class="small-avatar zoom-hover" style="margin-bottom: 15px;">
+                        <a href="assets/anak2.jpg" data-lightbox="penutup" data-title="Matur Nuhun">
+                            <img src="assets/anak2.jpg" alt="Yuda">
+                        </a>
+                    </div>
+                    <p class="teks-penutup">
+                        "Hatur nuhun anu kasuhun kana kasumpingan sarta doa restu ti Bapak/Ibu/Saudara/i sadayana."
+                    </p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- POP-UP DAFTAR UCAPAN -->
+        <div id="frame-8-page">
+            <div class="modal-sunda">
+                <button type="button" class="btn-sunda btn-full" onclick="tutupPageUcapan()">✓ Tingali Undangan Deui</button>
+                <h3 style="margin-top: 15px; color: #2D4A3E;">Daftar Doa & Ucapan</h3>
+                <p style="font-size: 12px; color: #666;" id="stat-hadir">1 Orang Menyatakan Hadir</p>
+                
+                <div class="ucapan-scroll-sunda" id="container-pesan-tamu">
+                    <div class="item-ucapan-sunda">
+                        <strong>Lian</strong> <span>2026-08-01 22:44:10</span>
+                        <p>Wilujeng dikhitan Yuda, mugia janten anak anu soleh!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS Libraries (URUTAN WAJIB SEPERTI INI) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

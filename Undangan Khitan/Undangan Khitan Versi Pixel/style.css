@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Press+Start+2P&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root {
+    --bg-dark: #000000;
+    --card-bg: rgba(14, 17, 27, 0.90);
+    --neon-cyan: #00f0ff;
+    --neon-pink: #ff0055;
+    --neon-yellow: #ffe600;
+    --neon-green: #39ff14;
+    --border-pixel: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('assets/scapebg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+    /* Menggunakan font Rajdhani agar teks sangat mudah dibaca */
+    font-family: 'Rajdhani', 'Outfit', sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    background: rgba(0, 0, 0, 0.65);
+    min-height: 100vh;
+    position: relative;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
+    border-left: 2px solid var(--neon-cyan);
+    border-right: 2px solid var(--neon-cyan);
+    overflow-x: hidden;
+}
+
+/* --- Card Base --- */
+.game-card {
+    background: var(--card-bg);
+    border: 3px solid var(--border-pixel);
+    box-shadow: 5px 5px 0px var(--neon-pink);
+    padding: 20px 16px;
+    margin: 18px 12px;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(6px);
+}
+
+/* --- Typography System --- */
+h1, h2, h3, .badge-game {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--neon-yellow);
+    text-shadow: 2px 2px 0px #000;
+    line-height: 1.5;
+}
+
+h1 { font-size: 12px; }
+h2 { font-size: 11px; }
+h3 { font-size: 10px; }
+
+.txt-body {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+.txt-sub {
+    font-size: 14px;
+    color: #a0aec0;
+}
+
+.txt-date {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--neon-yellow);
+}
+
+.salam-text {
+    font-size: 22px;
+    color: var(--neon-green);
+    margin-bottom: 10px;
+}
+
+.badge-game {
+    display: inline-block;
+    font-size: 8px;
+    background: var(--neon-pink);
+    color: #fff;
+    padding: 6px 10px;
+    border: 2px solid #fff;
+    margin-bottom: 12px;
+}
+
+.nama-anak-cover, .nama-anak-main {
+    font-size: 12px;
+    color: var(--neon-cyan);
+    margin: 12px 0;
+    word-break: break-word;
+}
+
+.quote-box {
+    border: 2px dashed var(--neon-yellow);
+    padding: 12px;
+    margin-top: 12px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* --- Avatar Frame --- */
+.avatar-frame-game, .small-avatar {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+    border: 3px solid var(--neon-cyan);
+    box-shadow: 3px 3px 0px var(--neon-green);
+    overflow: hidden;
+}
+
+.avatar-frame-game img, .small-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Buttons --- */
+.btn-game, .btn-maps-game {
+    display: block;
+    width: 100%;
+    background: var(--neon-cyan);
+    color: #000;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 9px;
+    padding: 14px 10px;
+    border: 2px solid #fff;
+    box-shadow: 3px 3px 0px var(--neon-pink);
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.btn-game:active, .btn-maps-game:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--neon-pink);
+}
+
+/* --- Countdown Grid --- */
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin: 15px 0;
+}
+
+.grid-time {
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid var(--neon-green);
+    padding: 8px 3px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.grid-time span {
+    display: block;
+    font-size: 13px;
+    color: var(--neon-yellow);
+}
+
+.grid-time small {
+    font-size: 7px;
+    color: #fff;
+}
+
+/* --- Form Gaming --- */
+.form-game {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.form-game label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 7px;
+    color: var(--neon-cyan);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.form-game input, .form-game textarea, .form-game select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid var(--border-pixel);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 0;
+}
+
+/* --- Galeri Grid --- */
+.gallery-game {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.gal-item img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border: 2px solid var(--neon-pink);
+}
+
+/* --- Control Floating Music --- */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--neon-yellow);
+    border: 2px solid #000;
+    padding: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 99;
+    box-shadow: 2px 2px 0px #000;
+}
+
+/* Pixel Falling Particles */
+.pixel-particle {
+    position: absolute;
+    top: -10px;
+    background: var(--neon-cyan);
+    width: 5px;
+    height: 5px;
+    box-shadow: 0 0 4px var(--neon-cyan);
+    animation: fall linear infinite;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Display States */
+#frame-1 {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('assets/scapebg.png') center/cover no-repeat;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#frame-1.hide { display: none; }
+#main-content { display: none; }
+#frame-8-page {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 150;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Fauzi & Salsabila</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="mobile-container">
+
+        <!-- 1. COVER / HERO -->
+        <section class="hero-section">
+            <div class="overlay"></div>
+            <div class="hero-content" data-aos="zoom-in" data-aos-duration="1200">
+                <p class="sub-title">WEDDING INVITATION</p>
+                <p class="date-hero">MINGGU, 20 JULI 2026</p>
+                <h1 class="bride-groom">FAUZI & SALSABILA</h1>
+                <p class="guest-to">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                <div class="guest-box">
+                    <span id="guest-name">Tamu Undangan</span>
+                </div>
+                <button class="btn-open" onclick="openInvitation()">
+                    <i class="fa-solid fa-envelope-open"></i> Buka Undangan
+                </button>
+            </div>
+        </section>
+
+        <!-- KONTEN UTAMA -->
+        <div id="main-content" class="content-hidden">
+
+            <!-- 2. COUNTDOWN & AYAT -->
+            <section class="section dark-bg">
+                <p class="small-title" data-aos="fade-down">Hitung Mundur</p>
+                <h2 class="section-title gold-text" data-aos="fade-down" data-aos-delay="100">MENUJU HARI BAHAGIA</h2>
+                
+                <div class="countdown-flex" data-aos="zoom-in">
+                    <div class="count-item"><span id="days">00</span><p>Hari</p></div>
+                    <div class="count-item"><span id="hours">00</span><p>Jam</p></div>
+                    <div class="count-item"><span id="minutes">00</span><p>Menit</p></div>
+                    <div class="count-item"><span id="seconds">00</span><p>Detik</p></div>
+                </div>
+
+                <a href="#" class="btn-cal" data-aos="fade-up"><i class="fa-regular fa-calendar-check"></i> Google Calendar</a>
+
+                <p class="quote-text" data-aos="fade-up">
+                    "Dan di antara tanda-tanda kekuasaan-Nya diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu dapat ketenangan hati dan dijadikannya kasih sayang di antara kamu."
+                </p>
+                <p class="quote-src" data-aos="zoom-in">(QS. AR-RUM: 21)</p>
+            </section>
+
+            <!-- 3. BANNER PREWED BINGKAI -->
+            <section class="section dark-bg">
+                <div class="banner-frame" data-aos="zoom-in" onclick="openLightbox('assets/prewed.jpg')">
+                    <img src="assets/prewed.jpg" alt="Prewedding">
+                </div>
+            </section>
+
+            <!-- 4. PASANGAN PENGANTIN -->
+            <section class="section gold-bg">
+                <img src="assets/rumah_balon-removebg-preview.png" alt="Logo" class="logo-adat">
+                <h2 class="section-title" data-aos="fade-down">PASANGAN PENGANTIN</h2>
+                <p class="subtitle" data-aos="fade-up">Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
+
+                <div class="couple-flex">
+                    <div class="couple-card" data-aos="fade-right">
+                        <div class="photo-frame" onclick="openLightbox('assets/fotonikah.jpg')">
+                            <img src="assets/fotonikah.jpg" alt="Fauzi">
+                        </div>
+                        <h3>Fauzi Ahmad, S.T.</h3>
+                        <p>Putra Pertama dari<br>Bpk. Fulan & Ibu Fulanah</p>
+                    </div>
+
+                    <div class="and-text" data-aos="zoom-in">&</div>
+
+                    <div class="couple-card" data-aos="fade-left">
+                        <div class="photo-frame" onclick="openLightbox('assets/fotonikah.jpg')">
+                            <img src="assets/fotonikah.jpg" alt="Salsabila">
+                        </div>
+                        <h3>Salsabila, S.Ked.</h3>
+                        <p>Putri Kedua dari<br>Bpk. Fulan & Ibu Fulanah</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. RANGKAIAN ACARA (KUBAH) -->
+            <section class="section gold-bg">
+                <img src="assets/rumah_balon-removebg-preview.png" alt="Logo" class="logo-adat">
+                <p class="small-title" data-aos="fade-down">Waktu & Tempat</p>
+                <h2 class="section-title" data-aos="fade-down">PERNIKAHAN</h2>
+                <p class="motto-text" data-aos="fade-up">PERTEMUAN ADALAH PERMULAAN, TETAP BERSAMA ADALAH PERKEMBANGAN.</p>
+
+                <div class="dome-flex">
+                    <div class="dome-card" data-aos="fade-up">
+                        <i class="fa-solid fa-dove dome-icon"></i>
+                        <h3>Akad<br>PERNIKAHAN</h3>
+                        <div class="line-gold"></div>
+                        <span class="date-big">20</span>
+                        <p class="month-text">Juli 2026</p>
+                        <p class="time-text">08:00 WIB<br>s/d Selesai</p>
+                    </div>
+
+                    <div class="dome-card" data-aos="fade-up" data-aos-delay="150">
+                        <i class="fa-solid fa-champagne-glasses dome-icon"></i>
+                        <h3>Resepsi<br>PERNIKAHAN</h3>
+                        <div class="line-gold"></div>
+                        <span class="date-big">20</span>
+                        <p class="month-text">Juli 2026</p>
+                        <p class="time-text">11:00 WIB<br>s/d Selesai</p>
+                    </div>
+                </div>
+
+                <div data-aos="fade-up">
+                    <p class="loc-title">Bertempat di</p>
+                    <h3 class="loc-name">GEDUNG SERBAGUNA UTAMA</h3>
+                    <p class="loc-address">Jl. Utama No. 123, Jakarta Selatan</p>
+                </div>
+
+                <div class="map-container" data-aos="zoom-in">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.28312015037!2d106.759478!3d-6.229728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta!5e0!3m2!1sid!2sid!4v1680000000000!5m2!1sid!2sid" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <a href="https://maps.google.com" target="_blank" class="btn-gold" data-aos="fade-up"><i class="fa-solid fa-location-dot"></i> Buka Google Maps</a>
+            </section>
+
+            <!-- 6. PERJALANAN KAMI -->
+            <section class="section dark-bg">
+                <p class="small-title" data-aos="fade-down">Sebuah Kisah</p>
+                <h2 class="section-title gold-text" data-aos="fade-down">PERJALANAN KAMI</h2>
+
+                <div class="story-container">
+                    <div class="story-card" data-aos="fade-up">
+                        <h4>AWAL BERTEMU</h4>
+                        <p>Kami pertama kali bertemu di acara kampus tahun 2020 dan mulai menjalin komunikasi secara intensif.</p>
+                    </div>
+                    <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+                        <h4>LAMARAN</h4>
+                        <p>Setelah 4 tahun bersama, kami melangsungkan acara lamaran resmi di hadapan keluarga besar.</p>
+                    </div>
+                    <div class="story-card" data-aos="fade-up" data-aos-delay="200">
+                        <h4>MENIKAH</h4>
+                        <p>Kini kami melangkah ke jenjang ikatan suci pernikahan untuk membina keluarga bahagia.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. MOMEN BAHAGIA KAMI -->
+            <section class="section gold-bg">
+                <img src="assets/rumah_balon-removebg-preview.png" alt="Logo" class="logo-adat">
+                <p class="small-title" data-aos="fade-down">Moment</p>
+                <h2 class="section-title" data-aos="fade-down">BAHAGIA KAMI</h2>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-aos="zoom-in" onclick="openLightbox('assets/fotonikah.jpg')"><img src="assets/fotonikah.jpg" alt="Galeri"></div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" onclick="openLightbox('assets/fotonikah.jpg')"><img src="assets/fotonikah.jpg" alt="Galeri"></div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" onclick="openLightbox('assets/fotonikah.jpg')"><img src="assets/fotonikah.jpg" alt="Galeri"></div>
+                    <div class="gallery-item" data-aos="zoom-in" onclick="openLightbox('assets/fotonikah.jpg')"><img src="assets/fotonikah.jpg" alt="Galeri"></div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" onclick="openLightbox('assets/fotonikah.jpg')"><img src="assets/fotonikah.jpg" alt="Galeri"></div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" onclick="openLightbox('assets/fotonikah.jpg')"><img src="assets/fotonikah.jpg" alt="Galeri"></div>
+                </div>
+            </section>
+
+            <!-- 8. RSVP & UCAPAN -->
+            <section class="section dark-bg">
+                <h2 class="section-title gold-text" data-aos="fade-down">RSVP & UCAPAN</h2>
+                
+                <form id="rsvp-form" data-aos="fade-up" onsubmit="handleFormSubmit(event)">
+                    <input type="text" id="rsvp-nama" placeholder="Nama Anda" required>
+                    <input type="number" id="rsvp-jumlah" placeholder="Jumlah Tamu" required>
+                    <select id="rsvp-status" required>
+                        <option value="">Konfirmasi Kehadiran</option>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
+                    </select>
+                    <textarea id="rsvp-pesan" rows="3" placeholder="Berikan Ucapan & Doa..." required></textarea>
+                    <button type="submit" class="btn-red-submit">KIRIM UCAPAN <i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+
+                <!-- Container komentar yang terkirim -->
+                <div id="comments-container" class="comments-box" data-aos="fade-up">
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <strong>Ahmad & Keluarga</strong>
+                            <span class="badge-hadir">Hadir</span>
+                        </div>
+                        <p class="comment-text">Selamat Fauzi dan Salsabila! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Aamiin.</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title gold-text" style="margin-top: 50px;" data-aos="fade-down">AMPLOP DIGITAL</h2>
+
+                <!-- ATM Card Style BCA -->
+                <div class="atm-card" data-aos="flip-up">
+                    <div class="atm-top">
+                        <img src="assets/bca-removebg-preview.png" alt="BCA" class="atm-logo">
+                    </div>
+                    <div class="atm-chip"></div>
+                    <div class="atm-body">
+                        <p class="atm-holder">Fauzi Ahmad</p>
+                        <p class="atm-number">1234567890</p>
+                    </div>
+                    <button class="btn-copy-atm" onclick="copyText('1234567890')">
+                        <i class="fa-regular fa-copy"></i> Salin alamat
+                    </button>
+                </div>
+
+                <!-- ATM Card Style BNI -->
+                <div class="atm-card" data-aos="flip-up" data-aos-delay="150">
+                    <div class="atm-top">
+                        <img src="assets/bni-removebg-preview.png" alt="BNI" class="atm-logo">
+                    </div>
+                    <div class="atm-chip"></div>
+                    <div class="atm-body">
+                        <p class="atm-holder">Salsabila</p>
+                        <p class="atm-number">0987654321</p>
+                    </div>
+                    <button class="btn-copy-atm" onclick="copyText('0987654321')">
+                        <i class="fa-regular fa-copy"></i> Salin alamat
+                    </button>
+                </div>
+            </section>
+
+            <!-- 9. FOOTER -->
+            <section class="footer-section">
+                <div class="footer-overlay"></div>
+                <div class="footer-content" data-aos="fade-up">
+                    <img src="assets/rumah_balon-removebg-preview.png" alt="Logo" class="logo-adat">
+                    <p class="footer-text">
+                        "Semoga Allah menghimpun yang terserak dari keduanya, memberkati mereka berdua dan kiranya Allah meningkatkan kualitas keturunan mereka."
+                    </p>
+                    <h3 class="thank-you">Thank You</h3>
+                    <h1 class="bride-groom-footer">FAUZI & SALSABILA</h1>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+
+    <!-- Lightbox Pop-up -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom Foto">
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

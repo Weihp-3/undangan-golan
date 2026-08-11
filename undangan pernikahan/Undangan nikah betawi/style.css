@@ -1,201 +1,249 @@
-/* ====================================
-   1. RESET & BASIC STYLES
-   ==================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #333;
+  background-color: #1a1a1a;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
-  color: #333;
 }
 
-/* Container utama bergaya Mobile Card / Frame */
+body.lock-scroll {
+  overflow: hidden;
+}
+
+/* Music Control Button */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #d14928;
+  color: white;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .mobile-container {
   width: 100%;
-  max-width: 430px;
-  background: #ffffff;
-  border: 8px solid #d09b78;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  max-width: 414px;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
   position: relative;
+  min-height: 100vh;
 }
 
-/* Standard Card Box */
-.card-box {
-  background: #ffffff;
-  border: 2px solid #5a524c;
-  border-radius: 16px;
-  padding: 20px 15px;
-  margin: 15px 0;
-  text-align: center;
-}
-
-/* Section padding */
-.section {
-  padding: 25px 18px;
-  text-align: center;
-  position: relative;
-  border-bottom: 2px solid #d09b78;
-}
-
-/* Red / Terracotta Primary Color */
-.btn-primary {
-  background-color: #c84b2c;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(200, 75, 44, 0.2);
-  transition: all 0.2s ease;
-  width: 100%;
-  max-width: 250px;
-}
-
-.btn-primary:hover {
-  background-color: #b03d20;
-}
-
-.btn-sm {
-  padding: 6px 14px;
-  font-size: 12px;
-  border-radius: 8px;
-}
-
-/* Icon Header Circle/Color */
-.icon-header {
-  font-size: 38px;
-  color: #c84b2c;
-  margin-bottom: 8px;
-}
-
-h2.title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  color: #111;
-}
-
-p.subtitle {
-  font-size: 12px;
-  color: #777;
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-
-/* Ondel-Ondel / Cultural Header-Footer Banner Placeholder */
-.betawi-banner {
-  width: 100%;
-  height: 90px;
-  background: linear-gradient(135deg, #f3a683, #f7d794);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-  background-image: radial-gradient(#c84b2c 10%, transparent 11%), radial-gradient(#3c40c6 10%, transparent 11%);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-  position: relative;
-}
-
-.betawi-banner::after {
-  content: "🎭 Ondel-Ondel & Motif Betawi 🎭";
-  background: rgba(255, 255, 255, 0.9);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: bold;
-  color: #8e44ad;
-}
-
-/* ====================================
-   2. HERO / COVER SECTION
-   ==================================== */
+/* HERO COVER SECTION */
 .hero-section {
-  position: relative;
-  background: linear-gradient(rgba(240, 220, 210, 0.6), rgba(240, 220, 210, 0.8)),
-              url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80') center/cover;
-  min-height: 480px;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url('assets/fotonikahputih.jpg') center/cover no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 30px 20px;
+  padding: 40px 15px 15px 15px;
   text-align: center;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.avatar-circle {
+.hero-section.slide-out {
+  transform: translateY(-100%);
+  opacity: 0;
+  display: none !important;
+}
+
+.avatar-lg {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  border: 3px solid #6c5ce7;
+  border: 3px solid #6b528f;
+  background-color: #8b71b8;
+  margin: 0 auto;
   overflow: hidden;
-  margin-bottom: 12px;
-  background: #fff;
 }
 
-.avatar-circle img {
+.avatar-lg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.hero-title {
-  font-size: 28px;
-  font-weight: bold;
-  color: #111;
-  margin: 10px 0;
+.hero-subtext {
+  font-size: 12px;
+  color: #444;
+  margin-top: 10px;
 }
 
-.hero-heart {
+.hero-names {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111;
+}
+
+.heart-icon {
   color: #e74c3c;
-  font-size: 24px;
+  font-size: 22px;
   margin: 5px 0;
 }
 
-/* ====================================
-   3. PROFIL MEMPALAI & COUNTDOWN
-   ==================================== */
-.countdown-box {
-  border: 2px solid #b8860b;
+.btn-hero {
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(209, 73, 40, 0.4);
+  position: relative;
+  z-index: 10;
+}
+
+/* MAIN CONTENT (Awalnya Sembunyi) */
+.main-content {
+  display: none;
+}
+
+.main-content.active {
+  display: block;
+}
+
+/* ANIMATIONS & UTILITIES */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.float-anim {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.pulse-anim {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(208, 154, 116, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(208, 154, 116, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(208, 154, 116, 0); }
+}
+
+.beat-anim {
+  animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+.card-section {
+  border: 3px solid #d09a74;
   border-radius: 12px;
-  padding: 12px;
-  margin: 15px 0;
-  background: #fff;
+  margin: 15px;
+  padding: 25px 15px 15px 15px;
+  background-color: #ffffff;
+  text-align: center;
 }
 
-.countdown-timer {
-  font-size: 20px;
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.section-title {
+  font-size: 22px;
   font-weight: 700;
-  color: #222;
+  color: #000;
+  margin-bottom: 4px;
 }
 
-.profile-card {
-  margin: 20px 0;
+.title-serif {
+  font-family: 'Playfair Display', serif;
 }
 
-.profile-bio {
+.section-subtitle {
   font-size: 11px;
-  color: #666;
-  line-height: 1.5;
-  margin: 10px 0;
+  color: #888;
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.top-icon {
+  margin-bottom: 10px;
+}
+
+.custom-icon {
+  max-width: 50px;
+  height: auto;
+}
+
+.footer-illustration img {
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+  display: block;
+}
+
+.btn-primary {
+  background-color: #d14928;
+  color: #fff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background-color: #b3391d;
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-block {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.btn-sm {
+  font-size: 11px;
+  padding: 6px 14px;
 }
 
 .divider-heart {
@@ -206,237 +254,400 @@ p.subtitle {
 }
 
 .divider-heart::before, .divider-heart::after {
-  content: "";
+  content: '';
   flex: 1;
-  height: 1px;
-  background: #ccc;
+  border-bottom: 1px solid #ddd;
 }
 
 .divider-heart i {
   color: #e74c3c;
-  margin: 0 10px;
+  padding: 0 10px;
   font-size: 12px;
 }
 
-/* ====================================
-   4. CERITA CINTA (TIMELINE)
-   ==================================== */
+/* PROFIL & COUNTDOWN */
+.countdown-box {
+  border: 2px solid #b89355;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: #fffdf9;
+}
+
+.countdown-sub {
+  font-size: 11px;
+  font-weight: 400;
+  color: #777;
+}
+
+.profile-card h3 {
+  font-size: 18px;
+  margin: 8px 0 4px 0;
+}
+
+.profile-card p.bio {
+  font-size: 11px;
+  color: #777;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.parents {
+  font-size: 11px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.parents strong {
+  display: block;
+  color: #000;
+  font-size: 13px;
+}
+
+/* TIMELINE */
 .timeline {
   position: relative;
-  padding-left: 30px;
+  padding-left: 25px;
   text-align: left;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: 10px;
-  top: 10px;
-  bottom: 10px;
+  left: 6px;
+  top: 5px;
+  bottom: 5px;
   width: 2px;
-  background: #c8a27d;
+  background-color: #d09a74;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-.timeline-item::before {
-  content: '';
+.timeline-dot {
   position: absolute;
-  left: -25px;
-  top: 4px;
-  width: 14px;
-  height: 14px;
+  left: -23px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: #c8a27d;
+  background-color: #d09a74;
+  box-shadow: 0 0 0 3px #fff;
 }
 
-.timeline-item h4 {
-  font-size: 14px;
+.timeline-title {
+  font-size: 13px;
   font-weight: 700;
-  color: #222;
+  font-family: 'Playfair Display', serif;
 }
 
-.timeline-item p {
-  font-size: 11px;
+.timeline-desc {
+  font-size: 10px;
   color: #666;
-  margin: 5px 0 8px;
+  margin: 4px 0;
   line-height: 1.4;
 }
 
-.badge-date {
+.timeline-date {
   display: inline-block;
-  background: #c8a27d;
+  background-color: #d09a74;
   color: #fff;
-  font-size: 10px;
-  padding: 3px 8px;
-  border-radius: 12px;
+  font-size: 9px;
+  padding: 2px 8px;
+  border-radius: 10px;
 }
 
-/* ====================================
-   5. UNDANGAN & ACARA
-   ==================================== */
+/* INNER BOX */
+.inner-box {
+  border: 1.5px solid #333;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background-color: #ffffff;
+}
+
+.inner-box h4 {
+  font-size: 13px;
+}
+
 .dashed-line {
-  border-bottom: 1px dashed #aaa;
-  margin: 10px 0;
+  border-top: 1px dashed #aaa;
+  margin: 6px 0;
 }
 
-.event-time {
-  font-size: 18px;
+.time-text {
+  font-size: 16px;
   font-weight: 700;
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
-/* ====================================
-   6. GALERI & VIDEO
-   ==================================== */
+.date-text {
+  font-size: 11px;
+  color: #666;
+}
+
+.sub-location {
+  font-size: 10px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.undang-list p {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.arabic-text {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.map-wrapper {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.map-img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+}
+
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 15px;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
 }
 
 .gallery-grid img {
   width: 100%;
-  height: 120px;
+  height: 105px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+  filter: brightness(0.9);
 }
 
 .video-card {
-  background: #e8e8e3;
-  border-radius: 12px;
-  border: 1px solid #aaa;
+  border: 1px solid #222;
+  border-radius: 6px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   text-align: left;
+  background-color: #e9e8e3;
+  cursor: pointer;
 }
 
 .video-thumb {
   position: relative;
-  height: 140px;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 130px;
 }
 
 .video-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.8;
 }
 
 .play-btn {
   position: absolute;
-  color: #ff0000;
-  font-size: 45px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 32px;
+  background-color: rgba(209, 73, 40, 0.9);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .video-info {
-  padding: 10px 12px;
+  padding: 6px 10px;
 }
 
-.video-info h4 {
-  font-size: 13px;
-  font-weight: 700;
+.video-info h5 {
+  font-size: 12px;
 }
 
 .video-info p {
-  font-size: 11px;
+  font-size: 10px;
   color: #666;
 }
 
-/* ====================================
-   7. KADO NIKAH (BANK)
-   ==================================== */
+.bank-card {
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
 .bank-logo {
-  height: 35px;
-  margin-bottom: 10px;
+  height: 30px;
   object-fit: contain;
+  margin-bottom: 4px;
+}
+
+.bank-label {
+  font-size: 11px;
+}
+
+.bank-sub {
+  font-size: 9px;
+  color: #777;
 }
 
 .rekening-num {
   font-size: 13px;
-  color: #666;
-  margin: 4px 0 10px;
+  font-weight: 700;
+  margin: 4px 0;
 }
 
-/* ====================================
-   8. DOA & UCAPAN (FORM & LIST)
-   ==================================== */
-.form-group {
+.btn-copy {
+  font-size: 10px;
+  padding: 5px 12px;
+}
+
+.form-wrapper {
+  border: 1px solid #777;
+  border-radius: 8px;
+  padding: 12px;
   margin-bottom: 12px;
   text-align: left;
 }
 
 .form-control {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #777;
-  border-radius: 6px;
-  font-size: 12px;
+  padding: 8px 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-size: 11px;
+  margin-bottom: 8px;
   outline: none;
 }
 
-textarea.form-control {
-  resize: vertical;
+.form-control:focus {
+  border-color: #d14928;
+}
+
+.textarea {
   height: 80px;
+  resize: none;
 }
 
 .radio-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  text-align: left;
-  font-size: 12px;
-  margin: 12px 0;
+  font-size: 11px;
+  color: #555;
 }
 
-.radio-option {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.radio-group label {
+  display: block;
+  margin-bottom: 4px;
   cursor: pointer;
 }
 
-.messages-box {
-  max-height: 200px;
+.btn-submit {
+  margin-bottom: 15px;
+}
+
+.ucapan-box {
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  max-height: 180px;
   overflow-y: auto;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  margin-top: 15px;
+  padding: 8px;
   text-align: left;
+  font-size: 11px;
+  background-color: #fafafa;
 }
 
-.message-item {
-  border-bottom: 1px solid #eee;
-  padding: 8px 0;
+.ucapan-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 6px 0;
 }
 
-.message-item:last-child {
+.ucapan-item:last-child {
   border-bottom: none;
 }
 
-.message-author {
-  font-size: 12px;
-  font-weight: 700;
+.ucapan-item strong {
+  display: block;
   color: #222;
 }
 
-.message-text {
-  font-size: 11px;
+.ucapan-item p {
   color: #555;
   margin: 2px 0;
 }
 
-.message-date {
+.ucapan-item span {
   font-size: 9px;
-  color: #999;
+  color: #888;
+}
+
+.couple-footer {
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* Modal Lightbox */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content-wrapper {
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Tambahkan ini di bagian .hero-section atau tombolnya */
+.hero-section {
+  user-select: none; /* Mencegah teks terblok/terseleksi saat diklik */
+  -webkit-user-select: none;
+}
+
+/* Pastikan tombol selalu berada di posisi paling depan */
+#btnBukaUndangan {
+  position: relative;
+  z-index: 9999 !important; /* Paksa tombol berada di layer paling atas */
+  cursor: pointer;
 }
