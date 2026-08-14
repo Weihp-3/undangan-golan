@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Spesial - Treasure Hunt 🏴‍☠️</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@400;600&family=Pirata+One&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <div class="mobile-container">
+
+    <div id="music-control" class="music-control" onclick="toggleMusik()">
+      <span id="music-icon">🎵</span>
+    </div>
+
+    <<audio id="bg-music" loop preload="auto">
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      Browser kamu tidak mendukung elemen audio.
+    </audio>
+
+    <div class="bg-decorations">
+      <span class="floating-icon icon-1">⚓</span>
+      <span class="floating-icon icon-2">🌊</span>
+      <span class="floating-icon icon-3">⭐</span>
+      <span class="floating-icon icon-4">💎</span>
+      <span class="floating-icon icon-5">⛵</span>
+      <span class="floating-icon icon-6">🦀</span>
+      <span class="floating-icon icon-7">🪙</span>
+      <div class="bg-bubble b1"></div>
+      <div class="bg-bubble b2"></div>
+      <div class="bg-bubble b3"></div>
+    </div>
+    
+    <div id="cover-page" class="cover-container">
+      <div class="envelope-wrapper">
+        <div class="envelope" onclick="bukaUndangan()">
+          <div class="envelope-flap"></div>
+          <div class="envelope-pocket"></div>
+          <div class="envelope-letter">
+            <span class="badge-tag">YOU'RE INVITED!</span>
+            <p class="book-to">Untuk:</p>
+            <h2 class="guest-name">Temanku</h2>
+            <h1 class="book-title">Treasure Hunt 🏴‍☠️</h1>
+          </div>
+          <div class="envelope-seal">☠️</div>
+        </div>
+
+        <button class="btn-main" onclick="bukaUndangan()">Buka Undangan 🗝️</button>
+      </div>
+    </div>
+
+    <div id="main-content" class="main-content hidden">
+      
+      <section class="card-section intro-card">
+        <div class="pirate-badge">🏴‍☠️</div>
+        <div class="parchment-card">
+          <p><strong>Halo Teman-teman!</strong></p>
+          <p>Kalian diundang ke acara petualangan seru ulang tahunku! Ayo bergabung dan merayakan momen berharga ini bersama-sama.</p>
+        </div>
+      </section>
+
+      <section class="card-section memories-card">
+        <h2 class="section-title">The Memories</h2>
+        <div class="avatar-grid">
+          <div class="avatar-card"><img src="bocil.jpg" alt="Memory 1"></div>
+          <div class="avatar-card"><img src="bocil.jpg" alt="Memory 2"></div>
+          <div class="avatar-card"><img src="bocil.jpg" alt="Memory 3"></div>
+          <div class="avatar-card"><img src="bocil.jpg" alt="Memory 4"></div>
+          <div class="avatar-card"><img src="bocil.jpg" alt="Memory 5"></div>
+        </div>
+      </section>
+
+      <section class="card-section schedule-card">
+        <h2 class="section-title">Schedule</h2>
+        
+        <div class="countdown-container">
+          <p class="countdown-title">⏳ Menuju Petualangan Dimulai:</p>
+          <div id="countdown" class="countdown-timer">
+            <div class="time-box"><span id="days">00</span><small>Hari</small></div>
+            <div class="time-box"><span id="hours">00</span><small>Jam</small></div>
+            <div class="time-box"><span id="minutes">00</span><small>Menit</small></div>
+            <div class="time-box"><span id="seconds">00</span><small>Detik</small></div>
+          </div>
+        </div>
+
+        <div class="schedule-box">
+          <div class="schedule-item">
+            <span class="time">15.00</span>
+            <span class="event">Pembukaan</span>
+          </div>
+          <div class="schedule-divider">
+            <span>15.15</span><span>-</span><span>18.00</span>
+          </div>
+          <div class="schedule-item">
+            <span class="time">18.00</span>
+            <span class="event">Main & Doa Penutup</span>
+          </div>
+        </div>
+
+        <button class="btn-calendar" onclick="tambahKeKalender()">📅 Tambah ke Kalender</button>
+      </section>
+
+      <section class="card-section location-card-section">
+        <div class="ship-icon">⛵</div>
+        <div class="location-info">
+          <h3>📍 Lokasi Acara</h3>
+          <p>Rumahku (Markas Rahasia)<br>Jl. Petualangan No. 12, Jakarta</p>
+        </div>
+
+        <div class="map-dummy-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.24097831086!2d106.759478!3d-6.2297465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e800201553%3A0x103138b39a489d89!2sJakarta!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+            width="100%" 
+            height="180" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <button class="btn-map" onclick="bukaPeta()">Buka Google Maps 🗺️</button>
+      </section>
+
+      <section class="card-section journey-card-section">
+        <h2 class="section-title">Perjalanan Hidup 🗺️</h2>
+        <p class="journey-subtitle">Jejak Langkah Menuju Hari Spesial Ini</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">👶</div>
+            <div class="timeline-content">
+              <span class="timeline-year">2016</span>
+              <h4>Lahir Ke Dunia</h4>
+              <p>Awal dari petualangan kecil ini dimulai!</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">🎒</div>
+            <div class="timeline-content">
+              <span class="timeline-year">2020</span>
+              <h4>Mulai Sekolah</h4>
+              <p>Menemukan banyak teman baru & petualangan seru.</p>
+            </div>
+          </div>
+          <div class="timeline-item highlight">
+            <div class="timeline-dot">🎂</div>
+            <div class="timeline-content">
+              <span class="timeline-year">2026</span>
+              <h4>Hari Ulang Tahun!</h4>
+              <p>Siap membuka lembaran baru bareng kalian semua!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-section gift-card-section">
+        <h2 class="section-title">Birthday Gift 🎁</h2>
+        <p class="gift-subtitle">
+          Doa kalian adalah hadiah terbaik! Namun jika ingin memberikan kado tambahan, bisa scan QRIS di bawah ini:
+        </p>
+
+        <div class="qr-container">
+          <div class="qr-card">
+            <span class="qr-badge">QRIS / ALL PAYMENT</span>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=081234567890" alt="QR Code Gift" class="qr-image">
+            <p class="qr-name">a.n. Bajak Laut Kecil</p>
+          </div>
+        </div>
+
+        <div class="gift-address">
+          <h4>📦 Kirim Kado Fisik:</h4>
+          <p>Jl. Petualangan No. 12, Kel. Harta Karun, Kec. Bajak Laut, Jakarta Selatan (12340)</p>
+        </div>
+      </section>
+
+      <section class="card-section wish-card-section">
+        <h2 class="wish-title">Ucapan</h2>
+        <form id="wishForm" onsubmit="kirimUcapan(event)">
+          <div class="form-group">
+            <label>Nama Kamu:</label>
+            <input type="text" id="nama" placeholder="Masukkan nama..." required>
+          </div>
+          <div class="form-group">
+            <label>Ucapan:</label>
+            <textarea id="pesan" rows="3" placeholder="Tuliskan ucapan & doa..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Kehadiran:</label>
+            <select id="kehadiran">
+              <option value="Hadir">Hadir 🎉</option>
+              <option value="Tidak Hadir">Maaf Tidak Bisa Hadir 😢</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-send">Kirim Ucapan 📩</button>
+        </form>
+
+        <div id="wishList" class="wish-list"></div>
+      </section>
+
+<section class="card-section game-card">
+        <h2 class="section-title">Temukan Harta Karun! 🏴‍☠️</h2>
+        <p class="game-subtitle">Sentuh peti harta karun untuk membuka kejutan!</p>
+        
+        <div class="treasure-box-container" onclick="bukaHartaKarun(this)">
+          <div class="chest-icon">🧰</div>
+          <p class="chest-hint">Ketuk Aku! 🗝️</p>
+        </div>
+      </section>
+
+      <section class="card-section thankyou-card">
+        <h2 class="section-title">Thankyou</h2>
+        <p class="thankyou-text">
+          Makasih banyak ya teman-teman udah menyempatkan datang. Sampai ketemu lagi di acara! ✨
+        </p>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

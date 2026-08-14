@@ -1,0 +1,540 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #1a0d00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.mobile-container {
+  width: 100%;
+  max-width: 420px;
+  min-height: 90vh;
+  background-color: #d88e28;
+  background-image: radial-gradient(#b26d11 15%, transparent 16%),
+                    radial-gradient(#b26d11 15%, transparent 16%);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  overflow: hidden;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  position: relative;
+}
+
+/* DEKORASI BACKGROUND */
+.bg-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  font-size: 22px;
+  opacity: 0.7;
+  animation: floatAround 6s infinite ease-in-out alternate;
+}
+
+.icon-1 { top: 5%; left: 8%; animation-delay: 0s; }
+.icon-2 { top: 15%; right: 10%; animation-delay: 1s; }
+.icon-3 { top: 38%; left: 4%; animation-delay: 2s; }
+.icon-4 { top: 52%; right: 6%; animation-delay: 1.5s; }
+.icon-5 { top: 70%; left: 8%; animation-delay: 0.5s; }
+.icon-6 { top: 85%; right: 12%; animation-delay: 2.5s; }
+.icon-7 { top: 92%; left: 15%; animation-delay: 3s; }
+
+@keyframes floatAround {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(10deg); }
+  100% { transform: translateY(8px) rotate(-8deg); }
+}
+
+.bg-bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: riseUp 7s infinite linear;
+}
+
+.b1 { width: 20px; height: 20px; left: 20%; bottom: -30px; }
+.b2 { width: 14px; height: 14px; left: 60%; bottom: -30px; animation-delay: 2s; }
+.b3 { width: 26px; height: 26px; left: 80%; bottom: -30px; animation-delay: 4s; }
+
+@keyframes riseUp {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(-800px); opacity: 0; }
+}
+
+/* TOMBOL MUSIK FLOATING */
+.music-control {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 38px;
+  height: 38px;
+  background: #f4e3b1;
+  color: #381d08;
+  border: 2px solid #381d08;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.music-control.playing {
+  animation: pulse-music 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-music {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* COVER PAGE */
+.cover-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  width: 100%;
+  perspective: 1000px;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.envelope-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #381d08;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.envelope-letter {
+  position: absolute;
+  bottom: 10px;
+  left: 5%;
+  width: 90%;
+  height: 170px;
+  background: #fdf6e2;
+  border: 2px solid #d8b884;
+  border-radius: 8px;
+  padding: 15px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  color: #381d08;
+}
+
+.envelope-pocket {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: #5a3212;
+  clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 3;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100px;
+  background: #4a270c;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.5s ease;
+  z-index: 4;
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 80px; left: 50%;
+  transform: translateX(-50%);
+  width: 42px; height: 42px;
+  background: #8c5828; color: #f4e3b1;
+  border: 2px solid #f4e3b1;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  z-index: 5;
+}
+
+.envelope.open .envelope-flap { transform: rotateX(180deg); z-index: 1; }
+.envelope.open .envelope-seal { opacity: 0; }
+.envelope.open .envelope-letter { transform: translateY(-110px); z-index: 5; }
+
+.cover-container.fade-out {
+  opacity: 0;
+  transform: scale(1.1);
+  pointer-events: none;
+}
+
+.book-to { font-size: 11px; font-weight: bold; color: #8c5828; }
+.guest-name { font-family: 'Pirata One', cursive; font-size: 24px; color: #5a3212; }
+.badge-tag { background: #8c5828; color: #f4e3b1; font-size: 9px; font-weight: bold; padding: 3px 8px; border-radius: 10px; }
+.book-title { font-family: 'Pirata One', cursive; font-size: 24px; color: #381d08; }
+
+.btn-main {
+  background: #5a3212; color: #f4e3b1; border: 2px solid #381d08;
+  padding: 10px 18px; font-size: 12px; font-weight: bold;
+  border-radius: 15px; cursor: pointer; box-shadow: 0 3px 0 #381d08;
+}
+
+/* KONTEN UTAMA */
+.main-content {
+  display: flex; flex-direction: column; gap: 25px;
+  position: relative; z-index: 2;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.main-content.hidden { display: none; opacity: 0; }
+
+.card-section {
+  background: #2b1609; border: 3px solid #f4e3b1;
+  border-radius: 20px; padding: 25px 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.section-title { font-family: 'Fredoka', cursive; font-size: 24px; color: #ffffff; margin-bottom: 18px; }
+
+.parchment-card {
+  background: #f4e3b1; color: #2b1609; padding: 15px;
+  border-radius: 15px; border: 2px dashed #8c5828; font-size: 13px;
+}
+
+.avatar-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.avatar-card { width: 65px; height: 65px; background: #fff; border-radius: 50%; border: 2px solid #f4e3b1; overflow: hidden; }
+.avatar-card img { width: 100%; height: 100%; object-fit: cover; }
+
+/* COUNTDOWN & SCHEDULE */
+.countdown-container { background: rgba(0, 0, 0, 0.25); border: 2px dashed #f4e3b1; border-radius: 12px; padding: 10px; margin-bottom: 12px; }
+.countdown-title { font-size: 11px; color: #f4e3b1; margin-bottom: 6px; }
+.countdown-timer { display: flex; justify-content: center; gap: 6px; }
+.time-box { background: #f4e3b1; color: #381d08; padding: 4px 6px; border-radius: 6px; min-width: 48px; }
+.time-box span { font-family: 'Fredoka', cursive; font-size: 16px; font-weight: bold; }
+.time-box small { font-size: 8px; display: block; }
+
+.schedule-box { background: #e09838; border-radius: 10px; padding: 10px; color: #2b1609; font-weight: bold; font-size: 12px; }
+.schedule-item { display: flex; justify-content: space-between; padding: 6px; background: rgba(255,255,255,0.4); border-radius: 6px; }
+.schedule-divider { font-size: 11px; margin: 4px 0; }
+.btn-calendar, .btn-map, .btn-send {
+  background: #f4e3b1; color: #381d08; border: 2px solid #381d08;
+  padding: 8px 15px; border-radius: 10px; font-weight: bold; font-size: 12px; cursor: pointer; margin-top: 10px; width: 100%;
+}
+
+/* LOCATION */
+.location-info { background: #e09838; color: #2b1609; padding: 10px; border-radius: 8px; font-size: 12px; font-weight: bold; margin-bottom: 10px; }
+.map-dummy-container { border-radius: 10px; overflow: hidden; border: 2px solid #f4e3b1; }
+
+/* JOURNEY */
+.journey-subtitle { font-size: 11px; color: #f4e3b1; margin-top: -10px; margin-bottom: 15px; }
+.timeline { position: relative; padding-left: 15px; text-align: left; }
+.timeline::before { content: ''; position: absolute; top: 10px; bottom: 10px; left: 30px; width: 2px; border-left: 2px dashed #f4e3b1; }
+.timeline-item { display: flex; gap: 12px; margin-bottom: 15px; }
+.timeline-dot { width: 32px; height: 32px; background: #f4e3b1; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; flex-shrink: 0; }
+.timeline-content { background: rgba(244, 227, 177, 0.15); border: 1px dashed #f4e3b1; border-radius: 8px; padding: 8px; flex-grow: 1; }
+.timeline-year { background: #f4e3b1; color: #381d08; font-size: 9px; font-weight: bold; padding: 1px 5px; border-radius: 4px; }
+.timeline-content h4 { font-size: 12px; color: #fff; }
+.timeline-content p { font-size: 10px; color: #f4e3b1; }
+
+/* ====================================
+   GIFT CARD (DI-PERBAIKI)
+   ==================================== */
+.gift-card-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gift-subtitle {
+  font-size: 11px;
+  color: #f4e3b1;
+  margin-top: -8px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+/* Container QR Code */
+.qr-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.qr-card {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 16px;
+  border: 3px solid #f4e3b1;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 200px; /* Menjaga ukuran kartu tetap ideal di HP */
+  box-sizing: border-box;
+}
+
+.qr-badge {
+  background: #381d08;
+  color: #f4e3b1;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.qr-image {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border: 2px solid #381d08;
+  border-radius: 8px;
+  padding: 4px;
+  background: #ffffff;
+  display: block;
+  margin: 0 auto;
+}
+
+.qr-name {
+  font-size: 11px;
+  font-weight: bold;
+  color: #381d08;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+/* Alamat Kado Fisik */
+.gift-address {
+  width: 100%;
+  background: #e09838;
+  color: #2b1609;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #f4e3b1;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.gift-address h4 {
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #2b1609;
+}
+
+.gift-address p {
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* WISH & FORM */
+.wish-card-section { background: #d88e28; color: #2b1609; text-align: left; }
+.wish-title { text-align: center; }
+.form-group { margin-bottom: 10px; }
+.form-group label { font-size: 11px; font-weight: bold; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; padding: 6px 10px; border-radius: 8px; border: 1px solid #2b1609; font-size: 12px;
+}
+.btn-send { background: #2b1609; color: #fff; }
+.wish-list { margin-top: 15px; display: flex; flex-direction: column; gap: 8px; }
+.wish-item { background: #fff; padding: 8px; border-radius: 6px; font-size: 11px; border-left: 3px solid #2b1609; }
+
+.thankyou-text { font-size: 12px; line-height: 1.5; background: rgba(255,255,255,0.1); padding: 12px; border-radius: 8px; }
+
+/* ====================================
+   EFEK INTERAKTIF & HOVER BANYAK
+   ==================================== */
+
+/* Hover Efek Kartu QRIS 3D */
+.qr-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.qr-card:hover {
+  transform: translateY(-8px) rotate(-2deg) scale(1.05);
+  box-shadow: 0 12px 25px rgba(224, 152, 56, 0.6);
+  border-color: #ffffff;
+}
+
+.qr-card:active {
+  transform: scale(0.95);
+}
+
+/* Hover Mini Game Peti Harta Karun */
+.game-card {
+  background: linear-gradient(135deg, #381d08 0%, #5a3212 100%);
+  text-align: center;
+}
+
+.game-subtitle {
+  font-size: 11px;
+  color: #f4e3b1;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.treasure-box-container {
+  background: rgba(244, 227, 177, 0.15);
+  border: 2px dashed #f4e3b1;
+  border-radius: 16px;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.treasure-box-container:hover {
+  background: rgba(244, 227, 177, 0.3);
+  transform: scale(1.05);
+}
+
+.chest-icon {
+  font-size: 48px;
+  transition: transform 0.3s ease;
+  animation: chestWobble 2s infinite ease-in-out;
+}
+
+.treasure-box-container:hover .chest-icon {
+  transform: scale(1.2) rotate(10deg);
+}
+
+@keyframes chestWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+.chest-hint {
+  font-size: 11px;
+  font-weight: bold;
+  color: #f4e3b1;
+  background: #381d08;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+/* Hover Tombol Efek Membal (Bounce) */
+.btn-main, .btn-calendar, .btn-map, .btn-send {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease !important;
+}
+
+.btn-main:hover, .btn-calendar:hover, .btn-map:hover, .btn-send:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.btn-main:active, .btn-calendar:active, .btn-map:active, .btn-send:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* ====================================
+   EFEK HOVER INTERAKTIF UNTUK SEMUA CARD
+   ==================================== */
+
+/* Efek umum untuk semua kartu */
+.card-section {
+  /* Memastikan transisi gerakan terasa mulus & membal (bounce) */
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.35s ease, 
+              border-color 0.35s ease, 
+              background-color 0.35s ease !important;
+  cursor: pointer;
+}
+
+/* Efek saat kursor diarahkan / kartu disentuh di HP */
+.card-section:hover {
+  /* Kartu naik ke atas sedikit & membesar */
+  transform: translateY(-8px) scale(1.02);
+  /* Efek bayangan menyala (Glow Effect) */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6), 
+              0 0 15px rgba(244, 227, 177, 0.5);
+  border-color: #ffffff !important;
+}
+
+/* Efek saat kartu diklik/ditekan (Feedback Tekan) */
+.card-section:active {
+  transform: translateY(-2px) scale(0.99);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ------------------------------------
+   HOVER KHUSUS UNTUK TIAP JENIS KARTU
+   ------------------------------------ */
+
+/* 1. Card Memories - Gambar Avatar ikut berputar saat kartu di-hover */
+.memories-card:hover .avatar-card {
+  transform: scale(1.08) rotate(3deg);
+}
+
+/* 2. Card Schedule - Timer angka ikut sedikit membesar */
+.schedule-card:hover .time-box {
+  background: #ffffff;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* 3. Card Location - Kapal laut bergoyang lebih seru */
+.location-card-section:hover .ship-icon {
+  transform: translateX(15px) translateY(-5px) rotate(-8deg) scale(1.1);
+}
+
+/* 4. Card Journey - Dot timeline membesar & bersinar */
+.journey-card-section:hover .timeline-dot {
+  transform: scale(1.25) rotate(15deg);
+  background: #ffffff;
+}
+
+/* 5. Card Wish / Ucapan - Efek warna sedikit terang */
+.wish-card-section:hover {
+  background: #e09838 !important;
+}
